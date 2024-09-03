@@ -24,7 +24,6 @@ mixin _$Cart {
   int get userId => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
   List<CartProduct> get products => throw _privateConstructorUsedError;
-  int get v => throw _privateConstructorUsedError;
 
   /// Serializes this Cart to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,8 +39,7 @@ abstract class $CartCopyWith<$Res> {
   factory $CartCopyWith(Cart value, $Res Function(Cart) then) =
       _$CartCopyWithImpl<$Res, Cart>;
   @useResult
-  $Res call(
-      {int id, int userId, DateTime date, List<CartProduct> products, int v});
+  $Res call({int id, int userId, DateTime date, List<CartProduct> products});
 }
 
 /// @nodoc
@@ -63,7 +61,6 @@ class _$CartCopyWithImpl<$Res, $Val extends Cart>
     Object? userId = null,
     Object? date = null,
     Object? products = null,
-    Object? v = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -82,10 +79,6 @@ class _$CartCopyWithImpl<$Res, $Val extends Cart>
           ? _value.products
           : products // ignore: cast_nullable_to_non_nullable
               as List<CartProduct>,
-      v: null == v
-          ? _value.v
-          : v // ignore: cast_nullable_to_non_nullable
-              as int,
     ) as $Val);
   }
 }
@@ -97,8 +90,7 @@ abstract class _$$CartImplCopyWith<$Res> implements $CartCopyWith<$Res> {
       __$$CartImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {int id, int userId, DateTime date, List<CartProduct> products, int v});
+  $Res call({int id, int userId, DateTime date, List<CartProduct> products});
 }
 
 /// @nodoc
@@ -117,7 +109,6 @@ class __$$CartImplCopyWithImpl<$Res>
     Object? userId = null,
     Object? date = null,
     Object? products = null,
-    Object? v = null,
   }) {
     return _then(_$CartImpl(
       id: null == id
@@ -136,10 +127,6 @@ class __$$CartImplCopyWithImpl<$Res>
           ? _value._products
           : products // ignore: cast_nullable_to_non_nullable
               as List<CartProduct>,
-      v: null == v
-          ? _value.v
-          : v // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -151,8 +138,7 @@ class _$CartImpl implements _Cart {
       {required this.id,
       required this.userId,
       required this.date,
-      required final List<CartProduct> products,
-      required this.v})
+      required final List<CartProduct> products})
       : _products = products;
 
   factory _$CartImpl.fromJson(Map<String, dynamic> json) =>
@@ -173,11 +159,8 @@ class _$CartImpl implements _Cart {
   }
 
   @override
-  final int v;
-
-  @override
   String toString() {
-    return 'Cart(id: $id, userId: $userId, date: $date, products: $products, v: $v)';
+    return 'Cart(id: $id, userId: $userId, date: $date, products: $products)';
   }
 
   @override
@@ -188,14 +171,13 @@ class _$CartImpl implements _Cart {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.date, date) || other.date == date) &&
-            const DeepCollectionEquality().equals(other._products, _products) &&
-            (identical(other.v, v) || other.v == v));
+            const DeepCollectionEquality().equals(other._products, _products));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, userId, date,
-      const DeepCollectionEquality().hash(_products), v);
+      const DeepCollectionEquality().hash(_products));
 
   /// Create a copy of Cart
   /// with the given fields replaced by the non-null parameter values.
@@ -218,8 +200,7 @@ abstract class _Cart implements Cart {
       {required final int id,
       required final int userId,
       required final DateTime date,
-      required final List<CartProduct> products,
-      required final int v}) = _$CartImpl;
+      required final List<CartProduct> products}) = _$CartImpl;
 
   factory _Cart.fromJson(Map<String, dynamic> json) = _$CartImpl.fromJson;
 
@@ -231,8 +212,6 @@ abstract class _Cart implements Cart {
   DateTime get date;
   @override
   List<CartProduct> get products;
-  @override
-  int get v;
 
   /// Create a copy of Cart
   /// with the given fields replaced by the non-null parameter values.

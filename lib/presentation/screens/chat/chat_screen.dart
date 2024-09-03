@@ -1,10 +1,12 @@
 import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:best_store/presentation/common/widgets/my_search_bar.dart';
+import 'package:best_store/providers/products_provider.dart';
 import 'package:best_store/utils/constants/app_sizes.dart';
 import 'package:best_store/utils/constants/app_strings.dart';
 import 'package:best_store/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/app_router.dart';
 import 'widgets/chat_list_tile.dart';
@@ -57,7 +59,7 @@ class ChatScreen extends StatelessWidget {
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
                   return GestureDetector(
-                    onTap: ()=> context.router.push( PrivateChatRoute(personName: chats[index]["title"])),
+                    onTap: () => context.router.push(PrivateChatRoute(personName: chats[index]["title"])),
                     child: ChatListTile(
                       title: chats[index]["title"],
                       subtitle: chats[index]["subtitle"],
@@ -72,6 +74,26 @@ class ChatScreen extends StatelessWidget {
                 },
                 itemCount: chats.length,
               ),
+
+              Consumer(builder: (context, ref, child) {
+                final products = ref.watch(productsProvider);
+                return products.when(
+                  data: (data) {
+                    return ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: data.length,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        return Text(data[index].title);
+                      }
+                    );
+                  },
+                  error: (e, st) {
+                    return Center(child: Text(e.toString()));
+                  },
+                  loading: () {return const Center(child: CircularProgressIndicator());},
+                );
+              }),
             ],
           ),
         ),

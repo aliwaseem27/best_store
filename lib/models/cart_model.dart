@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part "cart_model.freezed.dart";
+
 part "cart_model.g.dart";
 
 @freezed
@@ -10,7 +11,6 @@ class Cart with _$Cart {
     required int userId,
     required DateTime date,
     required List<CartProduct> products,
-    required int v,
   }) = _Cart;
 
   factory Cart.fromJson(Map<String, Object?> json) => _$CartFromJson(json);

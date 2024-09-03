@@ -1,14 +1,24 @@
 import 'dart:convert';
 
+import 'package:best_store/utils/endpoints.dart';
+import 'package:best_store/utils/network_service.dart';
 import 'package:http/http.dart' as http;
 
 import '../models/product_model.dart';
 
 class ProductsRepository {
-  Future<void> getAllProducts() async {
-    final res = await http.get(Uri.parse("https://fakestoreapi.com/products"));
+  final NetworkService networkService;
+
+  ProductsRepository({required this.networkService});
+
+  Future<List<Product>> getAllProducts() async {
+    final res = await networkService.getRequest(Endpoints.products);
     final json = jsonDecode(res.body);
-    json.forEach((e) => print(Product.fromJson(e)));
+    final products = <Product>[];
+    json.forEach((e) {
+      products.add(Product.fromJson(e));
+    });
+    return products;
   }
 
   Future<void> getSingleProduct() async {}
@@ -21,5 +31,9 @@ class ProductsRepository {
 
   Future<void> deleteProduct() async {}
 
-  Future<void> getAllCategories() async {}
+  Future<void> getAllCategories() async {
+    final res = await http.get(Uri.parse("https://fakestoreapi.com/products/categories"));
+    final json = jsonDecode(res.body);
+    print(json);
+  }
 }
