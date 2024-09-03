@@ -24,6 +24,8 @@ mixin _$Product {
   String get title => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
+  @JsonKey(
+      fromJson: CategoryExtension.fromJson, toJson: CategoryExtension.toJson)
   Category get category => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
   Rating get rating => throw _privateConstructorUsedError;
@@ -47,6 +49,9 @@ abstract class $ProductCopyWith<$Res> {
       String title,
       double price,
       String description,
+      @JsonKey(
+          fromJson: CategoryExtension.fromJson,
+          toJson: CategoryExtension.toJson)
       Category category,
       String image,
       Rating rating});
@@ -132,6 +137,9 @@ abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
       String title,
       double price,
       String description,
+      @JsonKey(
+          fromJson: CategoryExtension.fromJson,
+          toJson: CategoryExtension.toJson)
       Category category,
       String image,
       Rating rating});
@@ -202,6 +210,9 @@ class _$ProductImpl implements _Product {
       required this.title,
       required this.price,
       required this.description,
+      @JsonKey(
+          fromJson: CategoryExtension.fromJson,
+          toJson: CategoryExtension.toJson)
       required this.category,
       required this.image,
       required this.rating});
@@ -218,6 +229,8 @@ class _$ProductImpl implements _Product {
   @override
   final String description;
   @override
+  @JsonKey(
+      fromJson: CategoryExtension.fromJson, toJson: CategoryExtension.toJson)
   final Category category;
   @override
   final String image;
@@ -272,6 +285,9 @@ abstract class _Product implements Product {
       required final String title,
       required final double price,
       required final String description,
+      @JsonKey(
+          fromJson: CategoryExtension.fromJson,
+          toJson: CategoryExtension.toJson)
       required final Category category,
       required final String image,
       required final Rating rating}) = _$ProductImpl;
@@ -287,6 +303,8 @@ abstract class _Product implements Product {
   @override
   String get description;
   @override
+  @JsonKey(
+      fromJson: CategoryExtension.fromJson, toJson: CategoryExtension.toJson)
   Category get category;
   @override
   String get image;

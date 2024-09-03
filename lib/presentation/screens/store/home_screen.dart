@@ -1,4 +1,5 @@
 import 'package:auto_route/annotations.dart';
+import 'package:best_store/repositories/products_repository.dart';
 import 'package:best_store/utils/constants/app_sizes.dart';
 import 'package:best_store/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,9 @@ import 'widgets/promo_banners_slider.dart';
 
 @RoutePage()
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
+
+  final productsRepo = ProductsRepository();
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +46,8 @@ class HomeScreen extends StatelessWidget {
       ImageStrings.banner7,
       ImageStrings.banner8,
     ];
+
+    productsRepo.getAllProducts();
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.only(
