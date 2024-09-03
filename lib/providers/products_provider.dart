@@ -14,9 +14,25 @@ ProductsRepository productsRepository(ProductsRepositoryRef ref) {
 }
 
 @riverpod
-Future<List<Product>> products(ref) async {
-  final productsRepository = ref.watch(productsRepositoryProvider);
-  final products = await productsRepository.getAllProducts(); //
-  return products;
-  // productsRepository
+Future<List<Product>> allProducts(AllProductsRef ref, {int limit = 0, bool reverseSort = false}) {
+  final repository = ref.watch(productsRepositoryProvider);
+  return repository.getAllProducts(limit: limit, reverseSort: reverseSort);
+}
+
+@riverpod
+Future<Product> singleProduct(SingleProductRef ref, int productId) {
+  final repository = ref.watch(productsRepositoryProvider);
+  return repository.getSingleProduct(productId);
+}
+
+@riverpod
+Future<List<Product>> productsByCategory(ProductsByCategoryRef ref, String category) {
+  final repository = ref.watch(productsRepositoryProvider);
+  return repository.getProductsByCategory(category);
+}
+
+@riverpod
+Future<List<String>> allCategories(AllCategoriesRef ref) {
+  final repository = ref.watch(productsRepositoryProvider);
+  return repository.getAllCategories();
 }

@@ -1,5 +1,6 @@
 import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:best_store/models/enums.dart';
 import 'package:best_store/presentation/common/widgets/my_search_bar.dart';
 import 'package:best_store/providers/products_provider.dart';
 import 'package:best_store/utils/constants/app_sizes.dart';
@@ -76,22 +77,23 @@ class ChatScreen extends StatelessWidget {
               ),
 
               Consumer(builder: (context, ref, child) {
-                final products = ref.watch(productsProvider);
-                return products.when(
+                final productsInCategory = ref.watch(productsByCategoryProvider(Category.JEWELERY.customName()));
+                return productsInCategory.when(
                   data: (data) {
                     return ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: data.length,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemBuilder: (context, index) {
-                        return Text(data[index].title);
-                      }
-                    );
+                        shrinkWrap: true,
+                        itemCount: data.length,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          return Text(data[index].title);
+                        });
                   },
                   error: (e, st) {
                     return Center(child: Text(e.toString()));
                   },
-                  loading: () {return const Center(child: CircularProgressIndicator());},
+                  loading: () {
+                    return const Center(child: CircularProgressIndicator());
+                  },
                 );
               }),
             ],

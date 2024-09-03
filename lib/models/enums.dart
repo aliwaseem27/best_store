@@ -20,6 +20,8 @@ extension CategoryExtension on Category {
     "women's clothing": Category.WOMEN_S_CLOTHING,
   };
 
+  String customName() => _toJson[this]!;
+
   static String toJson(Category category) => _toJson[category]!;
 
   static Category fromJson(String json) => _fromJson[json]!;
