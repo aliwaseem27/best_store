@@ -23,7 +23,21 @@ final productsRepositoryProvider =
 );
 
 typedef ProductsRepositoryRef = AutoDisposeProviderRef<ProductsRepository>;
-String _$allProductsHash() => r'824e9abb4cb1de9a6da90b196db60b29af6a9186';
+String _$allProductsHash() => r'346173085475777e6c8569219a64c06e36f8b7a4';
+
+/// See also [allProducts].
+@ProviderFor(allProducts)
+final allProductsProvider = AutoDisposeFutureProvider<List<Product>>.internal(
+  allProducts,
+  name: r'allProductsProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$allProductsHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef AllProductsRef = AutoDisposeFutureProviderRef<List<Product>>;
+String _$singleProductHash() => r'296247d56f4c0bd1352d7f469fb789c73872db64';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -45,152 +59,6 @@ class _SystemHash {
     return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
   }
 }
-
-/// See also [allProducts].
-@ProviderFor(allProducts)
-const allProductsProvider = AllProductsFamily();
-
-/// See also [allProducts].
-class AllProductsFamily extends Family<AsyncValue<List<Product>>> {
-  /// See also [allProducts].
-  const AllProductsFamily();
-
-  /// See also [allProducts].
-  AllProductsProvider call({
-    int limit = 0,
-    bool reverseSort = false,
-  }) {
-    return AllProductsProvider(
-      limit: limit,
-      reverseSort: reverseSort,
-    );
-  }
-
-  @override
-  AllProductsProvider getProviderOverride(
-    covariant AllProductsProvider provider,
-  ) {
-    return call(
-      limit: provider.limit,
-      reverseSort: provider.reverseSort,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'allProductsProvider';
-}
-
-/// See also [allProducts].
-class AllProductsProvider extends AutoDisposeFutureProvider<List<Product>> {
-  /// See also [allProducts].
-  AllProductsProvider({
-    int limit = 0,
-    bool reverseSort = false,
-  }) : this._internal(
-          (ref) => allProducts(
-            ref as AllProductsRef,
-            limit: limit,
-            reverseSort: reverseSort,
-          ),
-          from: allProductsProvider,
-          name: r'allProductsProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$allProductsHash,
-          dependencies: AllProductsFamily._dependencies,
-          allTransitiveDependencies:
-              AllProductsFamily._allTransitiveDependencies,
-          limit: limit,
-          reverseSort: reverseSort,
-        );
-
-  AllProductsProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.limit,
-    required this.reverseSort,
-  }) : super.internal();
-
-  final int limit;
-  final bool reverseSort;
-
-  @override
-  Override overrideWith(
-    FutureOr<List<Product>> Function(AllProductsRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: AllProductsProvider._internal(
-        (ref) => create(ref as AllProductsRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        limit: limit,
-        reverseSort: reverseSort,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<List<Product>> createElement() {
-    return _AllProductsProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is AllProductsProvider &&
-        other.limit == limit &&
-        other.reverseSort == reverseSort;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, limit.hashCode);
-    hash = _SystemHash.combine(hash, reverseSort.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin AllProductsRef on AutoDisposeFutureProviderRef<List<Product>> {
-  /// The parameter `limit` of this provider.
-  int get limit;
-
-  /// The parameter `reverseSort` of this provider.
-  bool get reverseSort;
-}
-
-class _AllProductsProviderElement
-    extends AutoDisposeFutureProviderElement<List<Product>>
-    with AllProductsRef {
-  _AllProductsProviderElement(super.provider);
-
-  @override
-  int get limit => (origin as AllProductsProvider).limit;
-  @override
-  bool get reverseSort => (origin as AllProductsProvider).reverseSort;
-}
-
-String _$singleProductHash() => r'296247d56f4c0bd1352d7f469fb789c73872db64';
 
 /// See also [singleProduct].
 @ProviderFor(singleProduct)

@@ -1,10 +1,13 @@
 import 'package:auto_route/annotations.dart';
+import 'package:best_store/providers/products_provider.dart';
 import 'package:best_store/repositories/carts_repository.dart';
 import 'package:best_store/repositories/products_repository.dart';
 import 'package:best_store/utils/constants/app_sizes.dart';
 import 'package:best_store/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../models/product_model.dart';
 import '../../common/widgets/filters_list.dart';
 import '../../common/widgets/grid_layout_four_elements.dart';
 import '../../common/widgets/section_title.dart';
@@ -80,7 +83,22 @@ class HomeScreen extends StatelessWidget {
               SizedBox(height: AppSizes.spaceBtwItems),
 
               // Products
-              GridLayoutFourElements(element: ProductVerticalCard()),
+              Consumer(
+                builder: (context, ref, child) {
+                  final AsyncValue<List<Product>> products = ref.watch(allProductsProvider);
+                  return products.when(
+                    data: (data) {
+                      return GridLayoutFourElements(products: data);
+                    },
+                    error: (e, st) {
+                      return Center(child: Text(e.toString()));
+                    },
+                    loading: () {
+                      return const Center(child: CircularProgressIndicator());
+                    },
+                  );
+                },
+              ),
 
               // Invite Friends
               SizedBox(height: AppSizes.spaceBtwItems),

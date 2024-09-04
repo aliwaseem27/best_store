@@ -24,7 +24,7 @@ class WishlistScreen extends StatelessWidget {
               bottom: AppSizes.sm),
           child: SingleChildScrollView(
             child: GridLayoutFourElements(
-              element: ProductVerticalCard(),
+              products: [],
             ),
           ),
         ),

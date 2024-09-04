@@ -1,74 +1,87 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:best_store/models/enums.dart';
+import 'package:best_store/models/product_model.dart';
+import 'package:best_store/presentation/screens/authentication/sign_in/widgets/dont_have_account.dart';
+import 'package:best_store/presentation/screens/core/app_router.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../utils/constants/app_colors.dart';
 import '../../../../utils/constants/app_sizes.dart';
-import '../../../../utils/constants/image_strings.dart';
+import '../product_details_screen.dart';
 
 class ProductVerticalCard extends StatelessWidget {
   const ProductVerticalCard({
     super.key,
+    required this.product,
   });
+
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(AppSizes.defaultSpace),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
-        color: AppColors.secondaryColor,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Flexible(
-            child: Container(
-              height: 100,
-              width: 100,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(ImageStrings.productImage11),
+    return GestureDetector(
+      onTap: ()=> context.router.push(ProductDetailsRoute(product: product)),
+      child: Container(
+        padding: EdgeInsets.all(AppSizes.md),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
+          color: AppColors.secondaryColor,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Flexible(
+              child: Container(
+                height: 100,
+                width: 100,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage(product.image),
+                  ),
                 ),
               ),
             ),
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Samsung S20",
-                style: Theme.of(context).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold),
-              ),
-              Text(
-                "Qty: 1",
-                style: Theme.of(context).textTheme.labelSmall?.apply(color: AppColors.neutralColor),
-              ),
-              Text(
-                "Electronics",
-                style: Theme.of(context).textTheme.bodySmall?.apply(color: AppColors.neutralColor),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Text(
-                      "\$800",
-                      style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  product.title,
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                ),
+                Text(
+                  "Qty: 1",
+                  style: Theme.of(context).textTheme.labelSmall?.apply(color: AppColors.neutralColor),
+                ),
+                Text(
+                  product.category.customName(),
+                  style: Theme.of(context).textTheme.bodySmall?.apply(color: AppColors.neutralColor),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        "\$${product.price}",
+                        style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
+                      ),
                     ),
-                  ),
-                  CircleAvatar(
-                    radius: 16,
-                    backgroundColor: AppColors.secondaryColor,
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.favorite),
-                      iconSize: 16,
+                    CircleAvatar(
+                      radius: 16,
+                      backgroundColor: AppColors.secondaryColor,
+                      child: IconButton(
+                        onPressed: (){},
+                        icon: const Icon(Icons.favorite),
+                        iconSize: 16,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ],
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

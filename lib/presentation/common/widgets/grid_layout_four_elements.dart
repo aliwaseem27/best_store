@@ -1,19 +1,22 @@
+import 'package:best_store/models/product_model.dart';
+import 'package:best_store/presentation/screens/store/widgets/product_vertical_card.dart';
 import 'package:flutter/material.dart';
 
 import '../../../utils/constants/app_sizes.dart';
 
 class GridLayoutFourElements extends StatelessWidget {
   const GridLayoutFourElements({
-    super.key, required this.element,
+    super.key,
+    required this.products,
   });
 
-  final Widget element;
+  final List<Product> products;
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
       shrinkWrap: true,
-      itemCount: 4,
+      itemCount: products.length,
       physics: const NeverScrollableScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
@@ -22,7 +25,7 @@ class GridLayoutFourElements extends StatelessWidget {
         mainAxisExtent: 200,
       ),
       itemBuilder: (context, index) {
-        return element;
+        return ProductVerticalCard(product: products[index]);
       },
     );
   }

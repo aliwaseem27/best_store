@@ -14,9 +14,9 @@ ProductsRepository productsRepository(ProductsRepositoryRef ref) {
 }
 
 @riverpod
-Future<List<Product>> allProducts(AllProductsRef ref, {int limit = 0, bool reverseSort = false}) {
+Future<List<Product>> allProducts(AllProductsRef ref) {
   final repository = ref.watch(productsRepositoryProvider);
-  return repository.getAllProducts(limit: limit, reverseSort: reverseSort);
+  return repository.getAllProducts();
 }
 
 @riverpod

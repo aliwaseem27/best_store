@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
+import '../../../models/product_model.dart';
 import '../authentication/forget_password/forget_password_screen.dart';
 import '../authentication/otp/otp_screen.dart';
 import '../authentication/reset_password/reset_password_screen.dart';

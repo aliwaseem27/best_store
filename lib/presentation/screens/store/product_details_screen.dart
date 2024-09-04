@@ -1,4 +1,7 @@
 import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:best_store/models/enums.dart';
+import 'package:best_store/presentation/screens/authentication/sign_in/widgets/dont_have_account.dart';
 import 'package:best_store/utils/constants/app_colors.dart';
 import 'package:best_store/utils/constants/app_sizes.dart';
 import 'package:best_store/utils/constants/app_strings.dart';
@@ -6,11 +9,14 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:readmore/readmore.dart';
 
+import '../../../models/product_model.dart';
 import '../../common/widgets/attributes_list_widget.dart';
 
 @RoutePage()
 class ProductDetailsScreen extends StatelessWidget {
-  const ProductDetailsScreen({super.key});
+  const ProductDetailsScreen({super.key, required this.product});
+
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +37,7 @@ class ProductDetailsScreen extends StatelessWidget {
                     FontAwesomeIcons.arrowLeft,
                     size: 16,
                   ),
-                  onPressed: () {},
+                  onPressed: () => context.router.maybePop(),
                 ),
               ),
               Text("Product Details"),
@@ -65,12 +71,15 @@ class ProductDetailsScreen extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "Black T-Shirt",
-                        style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.7,
+                        child: Text(
+                          product.title,
+                          style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
+                        ),
                       ),
                       Text(
-                        "Clothing",
+                        product.category.customName(),
                         style: Theme.of(context).textTheme.titleSmall?.apply(color: AppColors.neutralColor),
                       ),
                     ],
@@ -78,7 +87,7 @@ class ProductDetailsScreen extends StatelessWidget {
                   Row(
                     children: [
                       Icon(Icons.star, color: Colors.amberAccent, size: 16),
-                      Text("5.0"),
+                      Text(product.rating.rate.toString()),
                     ],
                   ),
                 ],
@@ -94,7 +103,7 @@ class ProductDetailsScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
                   ),
                   ReadMoreText(
-                    AppStrings.placeholderLong,
+                    product.description,
                     trimLines: 3,
                     trimMode: TrimMode.Line,
                     colorClickableText: AppColors.primaryColor,
@@ -132,7 +141,6 @@ class ProductDetailsScreen extends StatelessWidget {
                     AppStrings.placeholder,
                     style: Theme.of(context).textTheme.titleSmall?.apply(color: AppColors.neutralColor),
                   ),
-
                 ],
               ),
               SizedBox(height: AppSizes.spaceBtwSections),
