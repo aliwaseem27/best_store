@@ -11,22 +11,42 @@ class Product with _$Product {
   const factory Product({
     required int id,
     required String title,
-    required double price,
+    required int price,
     required String description,
-    @JsonKey(fromJson: CategoryExtension.fromJson, toJson: CategoryExtension.toJson) required Category category,
-    required String image,
-    required Rating rating,
+    required List<String> images,
+    required DateTime creationAt,
+    required DateTime updatedAt,
+    required Category category,
   }) = _Product;
 
   factory Product.fromJson(Map<String, Object?> json) => _$ProductFromJson(json);
+
 }
 
 @freezed
-class Rating with _$Rating {
-  const factory Rating({
-    required double rate,
-    required int count,
-  }) = _Rating;
+class Category with _$Category {
+  const factory Category({
+    required int id,
+    @NameConverter() required Name name,
+    required String image,
+    required DateTime creationAt,
+    required DateTime updatedAt,
+  }) = _Category;
 
-  factory Rating.fromJson(Map<String, Object?> json) => _$RatingFromJson(json);
+  factory Category.fromJson(Map<String, Object?> json) => _$CategoryFromJson(json);
+
+}
+
+class NameConverter implements JsonConverter<Name, String> {
+  const NameConverter();
+
+  @override
+  Name fromJson(String json) {
+    return nameValues.map[json] ?? Name.MISCELLANEOUS;
+  }
+
+  @override
+  String toJson(Name object) {
+    return nameValues.reverse[object]!;
+  }
 }

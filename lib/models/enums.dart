@@ -1,28 +1,27 @@
-enum Category {
+enum Name {
+  CLOTHES,
   ELECTRONICS,
-  JEWELERY,
-  MEN_S_CLOTHING,
-  WOMEN_S_CLOTHING,
+  FURNITURE,
+  MISCELLANEOUS,
+  SHOES
 }
 
-extension CategoryExtension on Category {
-  static const Map<Category, String> _toJson = {
-    Category.ELECTRONICS: 'electronics',
-    Category.JEWELERY: 'jewelery',
-    Category.MEN_S_CLOTHING: "men's clothing",
-    Category.WOMEN_S_CLOTHING: "women's clothing",
-  };
+final nameValues = EnumValues({
+  "Clothes": Name.CLOTHES,
+  "Electronics": Name.ELECTRONICS,
+  "Furniture": Name.FURNITURE,
+  "Miscellaneous": Name.MISCELLANEOUS,
+  "Shoes": Name.SHOES
+});
 
-  static const Map<String, Category> _fromJson = {
-    'electronics': Category.ELECTRONICS,
-    'jewelery': Category.JEWELERY,
-    "men's clothing": Category.MEN_S_CLOTHING,
-    "women's clothing": Category.WOMEN_S_CLOTHING,
-  };
+class EnumValues<T> {
+  Map<String, T> map;
+  late Map<T, String> reverseMap;
 
-  String customName() => _toJson[this]!;
+  EnumValues(this.map);
 
-  static String toJson(Category category) => _toJson[category]!;
-
-  static Category fromJson(String json) => _fromJson[json]!;
+  Map<T, String> get reverse {
+    reverseMap = map.map((k, v) => MapEntry(v, k));
+    return reverseMap;
+  }
 }

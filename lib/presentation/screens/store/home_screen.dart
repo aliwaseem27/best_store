@@ -91,6 +91,7 @@ class HomeScreen extends StatelessWidget {
                       return GridLayoutFourElements(products: data);
                     },
                     error: (e, st) {
+                      print(e);
                       return Center(child: Text(e.toString()));
                     },
                     loading: () {

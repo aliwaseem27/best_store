@@ -12,6 +12,7 @@ class ProductsRepository {
 
   Future<List<Product>> getAllProducts({int limit = 0, bool reverseSort = false}) async {
     String url = Endpoints.products;
+    print(url);
     if (limit > 0 || reverseSort) {
       url += '?';
       if (limit > 0) {
@@ -26,6 +27,7 @@ class ProductsRepository {
     final json = jsonDecode(res.body);
     final products = <Product>[];
     json.forEach((e) {
+      print(e);
       products.add(Product.fromJson(e));
     });
     return products;

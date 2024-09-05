@@ -14,9 +14,17 @@ ProductsRepository productsRepository(ProductsRepositoryRef ref) {
 }
 
 @riverpod
-Future<List<Product>> allProducts(AllProductsRef ref) {
-  final repository = ref.watch(productsRepositoryProvider);
-  return repository.getAllProducts();
+class AllProducts extends _$AllProducts {
+  @override
+  Future<List<Product>> build() {
+    final repository = ref.watch(productsRepositoryProvider);
+    return repository.getAllProducts();
+  }
+
+  List<Product> getRandomProducts() {
+    final sixProducts = state.value!.getRange(0, 6).toList();
+    return sixProducts;
+  }
 }
 
 @riverpod

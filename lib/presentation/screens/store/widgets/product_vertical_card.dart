@@ -1,13 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:best_store/models/enums.dart';
 import 'package:best_store/models/product_model.dart';
-import 'package:best_store/presentation/screens/authentication/sign_in/widgets/dont_have_account.dart';
 import 'package:best_store/presentation/screens/core/app_router.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../utils/constants/app_colors.dart';
 import '../../../../utils/constants/app_sizes.dart';
-import '../product_details_screen.dart';
 
 class ProductVerticalCard extends StatelessWidget {
   const ProductVerticalCard({
@@ -20,7 +18,7 @@ class ProductVerticalCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: ()=> context.router.push(ProductDetailsRoute(product: product)),
+      onTap: () => context.router.push(ProductDetailsRoute(product: product)),
       child: Container(
         padding: EdgeInsets.all(AppSizes.md),
         decoration: BoxDecoration(
@@ -31,12 +29,15 @@ class ProductVerticalCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Flexible(
-              child: Container(
-                height: 100,
-                width: 100,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: NetworkImage(product.image),
+              child: AspectRatio(
+                aspectRatio: 1,
+                child: Container(
+                  // height: 100,
+                  // width: 100,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: NetworkImage(product.images[0]),
+                    ),
                   ),
                 ),
               ),
@@ -50,12 +51,12 @@ class ProductVerticalCard extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
                 ),
+                // Text(
+                //   "Qty: 1",
+                //   style: Theme.of(context).textTheme.labelSmall?.apply(color: AppColors.neutralColor),
+                // ),
                 Text(
-                  "Qty: 1",
-                  style: Theme.of(context).textTheme.labelSmall?.apply(color: AppColors.neutralColor),
-                ),
-                Text(
-                  product.category.customName(),
+                  product.category.name.name,
                   style: Theme.of(context).textTheme.bodySmall?.apply(color: AppColors.neutralColor),
                 ),
                 Row(
@@ -71,7 +72,7 @@ class ProductVerticalCard extends StatelessWidget {
                       radius: 16,
                       backgroundColor: AppColors.secondaryColor,
                       child: IconButton(
-                        onPressed: (){},
+                        onPressed: () {},
                         icon: const Icon(Icons.favorite),
                         iconSize: 16,
                       ),

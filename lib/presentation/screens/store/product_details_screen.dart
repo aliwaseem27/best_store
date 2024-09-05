@@ -56,12 +56,26 @@ class ProductDetailsScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
       ),
       body: Padding(
-        padding: EdgeInsets.all(AppSizes.defaultSpace),
+        padding: EdgeInsets.symmetric(horizontal: AppSizes.defaultSpace),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Product Images
+              Align(
+                alignment: Alignment.center,
+                child: AspectRatio(
+                  aspectRatio: 1,
+                  child: Container(
+                    margin: EdgeInsets.only(bottom: AppSizes.defaultSpace, top: AppSizes.defaultSpace),
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: NetworkImage(product.images[0]),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
 
               // Product Title, ratings & Category
               Row(
@@ -79,7 +93,7 @@ class ProductDetailsScreen extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        product.category.customName(),
+                        product.category.name.name,
                         style: Theme.of(context).textTheme.titleSmall?.apply(color: AppColors.neutralColor),
                       ),
                     ],
@@ -87,7 +101,7 @@ class ProductDetailsScreen extends StatelessWidget {
                   Row(
                     children: [
                       Icon(Icons.star, color: Colors.amberAccent, size: 16),
-                      Text(product.rating.rate.toString()),
+                      Text("5.0"),
                     ],
                   ),
                 ],

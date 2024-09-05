@@ -23,20 +23,6 @@ final productsRepositoryProvider =
 );
 
 typedef ProductsRepositoryRef = AutoDisposeProviderRef<ProductsRepository>;
-String _$allProductsHash() => r'346173085475777e6c8569219a64c06e36f8b7a4';
-
-/// See also [allProducts].
-@ProviderFor(allProducts)
-final allProductsProvider = AutoDisposeFutureProvider<List<Product>>.internal(
-  allProducts,
-  name: r'allProductsProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$allProductsHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef AllProductsRef = AutoDisposeFutureProviderRef<List<Product>>;
 String _$singleProductHash() => r'296247d56f4c0bd1352d7f469fb789c73872db64';
 
 /// Copied from Dart SDK
@@ -332,5 +318,20 @@ final allCategoriesProvider = AutoDisposeFutureProvider<List<String>>.internal(
 );
 
 typedef AllCategoriesRef = AutoDisposeFutureProviderRef<List<String>>;
+String _$allProductsHash() => r'7c6670d2a36cf22701e5770431454b74fc1ce225';
+
+/// See also [AllProducts].
+@ProviderFor(AllProducts)
+final allProductsProvider =
+    AutoDisposeAsyncNotifierProvider<AllProducts, List<Product>>.internal(
+  AllProducts.new,
+  name: r'allProductsProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$allProductsHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$AllProducts = AutoDisposeAsyncNotifier<List<Product>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

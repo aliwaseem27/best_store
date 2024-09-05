@@ -10,11 +10,13 @@ _$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
     _$ProductImpl(
       id: (json['id'] as num).toInt(),
       title: json['title'] as String,
-      price: (json['price'] as num).toDouble(),
+      price: (json['price'] as num).toInt(),
       description: json['description'] as String,
-      category: CategoryExtension.fromJson(json['category'] as String),
-      image: json['image'] as String,
-      rating: Rating.fromJson(json['rating'] as Map<String, dynamic>),
+      images:
+          (json['images'] as List<dynamic>).map((e) => e as String).toList(),
+      creationAt: DateTime.parse(json['creationAt'] as String),
+      updatedAt: DateTime.parse(json['updatedAt'] as String),
+      category: Category.fromJson(json['category'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$ProductImplToJson(_$ProductImpl instance) =>
@@ -23,18 +25,26 @@ Map<String, dynamic> _$$ProductImplToJson(_$ProductImpl instance) =>
       'title': instance.title,
       'price': instance.price,
       'description': instance.description,
-      'category': CategoryExtension.toJson(instance.category),
-      'image': instance.image,
-      'rating': instance.rating,
+      'images': instance.images,
+      'creationAt': instance.creationAt.toIso8601String(),
+      'updatedAt': instance.updatedAt.toIso8601String(),
+      'category': instance.category,
     };
 
-_$RatingImpl _$$RatingImplFromJson(Map<String, dynamic> json) => _$RatingImpl(
-      rate: (json['rate'] as num).toDouble(),
-      count: (json['count'] as num).toInt(),
+_$CategoryImpl _$$CategoryImplFromJson(Map<String, dynamic> json) =>
+    _$CategoryImpl(
+      id: (json['id'] as num).toInt(),
+      name: const NameConverter().fromJson(json['name'] as String),
+      image: json['image'] as String,
+      creationAt: DateTime.parse(json['creationAt'] as String),
+      updatedAt: DateTime.parse(json['updatedAt'] as String),
     );
 
-Map<String, dynamic> _$$RatingImplToJson(_$RatingImpl instance) =>
+Map<String, dynamic> _$$CategoryImplToJson(_$CategoryImpl instance) =>
     <String, dynamic>{
-      'rate': instance.rate,
-      'count': instance.count,
+      'id': instance.id,
+      'name': const NameConverter().toJson(instance.name),
+      'image': instance.image,
+      'creationAt': instance.creationAt.toIso8601String(),
+      'updatedAt': instance.updatedAt.toIso8601String(),
     };

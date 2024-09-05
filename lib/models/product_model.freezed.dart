@@ -22,13 +22,12 @@ Product _$ProductFromJson(Map<String, dynamic> json) {
 mixin _$Product {
   int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
-  double get price => throw _privateConstructorUsedError;
+  int get price => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  @JsonKey(
-      fromJson: CategoryExtension.fromJson, toJson: CategoryExtension.toJson)
+  List<String> get images => throw _privateConstructorUsedError;
+  DateTime get creationAt => throw _privateConstructorUsedError;
+  DateTime get updatedAt => throw _privateConstructorUsedError;
   Category get category => throw _privateConstructorUsedError;
-  String get image => throw _privateConstructorUsedError;
-  Rating get rating => throw _privateConstructorUsedError;
 
   /// Serializes this Product to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -47,16 +46,14 @@ abstract class $ProductCopyWith<$Res> {
   $Res call(
       {int id,
       String title,
-      double price,
+      int price,
       String description,
-      @JsonKey(
-          fromJson: CategoryExtension.fromJson,
-          toJson: CategoryExtension.toJson)
-      Category category,
-      String image,
-      Rating rating});
+      List<String> images,
+      DateTime creationAt,
+      DateTime updatedAt,
+      Category category});
 
-  $RatingCopyWith<$Res> get rating;
+  $CategoryCopyWith<$Res> get category;
 }
 
 /// @nodoc
@@ -78,9 +75,10 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
     Object? title = null,
     Object? price = null,
     Object? description = null,
+    Object? images = null,
+    Object? creationAt = null,
+    Object? updatedAt = null,
     Object? category = null,
-    Object? image = null,
-    Object? rating = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -94,23 +92,27 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
       price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      images: null == images
+          ? _value.images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      creationAt: null == creationAt
+          ? _value.creationAt
+          : creationAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      updatedAt: null == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as Category,
-      image: null == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String,
-      rating: null == rating
-          ? _value.rating
-          : rating // ignore: cast_nullable_to_non_nullable
-              as Rating,
     ) as $Val);
   }
 
@@ -118,9 +120,9 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $RatingCopyWith<$Res> get rating {
-    return $RatingCopyWith<$Res>(_value.rating, (value) {
-      return _then(_value.copyWith(rating: value) as $Val);
+  $CategoryCopyWith<$Res> get category {
+    return $CategoryCopyWith<$Res>(_value.category, (value) {
+      return _then(_value.copyWith(category: value) as $Val);
     });
   }
 }
@@ -135,17 +137,15 @@ abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
   $Res call(
       {int id,
       String title,
-      double price,
+      int price,
       String description,
-      @JsonKey(
-          fromJson: CategoryExtension.fromJson,
-          toJson: CategoryExtension.toJson)
-      Category category,
-      String image,
-      Rating rating});
+      List<String> images,
+      DateTime creationAt,
+      DateTime updatedAt,
+      Category category});
 
   @override
-  $RatingCopyWith<$Res> get rating;
+  $CategoryCopyWith<$Res> get category;
 }
 
 /// @nodoc
@@ -165,9 +165,10 @@ class __$$ProductImplCopyWithImpl<$Res>
     Object? title = null,
     Object? price = null,
     Object? description = null,
+    Object? images = null,
+    Object? creationAt = null,
+    Object? updatedAt = null,
     Object? category = null,
-    Object? image = null,
-    Object? rating = null,
   }) {
     return _then(_$ProductImpl(
       id: null == id
@@ -181,23 +182,27 @@ class __$$ProductImplCopyWithImpl<$Res>
       price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      images: null == images
+          ? _value._images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      creationAt: null == creationAt
+          ? _value.creationAt
+          : creationAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      updatedAt: null == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as Category,
-      image: null == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String,
-      rating: null == rating
-          ? _value.rating
-          : rating // ignore: cast_nullable_to_non_nullable
-              as Rating,
     ));
   }
 }
@@ -210,12 +215,11 @@ class _$ProductImpl implements _Product {
       required this.title,
       required this.price,
       required this.description,
-      @JsonKey(
-          fromJson: CategoryExtension.fromJson,
-          toJson: CategoryExtension.toJson)
-      required this.category,
-      required this.image,
-      required this.rating});
+      required final List<String> images,
+      required this.creationAt,
+      required this.updatedAt,
+      required this.category})
+      : _images = images;
 
   factory _$ProductImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProductImplFromJson(json);
@@ -225,21 +229,27 @@ class _$ProductImpl implements _Product {
   @override
   final String title;
   @override
-  final double price;
+  final int price;
   @override
   final String description;
+  final List<String> _images;
   @override
-  @JsonKey(
-      fromJson: CategoryExtension.fromJson, toJson: CategoryExtension.toJson)
+  List<String> get images {
+    if (_images is EqualUnmodifiableListView) return _images;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_images);
+  }
+
+  @override
+  final DateTime creationAt;
+  @override
+  final DateTime updatedAt;
+  @override
   final Category category;
-  @override
-  final String image;
-  @override
-  final Rating rating;
 
   @override
   String toString() {
-    return 'Product(id: $id, title: $title, price: $price, description: $description, category: $category, image: $image, rating: $rating)';
+    return 'Product(id: $id, title: $title, price: $price, description: $description, images: $images, creationAt: $creationAt, updatedAt: $updatedAt, category: $category)';
   }
 
   @override
@@ -252,16 +262,27 @@ class _$ProductImpl implements _Product {
             (identical(other.price, price) || other.price == price) &&
             (identical(other.description, description) ||
                 other.description == description) &&
+            const DeepCollectionEquality().equals(other._images, _images) &&
+            (identical(other.creationAt, creationAt) ||
+                other.creationAt == creationAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt) &&
             (identical(other.category, category) ||
-                other.category == category) &&
-            (identical(other.image, image) || other.image == image) &&
-            (identical(other.rating, rating) || other.rating == rating));
+                other.category == category));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, title, price, description, category, image, rating);
+      runtimeType,
+      id,
+      title,
+      price,
+      description,
+      const DeepCollectionEquality().hash(_images),
+      creationAt,
+      updatedAt,
+      category);
 
   /// Create a copy of Product
   /// with the given fields replaced by the non-null parameter values.
@@ -283,14 +304,12 @@ abstract class _Product implements Product {
   const factory _Product(
       {required final int id,
       required final String title,
-      required final double price,
+      required final int price,
       required final String description,
-      @JsonKey(
-          fromJson: CategoryExtension.fromJson,
-          toJson: CategoryExtension.toJson)
-      required final Category category,
-      required final String image,
-      required final Rating rating}) = _$ProductImpl;
+      required final List<String> images,
+      required final DateTime creationAt,
+      required final DateTime updatedAt,
+      required final Category category}) = _$ProductImpl;
 
   factory _Product.fromJson(Map<String, dynamic> json) = _$ProductImpl.fromJson;
 
@@ -299,17 +318,17 @@ abstract class _Product implements Product {
   @override
   String get title;
   @override
-  double get price;
+  int get price;
   @override
   String get description;
   @override
-  @JsonKey(
-      fromJson: CategoryExtension.fromJson, toJson: CategoryExtension.toJson)
+  List<String> get images;
+  @override
+  DateTime get creationAt;
+  @override
+  DateTime get updatedAt;
+  @override
   Category get category;
-  @override
-  String get image;
-  @override
-  Rating get rating;
 
   /// Create a copy of Product
   /// with the given fields replaced by the non-null parameter values.
@@ -319,164 +338,240 @@ abstract class _Product implements Product {
       throw _privateConstructorUsedError;
 }
 
-Rating _$RatingFromJson(Map<String, dynamic> json) {
-  return _Rating.fromJson(json);
+Category _$CategoryFromJson(Map<String, dynamic> json) {
+  return _Category.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Rating {
-  double get rate => throw _privateConstructorUsedError;
-  int get count => throw _privateConstructorUsedError;
+mixin _$Category {
+  int get id => throw _privateConstructorUsedError;
+  @NameConverter()
+  Name get name => throw _privateConstructorUsedError;
+  String get image => throw _privateConstructorUsedError;
+  DateTime get creationAt => throw _privateConstructorUsedError;
+  DateTime get updatedAt => throw _privateConstructorUsedError;
 
-  /// Serializes this Rating to a JSON map.
+  /// Serializes this Category to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of Rating
+  /// Create a copy of Category
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $RatingCopyWith<Rating> get copyWith => throw _privateConstructorUsedError;
+  $CategoryCopyWith<Category> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RatingCopyWith<$Res> {
-  factory $RatingCopyWith(Rating value, $Res Function(Rating) then) =
-      _$RatingCopyWithImpl<$Res, Rating>;
+abstract class $CategoryCopyWith<$Res> {
+  factory $CategoryCopyWith(Category value, $Res Function(Category) then) =
+      _$CategoryCopyWithImpl<$Res, Category>;
   @useResult
-  $Res call({double rate, int count});
+  $Res call(
+      {int id,
+      @NameConverter() Name name,
+      String image,
+      DateTime creationAt,
+      DateTime updatedAt});
 }
 
 /// @nodoc
-class _$RatingCopyWithImpl<$Res, $Val extends Rating>
-    implements $RatingCopyWith<$Res> {
-  _$RatingCopyWithImpl(this._value, this._then);
+class _$CategoryCopyWithImpl<$Res, $Val extends Category>
+    implements $CategoryCopyWith<$Res> {
+  _$CategoryCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Rating
+  /// Create a copy of Category
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? rate = null,
-    Object? count = null,
+    Object? id = null,
+    Object? name = null,
+    Object? image = null,
+    Object? creationAt = null,
+    Object? updatedAt = null,
   }) {
     return _then(_value.copyWith(
-      rate: null == rate
-          ? _value.rate
-          : rate // ignore: cast_nullable_to_non_nullable
-              as double,
-      count: null == count
-          ? _value.count
-          : count // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as int,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as Name,
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String,
+      creationAt: null == creationAt
+          ? _value.creationAt
+          : creationAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      updatedAt: null == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$RatingImplCopyWith<$Res> implements $RatingCopyWith<$Res> {
-  factory _$$RatingImplCopyWith(
-          _$RatingImpl value, $Res Function(_$RatingImpl) then) =
-      __$$RatingImplCopyWithImpl<$Res>;
+abstract class _$$CategoryImplCopyWith<$Res>
+    implements $CategoryCopyWith<$Res> {
+  factory _$$CategoryImplCopyWith(
+          _$CategoryImpl value, $Res Function(_$CategoryImpl) then) =
+      __$$CategoryImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({double rate, int count});
+  $Res call(
+      {int id,
+      @NameConverter() Name name,
+      String image,
+      DateTime creationAt,
+      DateTime updatedAt});
 }
 
 /// @nodoc
-class __$$RatingImplCopyWithImpl<$Res>
-    extends _$RatingCopyWithImpl<$Res, _$RatingImpl>
-    implements _$$RatingImplCopyWith<$Res> {
-  __$$RatingImplCopyWithImpl(
-      _$RatingImpl _value, $Res Function(_$RatingImpl) _then)
+class __$$CategoryImplCopyWithImpl<$Res>
+    extends _$CategoryCopyWithImpl<$Res, _$CategoryImpl>
+    implements _$$CategoryImplCopyWith<$Res> {
+  __$$CategoryImplCopyWithImpl(
+      _$CategoryImpl _value, $Res Function(_$CategoryImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of Rating
+  /// Create a copy of Category
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? rate = null,
-    Object? count = null,
+    Object? id = null,
+    Object? name = null,
+    Object? image = null,
+    Object? creationAt = null,
+    Object? updatedAt = null,
   }) {
-    return _then(_$RatingImpl(
-      rate: null == rate
-          ? _value.rate
-          : rate // ignore: cast_nullable_to_non_nullable
-              as double,
-      count: null == count
-          ? _value.count
-          : count // ignore: cast_nullable_to_non_nullable
+    return _then(_$CategoryImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as int,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as Name,
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String,
+      creationAt: null == creationAt
+          ? _value.creationAt
+          : creationAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      updatedAt: null == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$RatingImpl implements _Rating {
-  const _$RatingImpl({required this.rate, required this.count});
+class _$CategoryImpl implements _Category {
+  const _$CategoryImpl(
+      {required this.id,
+      @NameConverter() required this.name,
+      required this.image,
+      required this.creationAt,
+      required this.updatedAt});
 
-  factory _$RatingImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RatingImplFromJson(json);
+  factory _$CategoryImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CategoryImplFromJson(json);
 
   @override
-  final double rate;
+  final int id;
   @override
-  final int count;
+  @NameConverter()
+  final Name name;
+  @override
+  final String image;
+  @override
+  final DateTime creationAt;
+  @override
+  final DateTime updatedAt;
 
   @override
   String toString() {
-    return 'Rating(rate: $rate, count: $count)';
+    return 'Category(id: $id, name: $name, image: $image, creationAt: $creationAt, updatedAt: $updatedAt)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RatingImpl &&
-            (identical(other.rate, rate) || other.rate == rate) &&
-            (identical(other.count, count) || other.count == count));
+            other is _$CategoryImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.creationAt, creationAt) ||
+                other.creationAt == creationAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, rate, count);
+  int get hashCode =>
+      Object.hash(runtimeType, id, name, image, creationAt, updatedAt);
 
-  /// Create a copy of Rating
+  /// Create a copy of Category
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$RatingImplCopyWith<_$RatingImpl> get copyWith =>
-      __$$RatingImplCopyWithImpl<_$RatingImpl>(this, _$identity);
+  _$$CategoryImplCopyWith<_$CategoryImpl> get copyWith =>
+      __$$CategoryImplCopyWithImpl<_$CategoryImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$RatingImplToJson(
+    return _$$CategoryImplToJson(
       this,
     );
   }
 }
 
-abstract class _Rating implements Rating {
-  const factory _Rating(
-      {required final double rate, required final int count}) = _$RatingImpl;
+abstract class _Category implements Category {
+  const factory _Category(
+      {required final int id,
+      @NameConverter() required final Name name,
+      required final String image,
+      required final DateTime creationAt,
+      required final DateTime updatedAt}) = _$CategoryImpl;
 
-  factory _Rating.fromJson(Map<String, dynamic> json) = _$RatingImpl.fromJson;
+  factory _Category.fromJson(Map<String, dynamic> json) =
+      _$CategoryImpl.fromJson;
 
   @override
-  double get rate;
+  int get id;
   @override
-  int get count;
+  @NameConverter()
+  Name get name;
+  @override
+  String get image;
+  @override
+  DateTime get creationAt;
+  @override
+  DateTime get updatedAt;
 
-  /// Create a copy of Rating
+  /// Create a copy of Category
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RatingImplCopyWith<_$RatingImpl> get copyWith =>
+  _$$CategoryImplCopyWith<_$CategoryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
