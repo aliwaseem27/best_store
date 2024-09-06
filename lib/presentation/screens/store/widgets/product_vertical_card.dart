@@ -56,7 +56,7 @@ class ProductVerticalCard extends StatelessWidget {
                 //   style: Theme.of(context).textTheme.labelSmall?.apply(color: AppColors.neutralColor),
                 // ),
                 Text(
-                  product.category.name.name,
+                  product.category.name,
                   style: Theme.of(context).textTheme.bodySmall?.apply(color: AppColors.neutralColor),
                 ),
                 Row(

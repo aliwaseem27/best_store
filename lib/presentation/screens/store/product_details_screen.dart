@@ -93,7 +93,7 @@ class ProductDetailsScreen extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        product.category.name.name,
+                        product.category.name,
                         style: Theme.of(context).textTheme.titleSmall?.apply(color: AppColors.neutralColor),
                       ),
                     ],
