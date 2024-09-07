@@ -43,17 +43,17 @@ class ChatBubble extends StatelessWidget {
                     message["time"],
                     style: Theme.of(context).textTheme.bodySmall?.apply(color: AppColors.neutralColor),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: AppSizes.xs,
                   ),
                   // Sent Mark
                   message["senderName"] != personName
-                      ? Icon(
+                      ? const Icon(
                           Icons.done_all,
                           size: 16,
                           color: AppColors.neutralColor,
                         )
-                      : SizedBox(),
+                      : const SizedBox(),
                 ],
               ),
             ],

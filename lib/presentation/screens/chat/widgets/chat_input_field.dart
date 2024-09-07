@@ -15,7 +15,7 @@ class ChatInputField extends StatelessWidget {
         // Text Box
         Expanded(
           child: TextFormField(
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: "Type A Message",
               floatingLabelBehavior: FloatingLabelBehavior.never,
               prefixIcon: Icon(
@@ -30,7 +30,7 @@ class ChatInputField extends StatelessWidget {
           ),
         ),
 
-        SizedBox(
+        const SizedBox(
           width: AppSizes.spaceBtwItems,
         ),
 
@@ -44,7 +44,7 @@ class ChatInputField extends StatelessWidget {
           child: IconButton(
             color: Colors.white,
             onPressed: () {},
-            icon: Icon(Icons.send),
+            icon: const Icon(Icons.send),
           ),
         ),
       ],

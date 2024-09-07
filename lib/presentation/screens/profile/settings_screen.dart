@@ -11,10 +11,10 @@ class SettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Settings"),
+        title: const Text("Settings"),
         centerTitle: true,
       ),
-      body: Padding(
+      body: const Padding(
         padding: EdgeInsets.all(AppSizes.defaultSpace),
         child: Column(
           children: [

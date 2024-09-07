@@ -24,7 +24,7 @@ class NotificationTile extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.all(AppSizes.md),
+        padding: const EdgeInsets.all(AppSizes.md),
         decoration: BoxDecoration(
           color: AppColors.secondaryColor,
           borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
@@ -50,7 +50,7 @@ class NotificationTile extends StatelessWidget {
                     size: 20,
                   ),
                 ),
-                SizedBox(width: AppSizes.spaceBtwItems),
+                const SizedBox(width: AppSizes.spaceBtwItems),
                 Expanded(
                   flex: 5,
                   child: Column(

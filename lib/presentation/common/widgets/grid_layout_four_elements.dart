@@ -18,7 +18,7 @@ class GridLayoutFourElements extends StatelessWidget {
       shrinkWrap: true,
       itemCount: products.length,
       physics: const NeverScrollableScrollPhysics(),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         mainAxisSpacing: AppSizes.spaceBtwItems,
         crossAxisSpacing: AppSizes.spaceBtwItems,

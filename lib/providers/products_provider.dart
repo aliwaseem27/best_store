@@ -1,7 +1,6 @@
 import 'package:best_store/models/enums.dart';
 import 'package:best_store/models/product_model.dart';
 import 'package:best_store/providers/network_service_provider.dart';
-import 'package:flutter/foundation.dart';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

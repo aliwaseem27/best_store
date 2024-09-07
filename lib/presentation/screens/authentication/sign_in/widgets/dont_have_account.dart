@@ -14,10 +14,10 @@ class DontHaveAnAccountAction extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(AppStrings.dontHaveAnAccount),
+        const Text(AppStrings.dontHaveAnAccount),
         TextButton(
           onPressed: () => context.router.push(const SignUpRoute()),
-          child: Text(AppStrings.signUp),
+          child: const Text(AppStrings.signUp),
         ),
       ],
     );

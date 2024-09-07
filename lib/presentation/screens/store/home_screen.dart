@@ -1,8 +1,5 @@
 import 'package:auto_route/annotations.dart';
-import 'package:best_store/models/enums.dart';
 import 'package:best_store/providers/products_provider.dart';
-import 'package:best_store/repositories/carts_repository.dart';
-import 'package:best_store/repositories/products_repository.dart';
 import 'package:best_store/utils/constants/app_configs.dart';
 import 'package:best_store/utils/constants/app_sizes.dart';
 import 'package:best_store/utils/constants/image_strings.dart';
@@ -17,7 +14,6 @@ import 'widgets/home_screen_categories.dart';
 import 'widgets/home_screen_header.dart';
 import '../../common/widgets/my_search_bar.dart';
 import 'widgets/invide_friends_code_slider.dart';
-import 'widgets/product_vertical_card.dart';
 import 'widgets/promo_banners_slider.dart';
 
 @RoutePage()
@@ -48,30 +44,30 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             children: [
               // Header
-              HomeScreenHeader(),
-              SizedBox(height: AppSizes.spaceBtwItems),
+              const HomeScreenHeader(),
+              const SizedBox(height: AppSizes.spaceBtwItems),
 
               // Search Bar
-              MySearchBar(),
-              SizedBox(height: AppSizes.spaceBtwItems),
+              const MySearchBar(),
+              const SizedBox(height: AppSizes.spaceBtwItems),
 
               // Promo Banners
               PromoSlider(banners: banners),
 
-              SizedBox(height: AppSizes.spaceBtwItems),
+              const SizedBox(height: AppSizes.spaceBtwItems),
 
               // Categories Header & List
               SectionTitle(title: "Category", onPressed: () {}),
-              HomeScreenCategories(categories: AppConfigs.categories),
-              SizedBox(height: AppSizes.spaceBtwItems),
+              const HomeScreenCategories(categories: AppConfigs.categories),
+              const SizedBox(height: AppSizes.spaceBtwItems),
 
               // Just For You
-              SectionTitle(title: "Just For You", showButton: false),
-              SizedBox(height: AppSizes.spaceBtwItems),
+              const SectionTitle(title: "Just For You", showButton: false),
+              const SizedBox(height: AppSizes.spaceBtwItems),
 
               // Filters
               FiltersList(forYouTitles: forYouTitles),
-              SizedBox(height: AppSizes.spaceBtwItems),
+              const SizedBox(height: AppSizes.spaceBtwItems),
 
               // Products
               Consumer(
@@ -98,9 +94,9 @@ class HomeScreen extends StatelessWidget {
               ),
 
               // Invite Friends
-              SizedBox(height: AppSizes.spaceBtwItems),
+              const SizedBox(height: AppSizes.spaceBtwItems),
               SectionTitle(title: "Invite Friends", onPressed: () {}),
-              InviteFriendsCodeSlider(),
+              const InviteFriendsCodeSlider(),
             ],
           ),
         ),

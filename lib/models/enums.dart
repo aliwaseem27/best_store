@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 
 class EnumValues<T> {
   Map<String, T> map;

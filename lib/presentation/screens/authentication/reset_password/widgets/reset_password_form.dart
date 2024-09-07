@@ -22,7 +22,7 @@ class ForgetPasswordForm extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: AppSizes.spaceBtwInputFields),
+          const SizedBox(height: AppSizes.spaceBtwInputFields),
 
           TextFormField(
             decoration: InputDecoration(
@@ -33,14 +33,14 @@ class ForgetPasswordForm extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: AppSizes.spaceBtwInputFields),
+          const SizedBox(height: AppSizes.spaceBtwInputFields),
 
           // Sign up button
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
               onPressed: () {},
-              child: Text(AppStrings.resetPassword),
+              child: const Text(AppStrings.resetPassword),
             ),
           ),
         ],

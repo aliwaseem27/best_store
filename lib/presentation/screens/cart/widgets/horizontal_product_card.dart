@@ -18,7 +18,7 @@ class HorizontalProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(AppSizes.md),
+      padding: const EdgeInsets.all(AppSizes.md),
       decoration: BoxDecoration(
         color: AppColors.secondaryColor,
         borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
@@ -31,7 +31,7 @@ class HorizontalProductCard extends StatelessWidget {
             child: AspectRatio(
               aspectRatio: 1,
               child: Container(
-                margin: EdgeInsets.only(right: AppSizes.spaceBtwItems),
+                margin: const EdgeInsets.only(right: AppSizes.spaceBtwItems),
                 child: Image.asset(productImage),
               ),
             ),

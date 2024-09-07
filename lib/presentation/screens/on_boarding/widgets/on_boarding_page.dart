@@ -23,23 +23,23 @@ class OnBoardingPage extends StatelessWidget {
         Expanded(
           child: Container(
             width: MediaQuery.of(context).size.width * 0.8,
-            padding: EdgeInsets.all(AppSizes.defaultSpace),
+            padding: const EdgeInsets.all(AppSizes.defaultSpace),
             child: SvgPicture.asset(image),
           ),
         ),
         Expanded(
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
                 topRight: Radius.circular(AppSizes.xl * 1.5),
                 topLeft: Radius.circular(AppSizes.xl * 1.5),
               ),
             ),
-            padding: EdgeInsets.all(AppSizes.defaultSpace),
+            padding: const EdgeInsets.all(AppSizes.defaultSpace),
             child: Column(
               children: [
-                SizedBox(height: AppSizes.defaultSpace),
+                const SizedBox(height: AppSizes.defaultSpace),
                 // Title
                 Text(
                   title,
@@ -48,7 +48,7 @@ class OnBoardingPage extends StatelessWidget {
                       ),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: AppSizes.spaceBtwSections),
+                const SizedBox(height: AppSizes.spaceBtwSections),
 
                 // Subtitle
                 SizedBox(

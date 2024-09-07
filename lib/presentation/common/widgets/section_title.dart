@@ -26,7 +26,7 @@ class SectionTitle extends StatelessWidget {
         showButton
             ? TextButton(
                 onPressed: onPressed,
-                child: Text(
+                child: const Text(
                   "See All",
                   style: TextStyle(color: AppColors.primaryColor),
                 ),

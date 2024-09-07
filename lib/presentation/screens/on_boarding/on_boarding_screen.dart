@@ -1,11 +1,9 @@
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:best_store/presentation/screens/core/app_router.dart';
 import 'package:best_store/utils/constants/app_colors.dart';
 import 'package:best_store/utils/constants/app_sizes.dart';
 import 'package:best_store/utils/constants/app_strings.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -73,7 +71,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           Positioned(
             bottom: AppSizes.spaceBtwSections,
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: AppSizes.defaultSpace),
+              padding: const EdgeInsets.symmetric(horizontal: AppSizes.defaultSpace),
               width: MediaQuery.of(context).size.width,
               child: pageIndex < onBoardingPages.length - 1
                   ? Row(
@@ -83,19 +81,19 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         TextButton(
                           onPressed: () {
                             pageController.animateToPage(
-                              duration: Duration(milliseconds: 500),
+                              duration: const Duration(milliseconds: 500),
                               onBoardingPages.length - 1,
                               curve: Curves.easeInOut,
                             );
                           },
-                          child: Text(AppStrings.skip),
+                          child: const Text(AppStrings.skip),
                         ),
 
                         // NavigationDots
                         SmoothPageIndicator(
                           controller: pageController,
                           count: onBoardingPages.length - 1,
-                          effect: ExpandingDotsEffect(
+                          effect: const ExpandingDotsEffect(
                             dotHeight: 10,
                             dotWidth: 10,
                           ),
@@ -108,12 +106,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             iconSize: 16,
                             onPressed: () {
                               pageController.nextPage(
-                                duration: Duration(milliseconds: 500),
+                                duration: const Duration(milliseconds: 500),
                                 curve: Curves.easeInOut,
                               );
                             },
                             color: Colors.white,
-                            icon: Icon(
+                            icon: const Icon(
                               FontAwesomeIcons.arrowRight,
                             ),
                             // color: AppColors.primaryColor,
@@ -126,20 +124,20 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         Expanded(
                           child: ElevatedButton(
                             onPressed: () => context.router.replace(const SignUpRoute()),
-                            child: Text(AppStrings.signUp),
+                            child: const Text(AppStrings.signUp),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: AppSizes.spaceBtwSections,
                         ),
                         Expanded(
                           child: ElevatedButton(
                             onPressed: () => context.router.replace(const SignInRoute()),
-                            child: Text(
+                            style: ElevatedButton.styleFrom(backgroundColor: AppColors.secondaryColor),
+                            child: const Text(
                               AppStrings.signIn,
                               style: TextStyle(color: Colors.black),
                             ),
-                            style: ElevatedButton.styleFrom(backgroundColor: AppColors.secondaryColor),
                           ),
                         ),
                       ],

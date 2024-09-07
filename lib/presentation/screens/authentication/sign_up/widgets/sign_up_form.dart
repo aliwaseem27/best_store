@@ -15,10 +15,10 @@ class SignUpForm extends StatelessWidget {
     return Form(
       child: Column(
         children: [
-          TextFormField(decoration: InputDecoration(labelText: AppStrings.fullName)),
-          SizedBox(height: AppSizes.spaceBtwInputFields),
-          TextFormField(decoration: InputDecoration(labelText: AppStrings.emailAddress)),
-          SizedBox(height: AppSizes.spaceBtwInputFields),
+          TextFormField(decoration: const InputDecoration(labelText: AppStrings.fullName)),
+          const SizedBox(height: AppSizes.spaceBtwInputFields),
+          TextFormField(decoration: const InputDecoration(labelText: AppStrings.emailAddress)),
+          const SizedBox(height: AppSizes.spaceBtwInputFields),
           TextFormField(
             decoration: InputDecoration(
               labelText: AppStrings.password,
@@ -29,16 +29,16 @@ class SignUpForm extends StatelessWidget {
             ),
           ),
 
-          SizedBox(height: AppSizes.spaceBtwInputFields),
+          const SizedBox(height: AppSizes.spaceBtwInputFields),
 
           // Terms & Conditions
           Row(
             children: [
               Checkbox(value: false, onChanged: (value) {}),
-              Text(AppStrings.agreeTo),
+              const Text(AppStrings.agreeTo),
               TextButton(
                 onPressed: () {},
-                child: Text(AppStrings.termsAndConditions),
+                child: const Text(AppStrings.termsAndConditions),
               ),
             ],
           ),
@@ -48,7 +48,7 @@ class SignUpForm extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {},
-                child: Text(AppStrings.signUp),
+                child: const Text(AppStrings.signUp),
               )),
         ],
       ),

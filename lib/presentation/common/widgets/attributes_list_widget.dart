@@ -26,7 +26,7 @@ class AttributesList extends StatelessWidget {
           title,
           style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
         ),
-        SizedBox(height: AppSizes.spaceBtwItems),
+        const SizedBox(height: AppSizes.spaceBtwItems),
         Wrap(
           spacing: AppSizes.spaceBtwItems,
           children: [

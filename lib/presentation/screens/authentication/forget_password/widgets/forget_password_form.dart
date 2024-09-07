@@ -12,15 +12,15 @@ class ForgetPasswordForm extends StatelessWidget {
     return Form(
       child: Column(
         children: [
-          TextFormField(decoration: InputDecoration(labelText: AppStrings.emailAddress)),
-          SizedBox(height: AppSizes.spaceBtwInputFields),
+          TextFormField(decoration: const InputDecoration(labelText: AppStrings.emailAddress)),
+          const SizedBox(height: AppSizes.spaceBtwInputFields),
 
           // Sign up button
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
               onPressed: () {},
-              child: Text(AppStrings.sendCode),
+              child: const Text(AppStrings.sendCode),
             ),
           ),
         ],

@@ -102,11 +102,9 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     PaymentOptionsRoute.name: (routeData) {
-      final args = routeData.argsAs<PaymentOptionsRouteArgs>(
-          orElse: () => const PaymentOptionsRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: PaymentOptionsScreen(key: args.key),
+        child: const PaymentOptionsScreen(),
       );
     },
     PrivateChatRoute.name: (routeData) {
@@ -158,19 +156,15 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     ShippingAddressRoute.name: (routeData) {
-      final args = routeData.argsAs<ShippingAddressRouteArgs>(
-          orElse: () => const ShippingAddressRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: ShippingAddressScreen(key: args.key),
+        child: const ShippingAddressScreen(),
       );
     },
     ShippingTypeRoute.name: (routeData) {
-      final args = routeData.argsAs<ShippingTypeRouteArgs>(
-          orElse: () => const ShippingTypeRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: ShippingTypeScreen(key: args.key),
+        child: const ShippingTypeScreen(),
       );
     },
     SignInRoute.name: (routeData) {
@@ -407,31 +401,16 @@ class OnBoardingRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [PaymentOptionsScreen]
-class PaymentOptionsRoute extends PageRouteInfo<PaymentOptionsRouteArgs> {
-  PaymentOptionsRoute({
-    Key? key,
-    List<PageRouteInfo>? children,
-  }) : super(
+class PaymentOptionsRoute extends PageRouteInfo<void> {
+  const PaymentOptionsRoute({List<PageRouteInfo>? children})
+      : super(
           PaymentOptionsRoute.name,
-          args: PaymentOptionsRouteArgs(key: key),
           initialChildren: children,
         );
 
   static const String name = 'PaymentOptionsRoute';
 
-  static const PageInfo<PaymentOptionsRouteArgs> page =
-      PageInfo<PaymentOptionsRouteArgs>(name);
-}
-
-class PaymentOptionsRouteArgs {
-  const PaymentOptionsRouteArgs({this.key});
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'PaymentOptionsRouteArgs{key: $key}';
-  }
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -591,60 +570,30 @@ class SettingsRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [ShippingAddressScreen]
-class ShippingAddressRoute extends PageRouteInfo<ShippingAddressRouteArgs> {
-  ShippingAddressRoute({
-    Key? key,
-    List<PageRouteInfo>? children,
-  }) : super(
+class ShippingAddressRoute extends PageRouteInfo<void> {
+  const ShippingAddressRoute({List<PageRouteInfo>? children})
+      : super(
           ShippingAddressRoute.name,
-          args: ShippingAddressRouteArgs(key: key),
           initialChildren: children,
         );
 
   static const String name = 'ShippingAddressRoute';
 
-  static const PageInfo<ShippingAddressRouteArgs> page =
-      PageInfo<ShippingAddressRouteArgs>(name);
-}
-
-class ShippingAddressRouteArgs {
-  const ShippingAddressRouteArgs({this.key});
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'ShippingAddressRouteArgs{key: $key}';
-  }
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
 /// [ShippingTypeScreen]
-class ShippingTypeRoute extends PageRouteInfo<ShippingTypeRouteArgs> {
-  ShippingTypeRoute({
-    Key? key,
-    List<PageRouteInfo>? children,
-  }) : super(
+class ShippingTypeRoute extends PageRouteInfo<void> {
+  const ShippingTypeRoute({List<PageRouteInfo>? children})
+      : super(
           ShippingTypeRoute.name,
-          args: ShippingTypeRouteArgs(key: key),
           initialChildren: children,
         );
 
   static const String name = 'ShippingTypeRoute';
 
-  static const PageInfo<ShippingTypeRouteArgs> page =
-      PageInfo<ShippingTypeRouteArgs>(name);
-}
-
-class ShippingTypeRouteArgs {
-  const ShippingTypeRouteArgs({this.key});
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'ShippingTypeRouteArgs{key: $key}';
-  }
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

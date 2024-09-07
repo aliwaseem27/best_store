@@ -17,7 +17,7 @@ class DeleteProductSliderAction extends StatelessWidget {
       child: GestureDetector(
         onTap: onTap,
         child: Container(
-          margin: EdgeInsets.only(left: AppSizes.md),
+          margin: const EdgeInsets.only(left: AppSizes.md),
           height: double.infinity,
           decoration: BoxDecoration(
             color: Colors.red.shade50,

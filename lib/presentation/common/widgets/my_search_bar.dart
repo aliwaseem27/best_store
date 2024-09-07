@@ -15,7 +15,7 @@ class MySearchBar extends StatelessWidget {
       children: [
         Expanded(
           child: TextFormField(
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               filled: true,
               fillColor: AppColors.secondaryColor,
               hintText: "Search for products",
@@ -25,7 +25,7 @@ class MySearchBar extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(width: AppSizes.spaceBtwItems),
+        const SizedBox(width: AppSizes.spaceBtwItems),
         Container(
           height: 56,
           decoration: BoxDecoration(
@@ -35,7 +35,7 @@ class MySearchBar extends StatelessWidget {
           child: IconButton(
             color: Colors.white,
             onPressed: () {},
-            icon: Icon(FontAwesomeIcons.sliders),
+            icon: const Icon(FontAwesomeIcons.sliders),
           ),
         ),
       ],

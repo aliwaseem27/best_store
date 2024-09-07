@@ -16,7 +16,7 @@ class SignInScreenHeaderText extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(AppStrings.signIn, style: Theme.of(context).textTheme.headlineMedium),
-          SizedBox(height: AppSizes.spaceBtwItems),
+          const SizedBox(height: AppSizes.spaceBtwItems),
           SizedBox(
             width: MediaQuery.of(context).size.width * 0.7,
             child: Text(

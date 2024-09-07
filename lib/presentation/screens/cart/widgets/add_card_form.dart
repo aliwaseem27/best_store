@@ -14,30 +14,30 @@ class CardForm extends StatelessWidget {
       child: Column(
         children: [
           TextFormField(
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: AppStrings.cardHolderName,
             ),
           ),
-          SizedBox(height: AppSizes.spaceBtwInputFields),
+          const SizedBox(height: AppSizes.spaceBtwInputFields),
           TextFormField(
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: AppStrings.cardNumber,
             ),
           ),
-          SizedBox(height: AppSizes.spaceBtwInputFields),
+          const SizedBox(height: AppSizes.spaceBtwInputFields),
           Row(
             children: [
               Expanded(
                 child: TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: AppStrings.expirayDate,
                   ),
                 ),
               ),
-              SizedBox(width: AppSizes.spaceBtwInputFields),
+              const SizedBox(width: AppSizes.spaceBtwInputFields),
               Expanded(
                 child: TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: AppStrings.cvvCode,
                   ),
                 ),

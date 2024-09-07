@@ -11,12 +11,12 @@ class TotalPriceGroup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(AppSizes.defaultSpace),
+      padding: const EdgeInsets.all(AppSizes.defaultSpace),
       decoration: BoxDecoration(
         color: AppColors.secondaryColor,
         borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg),
       ),
-      child: Row(
+      child: const Row(
         children: [
           Expanded(
             flex: 3,

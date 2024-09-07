@@ -32,14 +32,14 @@ class ProductDetailsScreen extends StatelessWidget {
                 backgroundColor: AppColors.secondaryColor,
                 child: IconButton(
                   color: AppColors.neutralDarkColor,
-                  icon: Icon(
+                  icon: const Icon(
                     FontAwesomeIcons.arrowLeft,
                     size: 16,
                   ),
                   onPressed: () => context.router.maybePop(),
                 ),
               ),
-              Text("Product Details"),
+              const Text("Product Details"),
               CircleAvatar(
                 backgroundColor: AppColors.secondaryColor,
                 child: Consumer(
@@ -47,7 +47,7 @@ class ProductDetailsScreen extends StatelessWidget {
                     final isProductInWishList = ref.watch(wishListProductsProvider).products.contains(product);
                     return IconButton(
                       color: isProductInWishList ? Colors.red : AppColors.neutralColor,
-                      icon: Icon(Icons.favorite),
+                      icon: const Icon(Icons.favorite),
                       onPressed: () => ref.read(wishListProductsProvider.notifier).toggleProductInWishList(product),
                     );
                   },
@@ -60,7 +60,7 @@ class ProductDetailsScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: AppSizes.defaultSpace),
+        padding: const EdgeInsets.symmetric(horizontal: AppSizes.defaultSpace),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,7 +71,7 @@ class ProductDetailsScreen extends StatelessWidget {
                 child: AspectRatio(
                   aspectRatio: 1,
                   child: Container(
-                    margin: EdgeInsets.only(bottom: AppSizes.defaultSpace, top: AppSizes.defaultSpace),
+                    margin: const EdgeInsets.only(bottom: AppSizes.defaultSpace, top: AppSizes.defaultSpace),
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: NetworkImage(product.images[0]),
@@ -102,7 +102,7 @@ class ProductDetailsScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Row(
+                  const Row(
                     children: [
                       Icon(Icons.star, color: Colors.amberAccent, size: 16),
                       Text("5.0"),
@@ -110,7 +110,7 @@ class ProductDetailsScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: AppSizes.spaceBtwSections),
+              const SizedBox(height: AppSizes.spaceBtwSections),
 
               // More Details about Product
               Column(
@@ -125,11 +125,11 @@ class ProductDetailsScreen extends StatelessWidget {
                     trimLines: 3,
                     trimMode: TrimMode.Line,
                     colorClickableText: AppColors.primaryColor,
-                    style: TextStyle(color: AppColors.neutralColor),
+                    style: const TextStyle(color: AppColors.neutralColor),
                   ),
                 ],
               ),
-              SizedBox(height: AppSizes.spaceBtwSections),
+              const SizedBox(height: AppSizes.spaceBtwSections),
 
               // Choose Color
               AttributesList(
@@ -137,7 +137,7 @@ class ProductDetailsScreen extends StatelessWidget {
                 title: 'Choose Color',
                 selectedIndex: 1,
               ),
-              SizedBox(height: AppSizes.spaceBtwSections),
+              const SizedBox(height: AppSizes.spaceBtwSections),
 
               // Select Size
               AttributesList(
@@ -145,7 +145,7 @@ class ProductDetailsScreen extends StatelessWidget {
                 title: 'Select Size',
                 selectedIndex: 0,
               ),
-              SizedBox(height: AppSizes.spaceBtwSections),
+              const SizedBox(height: AppSizes.spaceBtwSections),
 
               // Ratings & Reviews
               Column(
@@ -161,7 +161,7 @@ class ProductDetailsScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: AppSizes.spaceBtwSections),
+              const SizedBox(height: AppSizes.spaceBtwSections),
 
               // Write a Review
 

@@ -31,16 +31,16 @@ class OTPForm extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: AppSizes.spaceBtwInputFields),
+          const SizedBox(height: AppSizes.spaceBtwInputFields),
           Text("Resend Code in 20 seconds", style: Theme.of(context).textTheme.bodyMedium),
-          SizedBox(height: AppSizes.spaceBtwSections),
+          const SizedBox(height: AppSizes.spaceBtwSections),
 
           // Sign up button
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
               onPressed: () {},
-              child: Text(AppStrings.verify),
+              child: const Text(AppStrings.verify),
             ),
           ),
         ],

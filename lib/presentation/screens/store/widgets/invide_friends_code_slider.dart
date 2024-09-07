@@ -19,7 +19,7 @@ class InviteFriendsCodeSlider extends StatelessWidget {
         return Card(
           color: AppColors.secondaryColor,
           child: Container(
-            padding: EdgeInsets.all(AppSizes.defaultSpace),
+            padding: const EdgeInsets.all(AppSizes.defaultSpace),
             // margin: EdgeInsets.symmetric(horizontal: AppSizes.sm),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
@@ -44,7 +44,7 @@ class InviteFriendsCodeSlider extends StatelessWidget {
                         "Share this code with friends and Family members to get more offers.",
                         style: Theme.of(context).textTheme.bodyMedium?.apply(color: AppColors.neutralColor),
                       ),
-                      SizedBox(height: AppSizes.spaceBtwItems),
+                      const SizedBox(height: AppSizes.spaceBtwItems),
                       Text(
                         "Share this code:",
                         style: Theme.of(context).textTheme.bodyMedium?.apply(color: AppColors.neutralColor),
@@ -52,7 +52,7 @@ class InviteFriendsCodeSlider extends StatelessWidget {
                       SizedBox(
                         height: 40,
                         child: TextFormField(
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             fillColor: Colors.white,
                             filled: true,
                             hintText: "N2X1Y",
@@ -60,7 +60,7 @@ class InviteFriendsCodeSlider extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height: AppSizes.spaceBtwItems),
+                      const SizedBox(height: AppSizes.spaceBtwItems),
                       Row(
                         children: [
                           Expanded(
@@ -69,20 +69,20 @@ class InviteFriendsCodeSlider extends StatelessWidget {
                               child: ElevatedButton(
                                 onPressed: () {},
                                 style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
-                                child: Text(
+                                child: const Text(
                                   "Invite",
                                   style: TextStyle(color: Colors.black),
                                 ),
                               ),
                             ),
                           ),
-                          SizedBox(width: AppSizes.spaceBtwItems),
+                          const SizedBox(width: AppSizes.spaceBtwItems),
                           Expanded(
                             child: SizedBox(
                               height: 40,
                               child: ElevatedButton(
                                 onPressed: () {},
-                                child: Text("Details"),
+                                child: const Text("Details"),
                               ),
                             ),
                           ),

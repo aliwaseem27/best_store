@@ -44,7 +44,7 @@ class CreditCardWidget extends StatelessWidget {
             ),
           ),
           Container(
-            padding: EdgeInsets.all(AppSizes.defaultSpace),
+            padding: const EdgeInsets.all(AppSizes.defaultSpace),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -67,7 +67,7 @@ class CreditCardWidget extends StatelessWidget {
                   ],
                 ),
 
-                SizedBox(height: AppSizes.spaceBtwSections),
+                const SizedBox(height: AppSizes.spaceBtwSections),
 
                 // Card Number
                 Text(
@@ -78,7 +78,7 @@ class CreditCardWidget extends StatelessWidget {
                       ),
                 ),
 
-                SizedBox(height: AppSizes.spaceBtwItems),
+                const SizedBox(height: AppSizes.spaceBtwItems),
 
                 // Holder Info
                 Row(

@@ -1,11 +1,9 @@
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:best_store/presentation/screens/cart/widgets/total_price_group.dart';
 import 'package:best_store/presentation/screens/core/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../../utils/constants/app_colors.dart';
 import '../../../utils/constants/app_sizes.dart';
 import '../../../utils/constants/image_strings.dart';
 import 'widgets/checkout_info_tile.dart';
@@ -37,7 +35,7 @@ class CheckoutScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Checkout"),
+        title: const Text("Checkout"),
         centerTitle: true,
         surfaceTintColor: Colors.white,
       ),
@@ -52,7 +50,7 @@ class CheckoutScreen extends StatelessWidget {
                 "Order List",
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: AppSizes.spaceBtwItems),
+              const SizedBox(height: AppSizes.spaceBtwItems),
               ListView.separated(
                 key: UniqueKey(),
                 physics: const NeverScrollableScrollPhysics(),
@@ -66,17 +64,17 @@ class CheckoutScreen extends StatelessWidget {
                   );
                 },
                 separatorBuilder: (context, index) {
-                  return SizedBox(height: AppSizes.sm);
+                  return const SizedBox(height: AppSizes.sm);
                 },
               ),
 
-              SizedBox(height: AppSizes.spaceBtwSections),
+              const SizedBox(height: AppSizes.spaceBtwSections),
               // Shipping address
               Text(
                 "Shipping Address",
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: AppSizes.spaceBtwItems),
+              const SizedBox(height: AppSizes.spaceBtwItems),
               CheckoutInfoTile(
                 title: "Home",
                 subtitle: "Lorem Ipsum is simply",
@@ -85,12 +83,12 @@ class CheckoutScreen extends StatelessWidget {
               ),
 
               // Payment method
-              SizedBox(height: AppSizes.spaceBtwSections),
+              const SizedBox(height: AppSizes.spaceBtwSections),
               Text(
                 "Payment Method",
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: AppSizes.spaceBtwItems),
+              const SizedBox(height: AppSizes.spaceBtwItems),
               CheckoutInfoTile(
                 title: "Cash On Delivery",
                 subtitle: "Lorem Ipsum is simply",
@@ -99,12 +97,12 @@ class CheckoutScreen extends StatelessWidget {
               ),
 
               // Shipping Type
-              SizedBox(height: AppSizes.spaceBtwSections),
+              const SizedBox(height: AppSizes.spaceBtwSections),
               Text(
                 "Shipping Type",
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: AppSizes.spaceBtwItems),
+              const SizedBox(height: AppSizes.spaceBtwItems),
               CheckoutInfoTile(
                 title: "Standard",
                 subtitle: "Lorem Ipsum is simply",
@@ -113,19 +111,19 @@ class CheckoutScreen extends StatelessWidget {
               ),
 
               // Total Price Group
-              SizedBox(height: AppSizes.spaceBtwSections),
-              TotalPriceGroup(),
+              const SizedBox(height: AppSizes.spaceBtwSections),
+              const TotalPriceGroup(),
 
               // Continue to Payment button
-              SizedBox(height: AppSizes.spaceBtwSections),
+              const SizedBox(height: AppSizes.spaceBtwSections),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {},
-                  child: Text("Continue to Payment"),
+                  child: const Text("Continue to Payment"),
                 ),
               ),
-              SizedBox(height: AppSizes.spaceBtwSections),
+              const SizedBox(height: AppSizes.spaceBtwSections),
             ],
           ),
         ),

@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:best_store/utils/endpoints.dart';
 import 'package:http/http.dart' as http;
 
 class NetworkService {

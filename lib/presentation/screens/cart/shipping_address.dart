@@ -7,7 +7,7 @@ import 'widgets/shipping_address_tile.dart';
 
 @RoutePage()
 class ShippingAddressScreen extends StatefulWidget {
-  ShippingAddressScreen({super.key});
+  const ShippingAddressScreen({super.key});
 
   @override
   State<ShippingAddressScreen> createState() => _ShippingAddressScreenState();
@@ -35,7 +35,7 @@ class _ShippingAddressScreenState extends State<ShippingAddressScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Shipping Address"),
+        title: const Text("Shipping Address"),
         centerTitle: true,
         surfaceTintColor: Colors.transparent,
         scrolledUnderElevation: 0,
@@ -55,7 +55,7 @@ class _ShippingAddressScreenState extends State<ShippingAddressScreen> {
                       "Shipping Address",
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: AppSizes.spaceBtwItems),
+                    const SizedBox(height: AppSizes.spaceBtwItems),
 
                     // Choose Shipping address
                     ListView.separated(
@@ -80,7 +80,7 @@ class _ShippingAddressScreenState extends State<ShippingAddressScreen> {
                       },
                     ),
 
-                    SizedBox(height: AppSizes.spaceBtwSections),
+                    const SizedBox(height: AppSizes.spaceBtwSections),
                     // Add New Address Button
                     GestureDetector(
                       onTap: () {},
@@ -90,7 +90,7 @@ class _ShippingAddressScreenState extends State<ShippingAddressScreen> {
                         decoration: BoxDecoration(
                             color: AppColors.secondaryColor,
                             borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg)),
-                        child: Row(
+                        child: const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(Icons.add),
@@ -104,7 +104,7 @@ class _ShippingAddressScreenState extends State<ShippingAddressScreen> {
                 ),
               ),
             ),
-            SizedBox(height: AppSizes.spaceBtwSections),
+            const SizedBox(height: AppSizes.spaceBtwSections),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(

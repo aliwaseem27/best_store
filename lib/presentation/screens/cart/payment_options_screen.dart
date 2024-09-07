@@ -8,7 +8,7 @@ import 'widgets/shipping_address_tile.dart';
 
 @RoutePage()
 class PaymentOptionsScreen extends StatefulWidget {
-  PaymentOptionsScreen({super.key});
+  const PaymentOptionsScreen({super.key});
 
   @override
   State<PaymentOptionsScreen> createState() => _PaymentOptionsScreenState();
@@ -39,7 +39,7 @@ class _PaymentOptionsScreenState extends State<PaymentOptionsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Payment Method"),
+        title: const Text("Payment Method"),
         centerTitle: true,
         surfaceTintColor: Colors.transparent,
         scrolledUnderElevation: 0,
@@ -59,7 +59,7 @@ class _PaymentOptionsScreenState extends State<PaymentOptionsScreen> {
                       "Payment Option",
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: AppSizes.spaceBtwItems),
+                    const SizedBox(height: AppSizes.spaceBtwItems),
 
                     // Choose Shipping address
                     ListView.separated(
@@ -84,7 +84,7 @@ class _PaymentOptionsScreenState extends State<PaymentOptionsScreen> {
                       },
                     ),
 
-                    SizedBox(height: AppSizes.spaceBtwSections),
+                    const SizedBox(height: AppSizes.spaceBtwSections),
                     // Add New Address Button
                     GestureDetector(
                       onTap: () {},
@@ -94,7 +94,7 @@ class _PaymentOptionsScreenState extends State<PaymentOptionsScreen> {
                         decoration: BoxDecoration(
                             color: AppColors.secondaryColor,
                             borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg)),
-                        child: Row(
+                        child: const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(Icons.add),
@@ -108,7 +108,7 @@ class _PaymentOptionsScreenState extends State<PaymentOptionsScreen> {
                 ),
               ),
             ),
-            SizedBox(height: AppSizes.spaceBtwSections),
+            const SizedBox(height: AppSizes.spaceBtwSections),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(

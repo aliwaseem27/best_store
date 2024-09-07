@@ -66,11 +66,11 @@ class NotificationScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Notification"),
+        title: const Text("Notification"),
         centerTitle: true,
       ),
       body: Padding(
-        padding: EdgeInsets.all(AppSizes.defaultSpace),
+        padding: const EdgeInsets.all(AppSizes.defaultSpace),
         child: SingleChildScrollView(
           child: ListView.separated(
             shrinkWrap: true,
@@ -86,7 +86,7 @@ class NotificationScreen extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: AppSizes.spaceBtwItems,
                   ),
 
@@ -102,13 +102,13 @@ class NotificationScreen extends StatelessWidget {
                         icon: notifications[index]["notifications"][subIndex]["icon"],
                       );
                     },
-                    separatorBuilder: (context, index) => SizedBox(height: AppSizes.spaceBtwItems),
+                    separatorBuilder: (context, index) => const SizedBox(height: AppSizes.spaceBtwItems),
                     itemCount: notifications[index]["notifications"].length,
                   )
                 ],
               );
             },
-            separatorBuilder: (context, index) => SizedBox(height: AppSizes.spaceBtwSections),
+            separatorBuilder: (context, index) => const SizedBox(height: AppSizes.spaceBtwSections),
             itemCount: notifications.length,
           ),
         ),

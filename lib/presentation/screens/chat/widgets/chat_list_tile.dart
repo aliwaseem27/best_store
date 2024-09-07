@@ -52,15 +52,15 @@ class ChatListTile extends StatelessWidget {
           Container(
             height: 1,
             width: 1,
-            margin: EdgeInsets.only(left: AppSizes.spaceBtwSections),
+            margin: const EdgeInsets.only(left: AppSizes.spaceBtwSections),
           ),
           newMessages > 0
               ? Container(
                   padding: const EdgeInsets.all(AppSizes.sm),
-                  decoration: BoxDecoration(color: AppColors.primaryColor, shape: BoxShape.circle),
-                  child: Text("$newMessages", style: TextStyle(color: Colors.white)),
+                  decoration: const BoxDecoration(color: AppColors.primaryColor, shape: BoxShape.circle),
+                  child: Text("$newMessages", style: const TextStyle(color: Colors.white)),
                 )
-              : SizedBox(
+              : const SizedBox(
                   height: 24,
                 ),
           Text(time, style: Theme.of(context).textTheme.bodySmall?.apply(color: AppColors.neutralColor))

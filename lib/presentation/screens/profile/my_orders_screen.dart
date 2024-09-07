@@ -20,16 +20,16 @@ class MyOrdersScreen extends StatelessWidget {
         final tabsRouter = AutoTabsRouter.of(context);
         return Scaffold(
           appBar: AppBar(
-            title: Text("My Orders"),
+            title: const Text("My Orders"),
             centerTitle: true,
-            leading: AutoLeadingButton(),
+            leading: const AutoLeadingButton(),
             bottom: TabBar(
               controller: controller,
               indicatorColor: AppColors.primaryColor,
               indicatorSize: TabBarIndicatorSize.tab,
               indicatorWeight: 4,
-              padding: EdgeInsets.symmetric(horizontal: AppSizes.defaultSpace),
-              labelStyle: TextStyle(fontWeight: FontWeight.bold),
+              padding: const EdgeInsets.symmetric(horizontal: AppSizes.defaultSpace),
+              labelStyle: const TextStyle(fontWeight: FontWeight.bold),
               unselectedLabelColor: AppColors.neutralColor,
               tabs: const [
                 Tab(text: 'Active'),

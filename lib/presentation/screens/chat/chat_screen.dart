@@ -1,13 +1,9 @@
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:best_store/models/enums.dart';
 import 'package:best_store/presentation/common/widgets/my_search_bar.dart';
-import 'package:best_store/providers/products_provider.dart';
 import 'package:best_store/utils/constants/app_sizes.dart';
 import 'package:best_store/utils/constants/app_strings.dart';
 import 'package:best_store/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/app_router.dart';
 import 'widgets/chat_list_tile.dart';
@@ -51,8 +47,8 @@ class ChatScreen extends StatelessWidget {
           child: Column(
             children: [
               // Search Bar
-              MySearchBar(),
-              SizedBox(height: AppSizes.spaceBtwSections),
+              const MySearchBar(),
+              const SizedBox(height: AppSizes.spaceBtwSections),
 
               // Chats
               ListView.separated(
@@ -71,7 +67,7 @@ class ChatScreen extends StatelessWidget {
                   );
                 },
                 separatorBuilder: (context, index) {
-                  return SizedBox(height: AppSizes.spaceBtwItems);
+                  return const SizedBox(height: AppSizes.spaceBtwItems);
                 },
                 itemCount: chats.length,
               ),

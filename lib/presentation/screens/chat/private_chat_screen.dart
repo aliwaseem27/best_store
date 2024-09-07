@@ -64,11 +64,11 @@ class PrivateChatScreen extends StatelessWidget {
         centerTitle: true,
         actions: [
           Container(
-            margin: EdgeInsets.only(right: AppSizes.defaultSpace),
+            margin: const EdgeInsets.only(right: AppSizes.defaultSpace),
             child: CircleAvatar(
               backgroundColor: AppColors.secondaryColor,
               child: IconButton(
-                icon: Icon(Icons.more_vert),
+                icon: const Icon(Icons.more_vert),
                 onPressed: () {},
               ),
             ),
@@ -76,7 +76,7 @@ class PrivateChatScreen extends StatelessWidget {
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.all(AppSizes.defaultSpace),
+        padding: const EdgeInsets.all(AppSizes.defaultSpace),
         child: GestureDetector(
           onTap: () {
             FocusScope.of(context).unfocus();
@@ -94,7 +94,7 @@ class PrivateChatScreen extends StatelessWidget {
                       return ChatBubble(message: messages[index], personName: personName);
                     },
                     separatorBuilder: (context, index) {
-                      return SizedBox(height: AppSizes.spaceBtwItems);
+                      return const SizedBox(height: AppSizes.spaceBtwItems);
                     },
                     itemCount: messages.length,
                   ),
@@ -102,7 +102,7 @@ class PrivateChatScreen extends StatelessWidget {
               ),
 
               // Bottom Box
-              ChatInputField(),
+              const ChatInputField(),
             ],
           ),
         ),

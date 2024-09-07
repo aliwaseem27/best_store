@@ -20,7 +20,7 @@ class FilterListItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.all(AppSizes.sm),
+        padding: const EdgeInsets.all(AppSizes.sm),
         decoration: BoxDecoration(
           color: selected ? AppColors.primaryColor : AppColors.secondaryColor,
           borderRadius: BorderRadius.circular(AppSizes.borderRadiusSm),

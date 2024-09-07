@@ -11,7 +11,7 @@ class NavigationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AutoTabsRouter(
-      routes: [
+      routes: const [
         HomeRoute(),
         WishlistRoute(),
         CartRoute(),
@@ -30,7 +30,7 @@ class NavigationScreen extends StatelessWidget {
             child: Container(
               clipBehavior: Clip.hardEdge,
               height: 72,
-              margin: EdgeInsets.only(
+              margin: const EdgeInsets.only(
                   left: AppSizes.defaultSpace, right: AppSizes.defaultSpace, bottom: AppSizes.defaultSpace),
               decoration: BoxDecoration(
                   color: Colors.red,
@@ -53,7 +53,7 @@ class NavigationScreen extends StatelessWidget {
                 type: BottomNavigationBarType.fixed,
                 currentIndex: tabsRouter.activeIndex,
                 onTap: (index) => tabsRouter.setActiveIndex(index),
-                items: [
+                items: const [
                   BottomNavigationBarItem(
                     icon: Icon(Icons.home_filled),
                     label: "Home",

@@ -14,7 +14,7 @@ class PromoCodeInputField extends StatelessWidget {
       alignment: Alignment.center,
       children: [
         TextFormField(
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             filled: true,
             fillColor: AppColors.secondaryColor,
             hintText: "Promo Code",
@@ -27,7 +27,7 @@ class PromoCodeInputField extends StatelessWidget {
             height: 40,
             child: ElevatedButton(
               onPressed: () {},
-              child: Text("Apply"),
+              child: const Text("Apply"),
             ),
           ),
         ),

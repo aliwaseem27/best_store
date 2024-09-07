@@ -21,8 +21,8 @@ class ProfileListTile extends StatelessWidget {
       onTap: onTap,
       child: Container(
         color: AppColors.secondaryColor,
-        padding: EdgeInsets.all(AppSizes.defaultSpace),
-        margin: EdgeInsets.only(bottom: AppSizes.spaceBtwItems),
+        padding: const EdgeInsets.all(AppSizes.defaultSpace),
+        margin: const EdgeInsets.only(bottom: AppSizes.spaceBtwItems),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -30,7 +30,7 @@ class ProfileListTile extends StatelessWidget {
               children: [
                 // Leading Icon
                 Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: AppColors.primaryColor,
                   ),
@@ -41,7 +41,7 @@ class ProfileListTile extends StatelessWidget {
                     size: 16,
                   ),
                 ),
-                SizedBox(width: AppSizes.spaceBtwItems),
+                const SizedBox(width: AppSizes.spaceBtwItems),
 
                 // Title Text
                 Text(

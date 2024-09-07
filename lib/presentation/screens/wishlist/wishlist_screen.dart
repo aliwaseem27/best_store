@@ -1,6 +1,5 @@
 import 'package:auto_route/annotations.dart';
 import 'package:best_store/presentation/common/widgets/grid_layout_four_elements.dart';
-import 'package:best_store/presentation/screens/store/widgets/product_vertical_card.dart';
 import 'package:best_store/providers/products_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -16,7 +15,7 @@ class WishlistScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Wishlist"),
+          title: const Text("Wishlist"),
         ),
         body: Padding(
           padding: const EdgeInsets.only(

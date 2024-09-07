@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:best_store/models/enums.dart';
 import 'package:best_store/models/product_model.dart';
 import 'package:best_store/presentation/screens/core/app_router.dart';
 import 'package:best_store/providers/products_provider.dart';
@@ -22,7 +21,7 @@ class ProductVerticalCard extends StatelessWidget {
     return GestureDetector(
       onTap: () => context.router.push(ProductDetailsRoute(product: product)),
       child: Container(
-        padding: EdgeInsets.all(AppSizes.md),
+        padding: const EdgeInsets.all(AppSizes.md),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
           color: AppColors.secondaryColor,

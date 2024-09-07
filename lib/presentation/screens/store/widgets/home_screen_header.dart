@@ -21,18 +21,18 @@ class HomeScreenHeader extends StatelessWidget {
           onTap: () {},
           child: Row(
             children: [
-              Icon(
+              const Icon(
                 FontAwesomeIcons.locationDot,
                 color: AppColors.primaryColor,
                 size: 16,
               ),
-              SizedBox(width: AppSizes.sm),
+              const SizedBox(width: AppSizes.sm),
               Text(
                 "New York, USA",
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
               ),
-              SizedBox(width: AppSizes.sm),
-              Icon(CupertinoIcons.chevron_down, size: 16),
+              const SizedBox(width: AppSizes.sm),
+              const Icon(CupertinoIcons.chevron_down, size: 16),
             ],
           ),
         ),

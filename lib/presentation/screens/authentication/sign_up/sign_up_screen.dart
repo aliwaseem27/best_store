@@ -18,8 +18,8 @@ class SignUpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Padding(
-        padding: const EdgeInsets.all(AppSizes.defaultSpace),
+      body: const Padding(
+        padding: EdgeInsets.all(AppSizes.defaultSpace),
         child: IntrinsicHeightScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -27,12 +27,12 @@ class SignUpScreen extends StatelessWidget {
               Column(
                 children: [
                   // Sign Up Screen Header text
-                  const SignUpScreenHeaderText(),
+                  SignUpScreenHeaderText(),
 
                   SizedBox(height: AppSizes.spaceBtwSections),
 
                   // Sign up form
-                  const SignUpForm(),
+                  SignUpForm(),
 
                   SizedBox(height: AppSizes.spaceBtwSections),
 
@@ -47,7 +47,7 @@ class SignUpScreen extends StatelessWidget {
               ),
 
               // sign in screen link
-              const HaveAnAccountAction(),
+              HaveAnAccountAction(),
             ],
           ),
         ),

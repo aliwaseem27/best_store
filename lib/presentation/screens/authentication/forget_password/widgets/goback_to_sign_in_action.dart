@@ -11,10 +11,10 @@ class GoBackToSignInAction extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(AppStrings.goBackTo),
+        const Text(AppStrings.goBackTo),
         TextButton(
           onPressed: () {},
-          child: Text(AppStrings.signIn),
+          child: const Text(AppStrings.signIn),
         ),
       ],
     );

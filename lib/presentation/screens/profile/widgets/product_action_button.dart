@@ -21,13 +21,13 @@ class ProductActionButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(AppSizes.borderRadiusSm),
         ),
       ),
+      onPressed: onPressed,
       child: FittedBox(
         fit: BoxFit.scaleDown,
         child: Text(
           buttonText,
         ),
       ),
-      onPressed: onPressed,
     );
   }
 }

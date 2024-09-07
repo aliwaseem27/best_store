@@ -17,7 +17,7 @@ class FiltersList extends StatelessWidget {
       height: 34,
       child: ListView.separated(
         separatorBuilder: (context, index) {
-          return SizedBox(width: AppSizes.sm);
+          return const SizedBox(width: AppSizes.sm);
         },
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,

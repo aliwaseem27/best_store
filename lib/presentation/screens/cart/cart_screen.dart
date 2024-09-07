@@ -1,17 +1,12 @@
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:best_store/presentation/common/widgets/horizontal_product_tile.dart';
 import 'package:best_store/presentation/screens/core/app_router.dart';
 import 'package:best_store/utils/constants/image_strings.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
-import '../../../utils/constants/app_colors.dart';
 import '../../../utils/constants/app_sizes.dart';
 import 'widgets/delete_product_slider_action.dart';
-import 'widgets/horizontal_product_card.dart';
 import 'widgets/promo_code_input_field.dart';
 import 'widgets/quantity_controller_button.dart';
 import 'widgets/total_price_group.dart';
@@ -88,7 +83,7 @@ class _CartScreenState extends State<CartScreen> {
                         key: UniqueKey(),
                         endActionPane: ActionPane(
                           extentRatio: 0.2,
-                          motion: ScrollMotion(),
+                          motion: const ScrollMotion(),
                           dismissible: DismissiblePane(
                             closeOnCancel: true,
                             onDismissed: () {
@@ -115,7 +110,7 @@ class _CartScreenState extends State<CartScreen> {
                           productName: products[index]["name"]!,
                           productImage: products[index]["image"]!,
                           productCategory: products[index]["category"]!,
-                          actionWidget: SizedBox(
+                          actionWidget: const SizedBox(
                             height: 32,
                             child: QuantityControllerButton(),
                           ),
@@ -123,19 +118,19 @@ class _CartScreenState extends State<CartScreen> {
                       );
                     },
                     separatorBuilder: (context, index) {
-                      return SizedBox(height: AppSizes.sm);
+                      return const SizedBox(height: AppSizes.sm);
                     },
                   ),
 
-                  SizedBox(height: AppSizes.spaceBtwSections),
+                  const SizedBox(height: AppSizes.spaceBtwSections),
                   // Promo Code
-                  PromoCodeInputField(),
+                  const PromoCodeInputField(),
 
-                  SizedBox(height: AppSizes.spaceBtwSections),
+                  const SizedBox(height: AppSizes.spaceBtwSections),
                   // Total Price
-                  TotalPriceGroup(),
+                  const TotalPriceGroup(),
 
-                  SizedBox(height: AppSizes.spaceBtwSections),
+                  const SizedBox(height: AppSizes.spaceBtwSections),
                   // Checkout Button
                   SizedBox(
                     width: double.infinity,
@@ -144,7 +139,7 @@ class _CartScreenState extends State<CartScreen> {
                       child: const Text("Checkout"),
                     ),
                   ),
-                  SizedBox(height: AppSizes.spaceBtwSections),
+                  const SizedBox(height: AppSizes.spaceBtwSections),
                 ],
               ),
             ),

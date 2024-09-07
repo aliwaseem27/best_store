@@ -26,7 +26,7 @@ class CheckoutInfoTile extends StatelessWidget {
           color: AppColors.secondaryColor,
           borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg),
         ),
-        padding: EdgeInsets.all(AppSizes.defaultSpace),
+        padding: const EdgeInsets.all(AppSizes.defaultSpace),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -34,7 +34,7 @@ class CheckoutInfoTile extends StatelessWidget {
               children: [
                 // Leading Icon
                 Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: AppColors.primaryColor,
                   ),
@@ -45,7 +45,7 @@ class CheckoutInfoTile extends StatelessWidget {
                     size: 16,
                   ),
                 ),
-                SizedBox(width: AppSizes.spaceBtwItems),
+                const SizedBox(width: AppSizes.spaceBtwItems),
 
                 // Title Text
                 Column(

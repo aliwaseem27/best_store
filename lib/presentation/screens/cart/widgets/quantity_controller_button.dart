@@ -16,26 +16,26 @@ class QuantityControllerButton extends StatelessWidget {
         GestureDetector(
           onTap: () {},
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.white,
               shape: BoxShape.circle,
             ),
-            child: Icon(
+            child: const Icon(
               Icons.remove,
             ),
           ),
         ),
-        SizedBox(width: AppSizes.spaceBtwItems),
+        const SizedBox(width: AppSizes.spaceBtwItems),
         const Text("1"),
-        SizedBox(width: AppSizes.spaceBtwItems),
+        const SizedBox(width: AppSizes.spaceBtwItems),
         GestureDetector(
           onTap: () {},
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: AppColors.primaryColor,
               shape: BoxShape.circle,
             ),
-            child: Icon(
+            child: const Icon(
               Icons.add,
               color: Colors.white,
             ),

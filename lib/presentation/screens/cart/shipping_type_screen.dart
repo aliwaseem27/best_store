@@ -8,7 +8,7 @@ import 'widgets/shipping_address_tile.dart';
 
 @RoutePage()
 class ShippingTypeScreen extends StatefulWidget {
-  ShippingTypeScreen({super.key});
+  const ShippingTypeScreen({super.key});
 
   @override
   State<ShippingTypeScreen> createState() => _ShippingTypeScreenState();
@@ -39,7 +39,7 @@ class _ShippingTypeScreenState extends State<ShippingTypeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Choose Shipping"),
+        title: const Text("Choose Shipping"),
         centerTitle: true,
         surfaceTintColor: Colors.transparent,
         scrolledUnderElevation: 0,
@@ -59,7 +59,7 @@ class _ShippingTypeScreenState extends State<ShippingTypeScreen> {
                       "Shipping Type",
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: AppSizes.spaceBtwItems),
+                    const SizedBox(height: AppSizes.spaceBtwItems),
 
                     // Choose Shipping address
                     ListView.separated(
@@ -84,7 +84,7 @@ class _ShippingTypeScreenState extends State<ShippingTypeScreen> {
                       },
                     ),
 
-                    SizedBox(height: AppSizes.spaceBtwSections),
+                    const SizedBox(height: AppSizes.spaceBtwSections),
                     // Add New Address Button
                     GestureDetector(
                       onTap: () {},
@@ -94,7 +94,7 @@ class _ShippingTypeScreenState extends State<ShippingTypeScreen> {
                         decoration: BoxDecoration(
                             color: AppColors.secondaryColor,
                             borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg)),
-                        child: Row(
+                        child: const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(Icons.add),
@@ -108,7 +108,7 @@ class _ShippingTypeScreenState extends State<ShippingTypeScreen> {
                 ),
               ),
             ),
-            SizedBox(height: AppSizes.spaceBtwSections),
+            const SizedBox(height: AppSizes.spaceBtwSections),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(

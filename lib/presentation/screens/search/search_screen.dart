@@ -17,10 +17,10 @@ class SearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Search Screen"),
+        title: const Text("Search Screen"),
       ),
       body: Padding(
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         child: SingleChildScrollView(
           child: Consumer(
             builder: (context, ref, child) {

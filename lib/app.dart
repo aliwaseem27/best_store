@@ -1,5 +1,4 @@
 import 'package:device_preview/device_preview.dart';
-import 'package:best_store/presentation/screens/authentication/otp/otp_screen.dart';
 import 'package:best_store/presentation/screens/core/app_router.dart';
 import 'package:best_store/utils/themes/theme.dart';
 import 'package:flutter/material.dart';

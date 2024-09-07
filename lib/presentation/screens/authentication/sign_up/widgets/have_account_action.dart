@@ -13,10 +13,10 @@ class HaveAnAccountAction extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(AppStrings.alreadyHaveAnAccount),
+        const Text(AppStrings.alreadyHaveAnAccount),
         TextButton(
           onPressed: () {},
-          child: Text(AppStrings.signIn),
+          child: const Text(AppStrings.signIn),
         ),
       ],
     );
