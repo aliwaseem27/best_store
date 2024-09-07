@@ -1,3 +1,4 @@
+import 'package:best_store/riverpod_observer.dart';
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -10,6 +11,7 @@ void main() {
       // enabled: !kReleaseMode,
       enabled: false,
       builder: (context) => ProviderScope(
+        observers: [RiverpodObserver()],
         child: MyApp(),
       ),
     ),

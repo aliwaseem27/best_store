@@ -42,12 +42,9 @@ class ProductsRepository {
 
   Future<ProductListInfo> getProductsByCategory(ProductCategory category) async {
     final url = '${Endpoints.products}/category/${category.toJson()}';
-    print (url);
     final res = await networkService.getRequest(url);
     final json = jsonDecode(res.body);
     final productListInfo = ProductListInfo.fromJson(json);
-    print("------------------------");
-    print(productListInfo);
     return productListInfo;
   }
 

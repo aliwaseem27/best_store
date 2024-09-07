@@ -3,6 +3,7 @@ import 'package:best_store/models/enums.dart';
 import 'package:best_store/providers/products_provider.dart';
 import 'package:best_store/repositories/carts_repository.dart';
 import 'package:best_store/repositories/products_repository.dart';
+import 'package:best_store/utils/constants/app_configs.dart';
 import 'package:best_store/utils/constants/app_sizes.dart';
 import 'package:best_store/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
@@ -25,17 +26,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, dynamic>> categories = [
-      {"title": "Sports", "image": ImageStrings.sportIcon, "category": ProductCategory.SPORTS_ACCESSORIES},
-      {"title": "Clothing", "image": ImageStrings.clothIcon, "category": ProductCategory.MENS_SHIRTS},
-      {"title": "Shoes", "image": ImageStrings.shoeIcon, "category": ProductCategory.WOMENS_SHOES},
-      {"title": "Cosmetics", "image": ImageStrings.cosmeticsIcon},
-      {"title": "Animals", "image": ImageStrings.animalIcon},
-      {"title": "Toys", "image": ImageStrings.toyIcon},
-      {"title": "Furniture", "image": ImageStrings.furnitureIcon},
-      {"title": "Jewelery", "image": ImageStrings.jeweleryIcon},
-      {"title": "Electronics", "image": ImageStrings.electronicsIcon},
-    ];
 
     final List<String> forYouTitles = ["All", "Popular", "Newest", "Most Sell", "Lowest Price", "Trending"];
 
@@ -72,7 +62,7 @@ class HomeScreen extends StatelessWidget {
 
               // Categories Header & List
               SectionTitle(title: "Category", onPressed: () {}),
-              HomeScreenCategories(categories: categories),
+              HomeScreenCategories(categories: AppConfigs.categories),
               SizedBox(height: AppSizes.spaceBtwItems),
 
               // Just For You
