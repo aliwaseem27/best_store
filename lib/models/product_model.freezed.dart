@@ -14,47 +14,47 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ProductList _$ProductListFromJson(Map<String, dynamic> json) {
-  return _ProductList.fromJson(json);
+ProductListInfo _$ProductListInfoFromJson(Map<String, dynamic> json) {
+  return _ProductListInfo.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ProductList {
+mixin _$ProductListInfo {
   List<Product> get products => throw _privateConstructorUsedError;
   int get total => throw _privateConstructorUsedError;
   int get skip => throw _privateConstructorUsedError;
   int get limit => throw _privateConstructorUsedError;
 
-  /// Serializes this ProductList to a JSON map.
+  /// Serializes this ProductListInfo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of ProductList
+  /// Create a copy of ProductListInfo
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ProductListCopyWith<ProductList> get copyWith =>
+  $ProductListInfoCopyWith<ProductListInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ProductListCopyWith<$Res> {
-  factory $ProductListCopyWith(
-          ProductList value, $Res Function(ProductList) then) =
-      _$ProductListCopyWithImpl<$Res, ProductList>;
+abstract class $ProductListInfoCopyWith<$Res> {
+  factory $ProductListInfoCopyWith(
+          ProductListInfo value, $Res Function(ProductListInfo) then) =
+      _$ProductListInfoCopyWithImpl<$Res, ProductListInfo>;
   @useResult
   $Res call({List<Product> products, int total, int skip, int limit});
 }
 
 /// @nodoc
-class _$ProductListCopyWithImpl<$Res, $Val extends ProductList>
-    implements $ProductListCopyWith<$Res> {
-  _$ProductListCopyWithImpl(this._value, this._then);
+class _$ProductListInfoCopyWithImpl<$Res, $Val extends ProductListInfo>
+    implements $ProductListInfoCopyWith<$Res> {
+  _$ProductListInfoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ProductList
+  /// Create a copy of ProductListInfo
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -86,25 +86,25 @@ class _$ProductListCopyWithImpl<$Res, $Val extends ProductList>
 }
 
 /// @nodoc
-abstract class _$$ProductListImplCopyWith<$Res>
-    implements $ProductListCopyWith<$Res> {
-  factory _$$ProductListImplCopyWith(
-          _$ProductListImpl value, $Res Function(_$ProductListImpl) then) =
-      __$$ProductListImplCopyWithImpl<$Res>;
+abstract class _$$ProductListInfoImplCopyWith<$Res>
+    implements $ProductListInfoCopyWith<$Res> {
+  factory _$$ProductListInfoImplCopyWith(_$ProductListInfoImpl value,
+          $Res Function(_$ProductListInfoImpl) then) =
+      __$$ProductListInfoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<Product> products, int total, int skip, int limit});
 }
 
 /// @nodoc
-class __$$ProductListImplCopyWithImpl<$Res>
-    extends _$ProductListCopyWithImpl<$Res, _$ProductListImpl>
-    implements _$$ProductListImplCopyWith<$Res> {
-  __$$ProductListImplCopyWithImpl(
-      _$ProductListImpl _value, $Res Function(_$ProductListImpl) _then)
+class __$$ProductListInfoImplCopyWithImpl<$Res>
+    extends _$ProductListInfoCopyWithImpl<$Res, _$ProductListInfoImpl>
+    implements _$$ProductListInfoImplCopyWith<$Res> {
+  __$$ProductListInfoImplCopyWithImpl(
+      _$ProductListInfoImpl _value, $Res Function(_$ProductListInfoImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ProductList
+  /// Create a copy of ProductListInfo
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -114,7 +114,7 @@ class __$$ProductListImplCopyWithImpl<$Res>
     Object? skip = null,
     Object? limit = null,
   }) {
-    return _then(_$ProductListImpl(
+    return _then(_$ProductListInfoImpl(
       products: null == products
           ? _value._products
           : products // ignore: cast_nullable_to_non_nullable
@@ -137,16 +137,16 @@ class __$$ProductListImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ProductListImpl implements _ProductList {
-  const _$ProductListImpl(
+class _$ProductListInfoImpl implements _ProductListInfo {
+  const _$ProductListInfoImpl(
       {required final List<Product> products,
       required this.total,
       required this.skip,
       required this.limit})
       : _products = products;
 
-  factory _$ProductListImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ProductListImplFromJson(json);
+  factory _$ProductListInfoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ProductListInfoImplFromJson(json);
 
   final List<Product> _products;
   @override
@@ -165,14 +165,14 @@ class _$ProductListImpl implements _ProductList {
 
   @override
   String toString() {
-    return 'ProductList(products: $products, total: $total, skip: $skip, limit: $limit)';
+    return 'ProductListInfo(products: $products, total: $total, skip: $skip, limit: $limit)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ProductListImpl &&
+            other is _$ProductListInfoImpl &&
             const DeepCollectionEquality().equals(other._products, _products) &&
             (identical(other.total, total) || other.total == total) &&
             (identical(other.skip, skip) || other.skip == skip) &&
@@ -184,31 +184,32 @@ class _$ProductListImpl implements _ProductList {
   int get hashCode => Object.hash(runtimeType,
       const DeepCollectionEquality().hash(_products), total, skip, limit);
 
-  /// Create a copy of ProductList
+  /// Create a copy of ProductListInfo
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ProductListImplCopyWith<_$ProductListImpl> get copyWith =>
-      __$$ProductListImplCopyWithImpl<_$ProductListImpl>(this, _$identity);
+  _$$ProductListInfoImplCopyWith<_$ProductListInfoImpl> get copyWith =>
+      __$$ProductListInfoImplCopyWithImpl<_$ProductListInfoImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ProductListImplToJson(
+    return _$$ProductListInfoImplToJson(
       this,
     );
   }
 }
 
-abstract class _ProductList implements ProductList {
-  const factory _ProductList(
+abstract class _ProductListInfo implements ProductListInfo {
+  const factory _ProductListInfo(
       {required final List<Product> products,
       required final int total,
       required final int skip,
-      required final int limit}) = _$ProductListImpl;
+      required final int limit}) = _$ProductListInfoImpl;
 
-  factory _ProductList.fromJson(Map<String, dynamic> json) =
-      _$ProductListImpl.fromJson;
+  factory _ProductListInfo.fromJson(Map<String, dynamic> json) =
+      _$ProductListInfoImpl.fromJson;
 
   @override
   List<Product> get products;
@@ -219,11 +220,11 @@ abstract class _ProductList implements ProductList {
   @override
   int get limit;
 
-  /// Create a copy of ProductList
+  /// Create a copy of ProductListInfo
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ProductListImplCopyWith<_$ProductListImpl> get copyWith =>
+  _$$ProductListInfoImplCopyWith<_$ProductListInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -236,8 +237,8 @@ mixin _$Product {
   int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  @JsonKey(fromJson: categoryFromJson, toJson: categoryToJson)
-  Category get category => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: productCategoryFromJson, toJson: productCategoryToJson)
+  ProductCategory get category => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
   double get discountPercentage => throw _privateConstructorUsedError;
   double get rating => throw _privateConstructorUsedError;
@@ -247,8 +248,14 @@ mixin _$Product {
   String get sku => throw _privateConstructorUsedError;
   int get weight => throw _privateConstructorUsedError;
   Dimensions get dimensions => throw _privateConstructorUsedError;
-  String get warrantyInformation => throw _privateConstructorUsedError;
-  String get shippingInformation => throw _privateConstructorUsedError;
+  @JsonKey(
+      fromJson: warrantyInformationFromJson, toJson: warrantyInformationToJson)
+  WarrantyInformation get warrantyInformation =>
+      throw _privateConstructorUsedError;
+  @JsonKey(
+      fromJson: shippingInformationFromJson, toJson: shippingInformationToJson)
+  ShippingInformation get shippingInformation =>
+      throw _privateConstructorUsedError;
   @JsonKey(
       fromJson: availabilityStatusFromJson, toJson: availabilityStatusToJson)
   AvailabilityStatus get availabilityStatus =>
@@ -257,7 +264,7 @@ mixin _$Product {
   @JsonKey(fromJson: returnPolicyFromJson, toJson: returnPolicyToJson)
   ReturnPolicy get returnPolicy => throw _privateConstructorUsedError;
   int get minimumOrderQuantity => throw _privateConstructorUsedError;
-  Meta get meta => throw _privateConstructorUsedError;
+  Meta? get meta => throw _privateConstructorUsedError;
   List<String> get images => throw _privateConstructorUsedError;
   String get thumbnail => throw _privateConstructorUsedError;
 
@@ -279,8 +286,8 @@ abstract class $ProductCopyWith<$Res> {
       {int id,
       String title,
       String description,
-      @JsonKey(fromJson: categoryFromJson, toJson: categoryToJson)
-      Category category,
+      @JsonKey(fromJson: productCategoryFromJson, toJson: productCategoryToJson)
+      ProductCategory category,
       double price,
       double discountPercentage,
       double rating,
@@ -290,8 +297,14 @@ abstract class $ProductCopyWith<$Res> {
       String sku,
       int weight,
       Dimensions dimensions,
-      String warrantyInformation,
-      String shippingInformation,
+      @JsonKey(
+          fromJson: warrantyInformationFromJson,
+          toJson: warrantyInformationToJson)
+      WarrantyInformation warrantyInformation,
+      @JsonKey(
+          fromJson: shippingInformationFromJson,
+          toJson: shippingInformationToJson)
+      ShippingInformation shippingInformation,
       @JsonKey(
           fromJson: availabilityStatusFromJson,
           toJson: availabilityStatusToJson)
@@ -300,12 +313,12 @@ abstract class $ProductCopyWith<$Res> {
       @JsonKey(fromJson: returnPolicyFromJson, toJson: returnPolicyToJson)
       ReturnPolicy returnPolicy,
       int minimumOrderQuantity,
-      Meta meta,
+      Meta? meta,
       List<String> images,
       String thumbnail});
 
   $DimensionsCopyWith<$Res> get dimensions;
-  $MetaCopyWith<$Res> get meta;
+  $MetaCopyWith<$Res>? get meta;
 }
 
 /// @nodoc
@@ -342,7 +355,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
     Object? reviews = null,
     Object? returnPolicy = null,
     Object? minimumOrderQuantity = null,
-    Object? meta = null,
+    Object? meta = freezed,
     Object? images = null,
     Object? thumbnail = null,
   }) {
@@ -362,7 +375,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
       category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as Category,
+              as ProductCategory,
       price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
@@ -402,11 +415,11 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
       warrantyInformation: null == warrantyInformation
           ? _value.warrantyInformation
           : warrantyInformation // ignore: cast_nullable_to_non_nullable
-              as String,
+              as WarrantyInformation,
       shippingInformation: null == shippingInformation
           ? _value.shippingInformation
           : shippingInformation // ignore: cast_nullable_to_non_nullable
-              as String,
+              as ShippingInformation,
       availabilityStatus: null == availabilityStatus
           ? _value.availabilityStatus
           : availabilityStatus // ignore: cast_nullable_to_non_nullable
@@ -423,10 +436,10 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
           ? _value.minimumOrderQuantity
           : minimumOrderQuantity // ignore: cast_nullable_to_non_nullable
               as int,
-      meta: null == meta
+      meta: freezed == meta
           ? _value.meta
           : meta // ignore: cast_nullable_to_non_nullable
-              as Meta,
+              as Meta?,
       images: null == images
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
@@ -452,8 +465,12 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $MetaCopyWith<$Res> get meta {
-    return $MetaCopyWith<$Res>(_value.meta, (value) {
+  $MetaCopyWith<$Res>? get meta {
+    if (_value.meta == null) {
+      return null;
+    }
+
+    return $MetaCopyWith<$Res>(_value.meta!, (value) {
       return _then(_value.copyWith(meta: value) as $Val);
     });
   }
@@ -470,8 +487,8 @@ abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
       {int id,
       String title,
       String description,
-      @JsonKey(fromJson: categoryFromJson, toJson: categoryToJson)
-      Category category,
+      @JsonKey(fromJson: productCategoryFromJson, toJson: productCategoryToJson)
+      ProductCategory category,
       double price,
       double discountPercentage,
       double rating,
@@ -481,8 +498,14 @@ abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
       String sku,
       int weight,
       Dimensions dimensions,
-      String warrantyInformation,
-      String shippingInformation,
+      @JsonKey(
+          fromJson: warrantyInformationFromJson,
+          toJson: warrantyInformationToJson)
+      WarrantyInformation warrantyInformation,
+      @JsonKey(
+          fromJson: shippingInformationFromJson,
+          toJson: shippingInformationToJson)
+      ShippingInformation shippingInformation,
       @JsonKey(
           fromJson: availabilityStatusFromJson,
           toJson: availabilityStatusToJson)
@@ -491,14 +514,14 @@ abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
       @JsonKey(fromJson: returnPolicyFromJson, toJson: returnPolicyToJson)
       ReturnPolicy returnPolicy,
       int minimumOrderQuantity,
-      Meta meta,
+      Meta? meta,
       List<String> images,
       String thumbnail});
 
   @override
   $DimensionsCopyWith<$Res> get dimensions;
   @override
-  $MetaCopyWith<$Res> get meta;
+  $MetaCopyWith<$Res>? get meta;
 }
 
 /// @nodoc
@@ -533,7 +556,7 @@ class __$$ProductImplCopyWithImpl<$Res>
     Object? reviews = null,
     Object? returnPolicy = null,
     Object? minimumOrderQuantity = null,
-    Object? meta = null,
+    Object? meta = freezed,
     Object? images = null,
     Object? thumbnail = null,
   }) {
@@ -553,7 +576,7 @@ class __$$ProductImplCopyWithImpl<$Res>
       category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as Category,
+              as ProductCategory,
       price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
@@ -593,11 +616,11 @@ class __$$ProductImplCopyWithImpl<$Res>
       warrantyInformation: null == warrantyInformation
           ? _value.warrantyInformation
           : warrantyInformation // ignore: cast_nullable_to_non_nullable
-              as String,
+              as WarrantyInformation,
       shippingInformation: null == shippingInformation
           ? _value.shippingInformation
           : shippingInformation // ignore: cast_nullable_to_non_nullable
-              as String,
+              as ShippingInformation,
       availabilityStatus: null == availabilityStatus
           ? _value.availabilityStatus
           : availabilityStatus // ignore: cast_nullable_to_non_nullable
@@ -614,10 +637,10 @@ class __$$ProductImplCopyWithImpl<$Res>
           ? _value.minimumOrderQuantity
           : minimumOrderQuantity // ignore: cast_nullable_to_non_nullable
               as int,
-      meta: null == meta
+      meta: freezed == meta
           ? _value.meta
           : meta // ignore: cast_nullable_to_non_nullable
-              as Meta,
+              as Meta?,
       images: null == images
           ? _value._images
           : images // ignore: cast_nullable_to_non_nullable
@@ -637,7 +660,7 @@ class _$ProductImpl implements _Product {
       {required this.id,
       required this.title,
       required this.description,
-      @JsonKey(fromJson: categoryFromJson, toJson: categoryToJson)
+      @JsonKey(fromJson: productCategoryFromJson, toJson: productCategoryToJson)
       required this.category,
       required this.price,
       required this.discountPercentage,
@@ -648,7 +671,13 @@ class _$ProductImpl implements _Product {
       required this.sku,
       required this.weight,
       required this.dimensions,
+      @JsonKey(
+          fromJson: warrantyInformationFromJson,
+          toJson: warrantyInformationToJson)
       required this.warrantyInformation,
+      @JsonKey(
+          fromJson: shippingInformationFromJson,
+          toJson: shippingInformationToJson)
       required this.shippingInformation,
       @JsonKey(
           fromJson: availabilityStatusFromJson,
@@ -658,7 +687,7 @@ class _$ProductImpl implements _Product {
       @JsonKey(fromJson: returnPolicyFromJson, toJson: returnPolicyToJson)
       required this.returnPolicy,
       required this.minimumOrderQuantity,
-      required this.meta,
+      this.meta,
       required final List<String> images,
       required this.thumbnail})
       : _tags = tags,
@@ -675,8 +704,8 @@ class _$ProductImpl implements _Product {
   @override
   final String description;
   @override
-  @JsonKey(fromJson: categoryFromJson, toJson: categoryToJson)
-  final Category category;
+  @JsonKey(fromJson: productCategoryFromJson, toJson: productCategoryToJson)
+  final ProductCategory category;
   @override
   final double price;
   @override
@@ -702,9 +731,13 @@ class _$ProductImpl implements _Product {
   @override
   final Dimensions dimensions;
   @override
-  final String warrantyInformation;
+  @JsonKey(
+      fromJson: warrantyInformationFromJson, toJson: warrantyInformationToJson)
+  final WarrantyInformation warrantyInformation;
   @override
-  final String shippingInformation;
+  @JsonKey(
+      fromJson: shippingInformationFromJson, toJson: shippingInformationToJson)
+  final ShippingInformation shippingInformation;
   @override
   @JsonKey(
       fromJson: availabilityStatusFromJson, toJson: availabilityStatusToJson)
@@ -723,7 +756,7 @@ class _$ProductImpl implements _Product {
   @override
   final int minimumOrderQuantity;
   @override
-  final Meta meta;
+  final Meta? meta;
   final List<String> _images;
   @override
   List<String> get images {
@@ -828,8 +861,8 @@ abstract class _Product implements Product {
       {required final int id,
       required final String title,
       required final String description,
-      @JsonKey(fromJson: categoryFromJson, toJson: categoryToJson)
-      required final Category category,
+      @JsonKey(fromJson: productCategoryFromJson, toJson: productCategoryToJson)
+      required final ProductCategory category,
       required final double price,
       required final double discountPercentage,
       required final double rating,
@@ -839,8 +872,14 @@ abstract class _Product implements Product {
       required final String sku,
       required final int weight,
       required final Dimensions dimensions,
-      required final String warrantyInformation,
-      required final String shippingInformation,
+      @JsonKey(
+          fromJson: warrantyInformationFromJson,
+          toJson: warrantyInformationToJson)
+      required final WarrantyInformation warrantyInformation,
+      @JsonKey(
+          fromJson: shippingInformationFromJson,
+          toJson: shippingInformationToJson)
+      required final ShippingInformation shippingInformation,
       @JsonKey(
           fromJson: availabilityStatusFromJson,
           toJson: availabilityStatusToJson)
@@ -849,7 +888,7 @@ abstract class _Product implements Product {
       @JsonKey(fromJson: returnPolicyFromJson, toJson: returnPolicyToJson)
       required final ReturnPolicy returnPolicy,
       required final int minimumOrderQuantity,
-      required final Meta meta,
+      final Meta? meta,
       required final List<String> images,
       required final String thumbnail}) = _$ProductImpl;
 
@@ -862,8 +901,8 @@ abstract class _Product implements Product {
   @override
   String get description;
   @override
-  @JsonKey(fromJson: categoryFromJson, toJson: categoryToJson)
-  Category get category;
+  @JsonKey(fromJson: productCategoryFromJson, toJson: productCategoryToJson)
+  ProductCategory get category;
   @override
   double get price;
   @override
@@ -883,9 +922,13 @@ abstract class _Product implements Product {
   @override
   Dimensions get dimensions;
   @override
-  String get warrantyInformation;
+  @JsonKey(
+      fromJson: warrantyInformationFromJson, toJson: warrantyInformationToJson)
+  WarrantyInformation get warrantyInformation;
   @override
-  String get shippingInformation;
+  @JsonKey(
+      fromJson: shippingInformationFromJson, toJson: shippingInformationToJson)
+  ShippingInformation get shippingInformation;
   @override
   @JsonKey(
       fromJson: availabilityStatusFromJson, toJson: availabilityStatusToJson)
@@ -898,7 +941,7 @@ abstract class _Product implements Product {
   @override
   int get minimumOrderQuantity;
   @override
-  Meta get meta;
+  Meta? get meta;
   @override
   List<String> get images;
   @override

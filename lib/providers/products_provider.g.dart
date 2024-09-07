@@ -173,20 +173,20 @@ class _SingleProductProviderElement
 }
 
 String _$productsByCategoryHash() =>
-    r'9d180a6413349e19812338af018811a58d952124';
+    r'baf6b15a443a18f2895e8a66d2ada22a44a4651f';
 
 /// See also [productsByCategory].
 @ProviderFor(productsByCategory)
 const productsByCategoryProvider = ProductsByCategoryFamily();
 
 /// See also [productsByCategory].
-class ProductsByCategoryFamily extends Family<AsyncValue<List<Product>>> {
+class ProductsByCategoryFamily extends Family<AsyncValue<ProductListInfo>> {
   /// See also [productsByCategory].
   const ProductsByCategoryFamily();
 
   /// See also [productsByCategory].
   ProductsByCategoryProvider call(
-    String category,
+    ProductCategory category,
   ) {
     return ProductsByCategoryProvider(
       category,
@@ -219,10 +219,10 @@ class ProductsByCategoryFamily extends Family<AsyncValue<List<Product>>> {
 
 /// See also [productsByCategory].
 class ProductsByCategoryProvider
-    extends AutoDisposeFutureProvider<List<Product>> {
+    extends AutoDisposeFutureProvider<ProductListInfo> {
   /// See also [productsByCategory].
   ProductsByCategoryProvider(
-    String category,
+    ProductCategory category,
   ) : this._internal(
           (ref) => productsByCategory(
             ref as ProductsByCategoryRef,
@@ -250,11 +250,11 @@ class ProductsByCategoryProvider
     required this.category,
   }) : super.internal();
 
-  final String category;
+  final ProductCategory category;
 
   @override
   Override overrideWith(
-    FutureOr<List<Product>> Function(ProductsByCategoryRef provider) create,
+    FutureOr<ProductListInfo> Function(ProductsByCategoryRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -271,7 +271,7 @@ class ProductsByCategoryProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<List<Product>> createElement() {
+  AutoDisposeFutureProviderElement<ProductListInfo> createElement() {
     return _ProductsByCategoryProviderElement(this);
   }
 
@@ -289,18 +289,19 @@ class ProductsByCategoryProvider
   }
 }
 
-mixin ProductsByCategoryRef on AutoDisposeFutureProviderRef<List<Product>> {
+mixin ProductsByCategoryRef on AutoDisposeFutureProviderRef<ProductListInfo> {
   /// The parameter `category` of this provider.
-  String get category;
+  ProductCategory get category;
 }
 
 class _ProductsByCategoryProviderElement
-    extends AutoDisposeFutureProviderElement<List<Product>>
+    extends AutoDisposeFutureProviderElement<ProductListInfo>
     with ProductsByCategoryRef {
   _ProductsByCategoryProviderElement(super.provider);
 
   @override
-  String get category => (origin as ProductsByCategoryProvider).category;
+  ProductCategory get category =>
+      (origin as ProductsByCategoryProvider).category;
 }
 
 String _$allCategoriesHash() => r'bca4d71a90a1304220140b1a6dd825c42c187b11';
@@ -318,12 +319,12 @@ final allCategoriesProvider = AutoDisposeFutureProvider<List<String>>.internal(
 );
 
 typedef AllCategoriesRef = AutoDisposeFutureProviderRef<List<String>>;
-String _$allProductsHash() => r'7c6670d2a36cf22701e5770431454b74fc1ce225';
+String _$allProductsHash() => r'cad31cced984755ff8ec9bd92de297fb6ce3687d';
 
 /// See also [AllProducts].
 @ProviderFor(AllProducts)
 final allProductsProvider =
-    AutoDisposeAsyncNotifierProvider<AllProducts, List<Product>>.internal(
+    AutoDisposeAsyncNotifierProvider<AllProducts, ProductListInfo>.internal(
   AllProducts.new,
   name: r'allProductsProvider',
   debugGetCreateSourceHash:
@@ -332,6 +333,6 @@ final allProductsProvider =
   allTransitiveDependencies: null,
 );
 
-typedef _$AllProducts = AutoDisposeAsyncNotifier<List<Product>>;
+typedef _$AllProducts = AutoDisposeAsyncNotifier<ProductListInfo>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

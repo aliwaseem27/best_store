@@ -1,5 +1,7 @@
+import 'package:best_store/models/enums.dart';
 import 'package:best_store/models/product_model.dart';
 import 'package:best_store/providers/network_service_provider.dart';
+import 'package:flutter/foundation.dart';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -16,14 +18,9 @@ ProductsRepository productsRepository(ProductsRepositoryRef ref) {
 @riverpod
 class AllProducts extends _$AllProducts {
   @override
-  Future<List<Product>> build() {
+  Future<ProductListInfo> build() {
     final repository = ref.watch(productsRepositoryProvider);
-    return repository.getAllProducts();
-  }
-
-  List<Product> getRandomProducts() {
-    final sixProducts = state.value!.getRange(0, 6).toList();
-    return sixProducts;
+    return repository.getAllProducts(limit: 10, skip: 2);
   }
 }
 
@@ -34,7 +31,7 @@ Future<Product> singleProduct(SingleProductRef ref, int productId) {
 }
 
 @riverpod
-Future<List<Product>> productsByCategory(ProductsByCategoryRef ref, String category) {
+Future<ProductListInfo> productsByCategory(ProductsByCategoryRef ref, ProductCategory category) {
   final repository = ref.watch(productsRepositoryProvider);
   return repository.getProductsByCategory(category);
 }

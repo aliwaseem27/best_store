@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:best_store/models/enums.dart';
 import 'package:best_store/utils/endpoints.dart';
 import 'package:best_store/utils/network_service.dart';
 
@@ -10,28 +11,27 @@ class ProductsRepository {
 
   ProductsRepository({required this.networkService});
 
-  Future<List<Product>> getAllProducts({int limit = 0, bool reverseSort = false}) async {
+  Future<ProductListInfo> getAllProducts({int limit = 0, int? skip}) async {
     String url = Endpoints.products;
-    print(url);
-    if (limit > 0 || reverseSort) {
+    if (limit > 0 || skip != null) {
       url += '?';
       if (limit > 0) {
         url += 'limit=$limit';
       }
-      if (reverseSort) {
-        url += '&sort=desc';
+      if (skip != null) {
+        url += '&skip=$skip';
       }
     }
 
     final res = await networkService.getRequest(url);
     final json = jsonDecode(res.body);
-    final jsonProducts = json["products"];
-    final products = <Product>[];
-    jsonProducts.forEach((e) {
-      print(e);
-      products.add(Product.fromJson(e));
-    });
-    return products;
+    // final jsonProducts = json["products"];
+    // final products = <Product>[];
+    // jsonProducts.forEach((e) {
+    //   products.add(Product.fromJson(e));
+    // });
+    final productListInfo = ProductListInfo.fromJson(json);
+    return productListInfo;
   }
 
   Future<Product> getSingleProduct(int productId) async {
@@ -40,14 +40,15 @@ class ProductsRepository {
     return Product.fromJson(json);
   }
 
-  Future<List<Product>> getProductsByCategory(String category) async {
-    final res = await networkService.getRequest('${Endpoints.products}/category/$category');
+  Future<ProductListInfo> getProductsByCategory(ProductCategory category) async {
+    final url = '${Endpoints.products}/category/${category.toJson()}';
+    print (url);
+    final res = await networkService.getRequest(url);
     final json = jsonDecode(res.body);
-    final products = <Product>[];
-    json.forEach((e) {
-      products.add(Product.fromJson(e));
-    });
-    return products;
+    final productListInfo = ProductListInfo.fromJson(json);
+    print("------------------------");
+    print(productListInfo);
+    return productListInfo;
   }
 
   Future<void> addNewProduct(Product product) async {

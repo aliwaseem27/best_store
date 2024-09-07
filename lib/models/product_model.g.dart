@@ -6,8 +6,9 @@ part of 'product_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ProductListImpl _$$ProductListImplFromJson(Map<String, dynamic> json) =>
-    _$ProductListImpl(
+_$ProductListInfoImpl _$$ProductListInfoImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ProductListInfoImpl(
       products: (json['products'] as List<dynamic>)
           .map((e) => Product.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -16,7 +17,8 @@ _$ProductListImpl _$$ProductListImplFromJson(Map<String, dynamic> json) =>
       limit: (json['limit'] as num).toInt(),
     );
 
-Map<String, dynamic> _$$ProductListImplToJson(_$ProductListImpl instance) =>
+Map<String, dynamic> _$$ProductListInfoImplToJson(
+        _$ProductListInfoImpl instance) =>
     <String, dynamic>{
       'products': instance.products,
       'total': instance.total,
@@ -29,7 +31,7 @@ _$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
       id: (json['id'] as num).toInt(),
       title: json['title'] as String,
       description: json['description'] as String,
-      category: categoryFromJson(json['category'] as String),
+      category: productCategoryFromJson(json['category'] as String),
       price: (json['price'] as num).toDouble(),
       discountPercentage: (json['discountPercentage'] as num).toDouble(),
       rating: (json['rating'] as num).toDouble(),
@@ -40,8 +42,10 @@ _$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
       weight: (json['weight'] as num).toInt(),
       dimensions:
           Dimensions.fromJson(json['dimensions'] as Map<String, dynamic>),
-      warrantyInformation: json['warrantyInformation'] as String,
-      shippingInformation: json['shippingInformation'] as String,
+      warrantyInformation:
+          warrantyInformationFromJson(json['warrantyInformation'] as String),
+      shippingInformation:
+          shippingInformationFromJson(json['shippingInformation'] as String),
       availabilityStatus:
           availabilityStatusFromJson(json['availabilityStatus'] as String),
       reviews: (json['reviews'] as List<dynamic>)
@@ -49,7 +53,9 @@ _$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
           .toList(),
       returnPolicy: returnPolicyFromJson(json['returnPolicy'] as String),
       minimumOrderQuantity: (json['minimumOrderQuantity'] as num).toInt(),
-      meta: Meta.fromJson(json['meta'] as Map<String, dynamic>),
+      meta: json['meta'] == null
+          ? null
+          : Meta.fromJson(json['meta'] as Map<String, dynamic>),
       images:
           (json['images'] as List<dynamic>).map((e) => e as String).toList(),
       thumbnail: json['thumbnail'] as String,
@@ -60,7 +66,7 @@ Map<String, dynamic> _$$ProductImplToJson(_$ProductImpl instance) =>
       'id': instance.id,
       'title': instance.title,
       'description': instance.description,
-      'category': categoryToJson(instance.category),
+      'category': productCategoryToJson(instance.category),
       'price': instance.price,
       'discountPercentage': instance.discountPercentage,
       'rating': instance.rating,
@@ -70,8 +76,10 @@ Map<String, dynamic> _$$ProductImplToJson(_$ProductImpl instance) =>
       'sku': instance.sku,
       'weight': instance.weight,
       'dimensions': instance.dimensions,
-      'warrantyInformation': instance.warrantyInformation,
-      'shippingInformation': instance.shippingInformation,
+      'warrantyInformation':
+          warrantyInformationToJson(instance.warrantyInformation),
+      'shippingInformation':
+          shippingInformationToJson(instance.shippingInformation),
       'availabilityStatus':
           availabilityStatusToJson(instance.availabilityStatus),
       'reviews': instance.reviews,

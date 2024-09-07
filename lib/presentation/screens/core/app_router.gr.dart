@@ -142,9 +142,13 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     SearchRoute.name: (routeData) {
+      final args = routeData.argsAs<SearchRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const SearchScreen(),
+        child: SearchScreen(
+          key: args.key,
+          category: args.category,
+        ),
       );
     },
     SettingsRoute.name: (routeData) {
@@ -536,16 +540,39 @@ class ResetPasswordRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [SearchScreen]
-class SearchRoute extends PageRouteInfo<void> {
-  const SearchRoute({List<PageRouteInfo>? children})
-      : super(
+class SearchRoute extends PageRouteInfo<SearchRouteArgs> {
+  SearchRoute({
+    Key? key,
+    required ProductCategory category,
+    List<PageRouteInfo>? children,
+  }) : super(
           SearchRoute.name,
+          args: SearchRouteArgs(
+            key: key,
+            category: category,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'SearchRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<SearchRouteArgs> page = PageInfo<SearchRouteArgs>(name);
+}
+
+class SearchRouteArgs {
+  const SearchRouteArgs({
+    this.key,
+    required this.category,
+  });
+
+  final Key? key;
+
+  final ProductCategory category;
+
+  @override
+  String toString() {
+    return 'SearchRouteArgs{key: $key, category: $category}';
+  }
 }
 
 /// generated route for

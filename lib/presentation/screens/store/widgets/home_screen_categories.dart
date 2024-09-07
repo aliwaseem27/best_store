@@ -1,3 +1,6 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:best_store/presentation/screens/authentication/sign_in/widgets/dont_have_account.dart';
+import 'package:best_store/presentation/screens/core/app_router.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../utils/constants/app_sizes.dart';
@@ -9,7 +12,7 @@ class HomeScreenCategories extends StatelessWidget {
     required this.categories,
   });
 
-  final List<Map<String, String>> categories;
+  final List<Map<String, dynamic>> categories;
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +27,10 @@ class HomeScreenCategories extends StatelessWidget {
         },
         itemBuilder: (context, index) {
           return InkWell(
-            onTap: () {},
+            onTap: () => context.router.push(SearchRoute(category: categories[index].values.last)),
             child: CategoryVerticalWidget(
               title: categories[index].values.first,
-              image: categories[index].values.last,
+              image: categories[index].values.elementAt(1),
             ),
           );
         },

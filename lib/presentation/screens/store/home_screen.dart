@@ -1,4 +1,5 @@
 import 'package:auto_route/annotations.dart';
+import 'package:best_store/models/enums.dart';
 import 'package:best_store/providers/products_provider.dart';
 import 'package:best_store/repositories/carts_repository.dart';
 import 'package:best_store/repositories/products_repository.dart';
@@ -24,10 +25,10 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, String>> categories = [
-      {"title": "Sports", "image": ImageStrings.sportIcon},
-      {"title": "Clothing", "image": ImageStrings.clothIcon},
-      {"title": "Shoes", "image": ImageStrings.shoeIcon},
+    final List<Map<String, dynamic>> categories = [
+      {"title": "Sports", "image": ImageStrings.sportIcon, "category": ProductCategory.SPORTS_ACCESSORIES},
+      {"title": "Clothing", "image": ImageStrings.clothIcon, "category": ProductCategory.MENS_SHIRTS},
+      {"title": "Shoes", "image": ImageStrings.shoeIcon, "category": ProductCategory.WOMENS_SHOES},
       {"title": "Cosmetics", "image": ImageStrings.cosmeticsIcon},
       {"title": "Animals", "image": ImageStrings.animalIcon},
       {"title": "Toys", "image": ImageStrings.toyIcon},
@@ -85,10 +86,15 @@ class HomeScreen extends StatelessWidget {
               // Products
               Consumer(
                 builder: (context, ref, child) {
-                  final AsyncValue<List<Product>> products = ref.watch(allProductsProvider);
+                  final AsyncValue<ProductListInfo> products = ref.watch(allProductsProvider);
                   return products.when(
                     data: (data) {
-                      return GridLayoutFourElements(products: data);
+                      return Column(
+                        children: [
+                          Text("${data.total} items, ${data.skip} skipped, ${data.limit} limited"),
+                          GridLayoutFourElements(products: data.products),
+                        ],
+                      );
                     },
                     error: (e, st) {
                       print(e);

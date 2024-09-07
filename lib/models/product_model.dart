@@ -7,15 +7,15 @@ part "product_model.freezed.dart";
 part "product_model.g.dart";
 
 @freezed
-class ProductList with _$ProductList {
-  const factory ProductList({
+class ProductListInfo with _$ProductListInfo {
+  const factory ProductListInfo({
     required List<Product> products,
     required int total,
     required int skip,
     required int limit,
-  }) = _ProductList;
+  }) = _ProductListInfo;
 
-  factory ProductList.fromJson(Map<String, dynamic> json) => _$ProductListFromJson(json);
+  factory ProductListInfo.fromJson(Map<String, dynamic> json) => _$ProductListInfoFromJson(json);
 }
 
 @freezed
@@ -24,7 +24,7 @@ class Product with _$Product {
     required int id,
     required String title,
     required String description,
-    @JsonKey(fromJson: categoryFromJson, toJson: categoryToJson) required Category category,
+    @JsonKey(fromJson: productCategoryFromJson, toJson: productCategoryToJson) required ProductCategory category,
     required double price,
     required double discountPercentage,
     required double rating,
@@ -34,14 +34,16 @@ class Product with _$Product {
     required String sku,
     required int weight,
     required Dimensions dimensions,
-    required String warrantyInformation,
-    required String shippingInformation,
+    @JsonKey(fromJson: warrantyInformationFromJson, toJson: warrantyInformationToJson)
+    required WarrantyInformation warrantyInformation,
+    @JsonKey(fromJson: shippingInformationFromJson, toJson: shippingInformationToJson)
+    required ShippingInformation shippingInformation,
     @JsonKey(fromJson: availabilityStatusFromJson, toJson: availabilityStatusToJson)
     required AvailabilityStatus availabilityStatus,
     required List<Review> reviews,
     @JsonKey(fromJson: returnPolicyFromJson, toJson: returnPolicyToJson) required ReturnPolicy returnPolicy,
     required int minimumOrderQuantity,
-    required Meta meta,
+    Meta? meta,
     required List<String> images,
     required String thumbnail,
   }) = _Product;
