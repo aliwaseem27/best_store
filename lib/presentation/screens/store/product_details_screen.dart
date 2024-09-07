@@ -1,15 +1,14 @@
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:best_store/models/enums.dart';
-import 'package:best_store/presentation/screens/authentication/sign_in/widgets/dont_have_account.dart';
 import 'package:best_store/utils/constants/app_colors.dart';
 import 'package:best_store/utils/constants/app_sizes.dart';
 import 'package:best_store/utils/constants/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:readmore/readmore.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../models/product_model.dart';
+import '../../../providers/products_provider.dart';
 import '../../common/widgets/attributes_list_widget.dart';
 
 @RoutePage()
@@ -43,10 +42,15 @@ class ProductDetailsScreen extends StatelessWidget {
               Text("Product Details"),
               CircleAvatar(
                 backgroundColor: AppColors.secondaryColor,
-                child: IconButton(
-                  color: AppColors.primaryColor,
-                  icon: Icon(Icons.favorite),
-                  onPressed: () {},
+                child: Consumer(
+                  builder: (context, ref, child) {
+                    final isProductInWishList = ref.watch(wishListProductsProvider).products.contains(product);
+                    return IconButton(
+                      color: isProductInWishList ? Colors.red : AppColors.neutralColor,
+                      icon: Icon(Icons.favorite),
+                      onPressed: () => ref.read(wishListProductsProvider.notifier).toggleProductInWishList(product),
+                    );
+                  },
                 ),
               ),
             ],

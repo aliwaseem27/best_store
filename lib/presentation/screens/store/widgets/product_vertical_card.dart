@@ -2,7 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:best_store/models/enums.dart';
 import 'package:best_store/models/product_model.dart';
 import 'package:best_store/presentation/screens/core/app_router.dart';
+import 'package:best_store/providers/products_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../utils/constants/app_colors.dart';
 import '../../../../utils/constants/app_sizes.dart';
@@ -51,10 +53,10 @@ class ProductVerticalCard extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
                 ),
-                // Text(
-                //   "Qty: 1",
-                //   style: Theme.of(context).textTheme.labelSmall?.apply(color: AppColors.neutralColor),
-                // ),
+                Text(
+                  "Qty: ${product.stock}",
+                  style: Theme.of(context).textTheme.labelSmall?.apply(color: AppColors.neutralColor),
+                ),
                 Text(
                   product.category.name,
                   style: Theme.of(context).textTheme.bodySmall?.apply(color: AppColors.neutralColor),
@@ -68,14 +70,20 @@ class ProductVerticalCard extends StatelessWidget {
                         style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
                       ),
                     ),
-                    CircleAvatar(
-                      radius: 16,
-                      backgroundColor: AppColors.secondaryColor,
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Icons.favorite),
-                        iconSize: 16,
-                      ),
+                    Consumer(
+                      builder: (context, ref, child) {
+                        final isProductInWishList = ref.watch(wishListProductsProvider).products.contains(product);
+                        return CircleAvatar(
+                          radius: 16,
+                          backgroundColor: AppColors.secondaryColor,
+                          child: IconButton(
+                            onPressed: () =>
+                                ref.read(wishListProductsProvider.notifier).toggleProductInWishList(product),
+                            icon: Icon(Icons.favorite, color: isProductInWishList ? Colors.red : AppColors.neutralColor),
+                            iconSize: 16,
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),

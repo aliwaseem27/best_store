@@ -27,11 +27,8 @@ class WishlistScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Consumer(
               builder: (context, ref, child) {
-                // final products = ref.watch(allProductsProvider.notifier).getRandomProducts();
-                // return GridLayoutFourElements(
-                //   products: products,
-                // );
-                return Container();
+                final productsList = ref.watch(wishListProductsProvider);
+                return GridLayoutFourElements(products: productsList.products);
               },
             ),
           ),

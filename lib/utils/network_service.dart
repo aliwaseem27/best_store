@@ -7,8 +7,8 @@ class NetworkService {
 
   NetworkService({required this.baseUrl});
 
-  Future<http.Response> getRequest(String endpoint) async {
-    final url = Uri.parse('$baseUrl$endpoint');
+  Future<http.Response> getRequest(String endpoint, {Map<String, dynamic>? queryParameters}) async {
+    final url = Uri.parse('$baseUrl$endpoint').replace(queryParameters: queryParameters);
     final response = await http.get(url);
 
     if (response.statusCode == 200) {

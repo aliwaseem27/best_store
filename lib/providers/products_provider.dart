@@ -25,6 +25,38 @@ class AllProducts extends _$AllProducts {
 }
 
 @riverpod
+class WishListProducts extends _$WishListProducts {
+  @override
+  ProductListInfo build() {
+    return const ProductListInfo(products: [], total: 0, skip: 0, limit: 0);
+  }
+
+  void addProductToWishList(Product product) {
+    state = state.copyWith(total: state.total + 1, products: [...state.products, product]);
+  }
+
+  void removeProductFromWishList(Product product) {
+    state = state.copyWith(total: state.total - 1, products: state.products.where((p) => p != product).toList());
+  }
+
+  bool isProductInWishList(Product product) {
+    return state.products.contains(product);
+  }
+
+  void toggleProductInWishList(Product product) {
+    if (isProductInWishList(product)) {
+      removeProductFromWishList(product);
+    } else {
+      addProductToWishList(product);
+    }
+  }
+
+  void clearWishList() {
+    state = state.copyWith(total: 0, products: []);
+  }
+}
+
+@riverpod
 Future<Product> singleProduct(SingleProductRef ref, int productId) {
   final repository = ref.watch(productsRepositoryProvider);
   return repository.getSingleProduct(productId);

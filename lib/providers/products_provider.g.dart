@@ -334,5 +334,21 @@ final allProductsProvider =
 );
 
 typedef _$AllProducts = AutoDisposeAsyncNotifier<ProductListInfo>;
+String _$wishListProductsHash() => r'1a585ef8446add55e52753ad9340822220afc88a';
+
+/// See also [WishListProducts].
+@ProviderFor(WishListProducts)
+final wishListProductsProvider =
+    AutoDisposeNotifierProvider<WishListProducts, ProductListInfo>.internal(
+  WishListProducts.new,
+  name: r'wishListProductsProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$wishListProductsHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$WishListProducts = AutoDisposeNotifier<ProductListInfo>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
