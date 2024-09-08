@@ -116,7 +116,4 @@ class ImageStrings {
   static const String productImage72 = "assets/images/products/iphone_12_green.png";
   static const String productImage73 = "assets/images/products/iphone_12_black.png";
   static const String productImage74 = "assets/images/products/slipper-product-1.png";
-  static const String productImage75 = "assets/images/products/slipper-product-2.png";
-  static const String productImage76 = "assets/images/products/slipper-product-3.png";
-  static const String productImage77 = "assets/images/products/slipper-product.png";
 }
