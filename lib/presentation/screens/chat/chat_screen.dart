@@ -71,27 +71,6 @@ class ChatScreen extends StatelessWidget {
                 },
                 itemCount: chats.length,
               ),
-
-              // Consumer(builder: (context, ref, child) {
-              //   final productsInCategory = ref.watch(productsByCategoryProvider(NAME));
-              //   return productsInCategory.when(
-              //     data: (data) {
-              //       return ListView.builder(
-              //           shrinkWrap: true,
-              //           itemCount: data.length,
-              //           physics: const NeverScrollableScrollPhysics(),
-              //           itemBuilder: (context, index) {
-              //             return Text(data[index].title);
-              //           });
-              //     },
-              //     error: (e, st) {
-              //       return Center(child: Text(e.toString()));
-              //     },
-              //     loading: () {
-              //       return const Center(child: CircularProgressIndicator());
-              //     },
-              //   );
-              // }),
             ],
           ),
         ),

@@ -26,6 +26,7 @@ dependencies:
   riverpod_annotation: ^2.3.5
   http: ^1.2.2
   barcode_widget: ^2.0.4
+  flutter_rating_bar: ^4.0.1
 
 dev_dependencies:
   flutter_test:

@@ -51,10 +51,10 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: NotificationRoute.page),
         AutoRoute(page: ProductDetailsRoute.page),
         AutoRoute(page: SearchRoute.page),
-        AutoRoute(page: EReceiptRoute.page, initial: true),
+        AutoRoute(page: EReceiptRoute.page),
         AutoRoute(
           page: NavigationRoute.page,
-          // initial: true,
+          initial: true,
           children: [
             AutoRoute(page: HomeRoute.page),
             AutoRoute(page: CartRoute.page),

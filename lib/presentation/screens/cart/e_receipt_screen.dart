@@ -2,9 +2,7 @@ import 'package:auto_route/annotations.dart';
 import 'package:best_store/utils/constants/app_sizes.dart';
 import 'package:best_store/utils/constants/app_strings.dart';
 import 'package:flutter/material.dart';
-import 'package:barcode_widget/barcode_widget.dart';
 
-import '../../../utils/constants/app_colors.dart';
 import 'widgets/barcode_container.dart';
 import 'widgets/order_info_group.dart';
 import 'widgets/total_price_group.dart';
