@@ -59,6 +59,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const CompletedOrdersTab(),
       );
     },
+    EReceiptRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const EReceiptScreen(),
+      );
+    },
     ForgetPasswordRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -297,6 +303,20 @@ class CompletedOrdersRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'CompletedOrdersRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [EReceiptScreen]
+class EReceiptRoute extends PageRouteInfo<void> {
+  const EReceiptRoute({List<PageRouteInfo>? children})
+      : super(
+          EReceiptRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'EReceiptRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

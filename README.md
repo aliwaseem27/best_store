@@ -66,4 +66,4 @@ This project is licensed under the MIT License. See the [LICENSE](https://www.mi
 
 ## Contact
 
-For any inquiries or support, please contact **ali.waseem27@gmail.com** .
+For any inquiries or support, please contact **ali.waseem27@gmail.com**

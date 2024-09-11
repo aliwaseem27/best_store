@@ -11,6 +11,7 @@ import '../authentication/sign_up/sign_up_screen.dart';
 import '../cart/add_card_screen.dart';
 import '../cart/cart_screen.dart';
 import '../cart/checkout_screen.dart';
+import '../cart/e_receipt_screen.dart';
 import '../cart/payment_options_screen.dart';
 import '../cart/shipping_address.dart';
 import '../cart/shipping_type_screen.dart';
@@ -50,9 +51,10 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: NotificationRoute.page),
         AutoRoute(page: ProductDetailsRoute.page),
         AutoRoute(page: SearchRoute.page),
+        AutoRoute(page: EReceiptRoute.page, initial: true),
         AutoRoute(
           page: NavigationRoute.page,
-          initial: true,
+          // initial: true,
           children: [
             AutoRoute(page: HomeRoute.page),
             AutoRoute(page: CartRoute.page),

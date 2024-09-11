@@ -1,7 +1,8 @@
 class AppStrings {
   static const String appName = "E-Commerce";
   static const String placeholder = "Lorem Ipsum is simply dummy text printing typesetting industry.";
-  static const String placeholderLong = "Lorem Ipsum is simply dummy text printing typesetting industry. Lorem Ipsum is simply dummy text printing typesetting industry. Lorem Ipsum is simply dummy text printing typesetting industry.";
+  static const String placeholderLong =
+      "Lorem Ipsum is simply dummy text printing typesetting industry. Lorem Ipsum is simply dummy text printing typesetting industry. Lorem Ipsum is simply dummy text printing typesetting industry.";
 
   // On Boarding Screen
   static const String onBoardingTitle1 = "Endless Choices, Easy & Quick Purchases";
@@ -9,7 +10,6 @@ class AppStrings {
   static const String onBoardingTitle3 = "Find All You Need Online, Explore & Easy";
   static const String onBoardingTitle4 = "Dive Into A World Of Convenience";
   static const String skip = "Skip";
-
 
   // Authentication Screens
   static const String signUp = "Sign Up";
@@ -49,4 +49,7 @@ class AppStrings {
   static const String expirayDate = "Expiry Date";
   static const String cvvCode = "CVV";
 
+  // E-Receipt Screen
+  static const String eReceipt = "E-Receipt";
+  static const String downloadEReceipt = "Download E-Receipt";
 }
