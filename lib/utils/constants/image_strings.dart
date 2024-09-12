@@ -1,5 +1,6 @@
 class ImageStrings {
   static const String profileImage = "assets/images/me.jpg";
+  static const String mapImage = "assets/images/map.png";
 
   // -- OnBoarding
   static const String onBoardingImage1 = "assets/images/drawings/undraw_mobile_pay_re_sjb8.svg";

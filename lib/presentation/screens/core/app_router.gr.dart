@@ -195,6 +195,14 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SignUpScreen(),
       );
     },
+    TrackOrderRoute.name: (routeData) {
+      final args = routeData.argsAs<TrackOrderRouteArgs>(
+          orElse: () => const TrackOrderRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: TrackOrderScreen(key: args.key),
+      );
+    },
     WishlistRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -689,6 +697,35 @@ class SignUpRoute extends PageRouteInfo<void> {
   static const String name = 'SignUpRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [TrackOrderScreen]
+class TrackOrderRoute extends PageRouteInfo<TrackOrderRouteArgs> {
+  TrackOrderRoute({
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          TrackOrderRoute.name,
+          args: TrackOrderRouteArgs(key: key),
+          initialChildren: children,
+        );
+
+  static const String name = 'TrackOrderRoute';
+
+  static const PageInfo<TrackOrderRouteArgs> page =
+      PageInfo<TrackOrderRouteArgs>(name);
+}
+
+class TrackOrderRouteArgs {
+  const TrackOrderRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'TrackOrderRouteArgs{key: $key}';
+  }
 }
 
 /// generated route for

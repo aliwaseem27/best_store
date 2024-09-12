@@ -61,4 +61,13 @@ class AppStrings {
   static const String clickHereToUpload = "Click Here To Upload";
   static const String writeAReview = "Write A Review";
 
+  // Track Order Screen
+  static const String trackOrder = "Track Order";
+  static const String deliveryAddress = "Track Order Status";
+  static const String deliveryAddressFull = "120 Lane San Fransisco East Falmouth Ma";
+  static const String orderPlaced = "Order Placed";
+  static const String orderShipped = "Shipped";
+  static const String orderDelivered = "Delivered";
+  static const String orderInProgress = "In Progress";
+  static const String productList = "Product List";
 }
