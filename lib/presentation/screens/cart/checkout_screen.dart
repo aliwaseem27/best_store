@@ -80,7 +80,7 @@ class CheckoutScreen extends StatelessWidget {
                 title: "Home",
                 subtitle: "Lorem Ipsum is simply",
                 leadingIcon: Icons.home_filled,
-                onTap: () => context.router.push(ShippingAddressRoute()),
+                onTap: () => context.router.push(const ShippingAddressRoute()),
               ),
 
               // Payment method
@@ -94,7 +94,7 @@ class CheckoutScreen extends StatelessWidget {
                 title: "Cash On Delivery",
                 subtitle: "Lorem Ipsum is simply",
                 leadingIcon: FontAwesomeIcons.handHoldingDollar,
-                onTap: () => context.router.push(PaymentOptionsRoute()),
+                onTap: () => context.router.push(const PaymentOptionsRoute()),
               ),
 
               // Shipping Type
@@ -108,7 +108,7 @@ class CheckoutScreen extends StatelessWidget {
                 title: "Standard",
                 subtitle: "Lorem Ipsum is simply",
                 leadingIcon: FontAwesomeIcons.handHoldingHand,
-                onTap: () => context.router.push(ShippingTypeRoute()),
+                onTap: () => context.router.push(const ShippingTypeRoute()),
               ),
 
               // Total Price Group

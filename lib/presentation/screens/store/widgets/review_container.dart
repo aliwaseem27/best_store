@@ -27,7 +27,7 @@ class ReviewContainer extends StatelessWidget {
             leading: Container(
               height: 48,
               width: 48,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 image: DecorationImage(
                   image: AssetImage(ImageStrings.person2),
@@ -44,18 +44,18 @@ class ReviewContainer extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: Theme.of(context).textTheme.bodyMedium?.apply(color: AppColors.neutralColor),
             ),
-            trailing: Row(
+            trailing: const Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Icon(Icons.star, color: Colors.amberAccent, size: 16),
+                Icon(Icons.star, color: Colors.amberAccent, size: 16),
                 Text("4.7"),
               ],
             ),
           ),
 
           // Review Text
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: AppSizes.md),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: AppSizes.md),
             child: ReadMoreText(
               AppStrings.placeholderLong,
               trimLines: 3,

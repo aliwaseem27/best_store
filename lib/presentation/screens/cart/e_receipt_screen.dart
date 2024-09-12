@@ -15,15 +15,15 @@ class EReceiptScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppStrings.eReceipt),
+        title: const Text(AppStrings.eReceipt),
         centerTitle: true,
       ),
       body: Padding(
-        padding: EdgeInsets.all(AppSizes.defaultSpace),
+        padding: const EdgeInsets.all(AppSizes.defaultSpace),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Column(
+            const Column(
               children: [
                 // Barcode
                 BarcodeContainer(),
@@ -42,7 +42,7 @@ class EReceiptScreen extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {},
-                child: Text(AppStrings.downloadEReceipt),
+                child: const Text(AppStrings.downloadEReceipt),
               ),
             )
           ],

@@ -25,12 +25,12 @@ class TOverallProductRating extends StatelessWidget {
               ],
             ),
           ),
-          VerticalDivider(
+          const VerticalDivider(
             width: 2,
             thickness: 2,
             color: AppColors.neutralColor,
           ),
-          SizedBox(width: AppSizes.spaceBtwItems),
+          const SizedBox(width: AppSizes.spaceBtwItems),
           const Expanded(
             flex: 1,
             child: Column(

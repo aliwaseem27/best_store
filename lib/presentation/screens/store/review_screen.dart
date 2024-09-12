@@ -7,7 +7,6 @@ import 'package:best_store/utils/constants/app_colors.dart';
 import 'package:best_store/utils/constants/app_sizes.dart';
 import 'package:best_store/utils/constants/app_strings.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 @RoutePage()
 class ReviewScreen extends StatelessWidget {
@@ -19,7 +18,7 @@ class ReviewScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppStrings.review),
+        title: const Text(AppStrings.review),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -34,13 +33,13 @@ class ReviewScreen extends StatelessWidget {
                 productImage: product.images.first,
                 productCategory: product.category.name,
               ),
-              SizedBox(height: AppSizes.spaceBtwSections),
+              const SizedBox(height: AppSizes.spaceBtwSections),
 
               // Add Photo Or Video
-              SectionTitle(title: AppStrings.addPhotoOrVideo),
+              const SectionTitle(title: AppStrings.addPhotoOrVideo),
               Container(
                 width: double.infinity,
-                padding: EdgeInsets.all(AppSizes.defaultSpace),
+                padding: const EdgeInsets.all(AppSizes.defaultSpace),
                 decoration: BoxDecoration(
                   color: AppColors.secondaryColor,
                   borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg),
@@ -48,12 +47,12 @@ class ReviewScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.cloud_upload,
                       size: AppSizes.iconLg * 2,
                       color: AppColors.primaryColor,
                     ),
-                    SizedBox(height: AppSizes.spaceBtwItems),
+                    const SizedBox(height: AppSizes.spaceBtwItems),
                     Text(
                       AppStrings.clickHereToUpload,
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppColors.neutralColor),
@@ -61,37 +60,37 @@ class ReviewScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: AppSizes.spaceBtwSections),
+              const SizedBox(height: AppSizes.spaceBtwSections),
 
               // Rating
-              SectionTitle(title: AppStrings.whatDoYouThink),
+              const SectionTitle(title: AppStrings.whatDoYouThink),
               Text(
                 AppStrings.placeholder,
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppColors.neutralColor),
               ),
-              SizedBox(height: AppSizes.spaceBtwItems),
-              TRatingBarIndicator(rating: 4),
-              SizedBox(height: AppSizes.spaceBtwItems),
+              const SizedBox(height: AppSizes.spaceBtwItems),
+              const TRatingBarIndicator(rating: 4),
+              const SizedBox(height: AppSizes.spaceBtwItems),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   filled: true,
                   fillColor: AppColors.secondaryColor,
                   hintText: "Write A Review",
-                  hintStyle: const TextStyle(color: AppColors.neutralColor),
+                  hintStyle: TextStyle(color: AppColors.neutralColor),
                   prefixIconColor: AppColors.neutralColor,
                   isDense: true,
                 ),
                 textAlignVertical: TextAlignVertical.top,
                 maxLines: 5,
               ),
-              SizedBox(height: AppSizes.spaceBtwSections),
+              const SizedBox(height: AppSizes.spaceBtwSections),
 
               // Submit Button
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {},
-                  child: Text(AppStrings.submitReview),
+                  child: const Text(AppStrings.submitReview),
                 ),
               ),
             ],

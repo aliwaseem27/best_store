@@ -35,40 +35,40 @@ class TrackOrderScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppStrings.trackOrder),
+        title: const Text(AppStrings.trackOrder),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(AppSizes.defaultSpace),
+          padding: const EdgeInsets.all(AppSizes.defaultSpace),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Delivery Address
-              SectionTitle(title: AppStrings.deliveryAddress, showButton: false),
+              const SectionTitle(title: AppStrings.deliveryAddress, showButton: false),
               Text(
                 AppStrings.deliveryAddressFull,
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppColors.neutralColor),
               ),
-              SizedBox(height: AppSizes.spaceBtwItems),
+              const SizedBox(height: AppSizes.spaceBtwItems),
               Container(
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.2,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg),
                   color: Colors.red,
-                  image: DecorationImage(
+                  image: const DecorationImage(
                     image: AssetImage(ImageStrings.mapImage),
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
-              SizedBox(height: AppSizes.spaceBtwSections),
+              const SizedBox(height: AppSizes.spaceBtwSections),
 
               // Order Status
               Container(
                 width: double.infinity,
-                padding: EdgeInsets.all(AppSizes.defaultSpace),
+                padding: const EdgeInsets.all(AppSizes.defaultSpace),
                 decoration: BoxDecoration(
                   color: AppColors.secondaryColor,
                   borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg),
@@ -80,16 +80,16 @@ class TrackOrderScreen extends StatelessWidget {
                       "Order #SMT53237653",
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: AppSizes.spaceBtwItems),
+                    const SizedBox(height: AppSizes.spaceBtwItems),
                     OrderStatusStepper(),
                   ],
                 ),
               ),
-              SizedBox(height: AppSizes.spaceBtwSections),
+              const SizedBox(height: AppSizes.spaceBtwSections),
 
               // Product List
-              SectionTitle(title: AppStrings.productList, showButton: false),
-              SizedBox(height: AppSizes.spaceBtwItems),
+              const SectionTitle(title: AppStrings.productList, showButton: false),
+              const SizedBox(height: AppSizes.spaceBtwItems),
               ListView.separated(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,

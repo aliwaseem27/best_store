@@ -13,7 +13,7 @@ class ProductDetailsBottomButton extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.symmetric(horizontal: AppSizes.defaultSpace, vertical: AppSizes.md),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: AppColors.secondaryColor,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(AppSizes.borderRadiusLg),
@@ -36,7 +36,7 @@ class ProductDetailsBottomButton extends StatelessWidget {
           Expanded(
             child: ElevatedButton(
               onPressed: () {},
-              child: Text("Add To Cart"),
+              child: const Text("Add To Cart"),
             ),
           ),
         ],

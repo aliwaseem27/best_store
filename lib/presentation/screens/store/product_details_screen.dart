@@ -4,7 +4,6 @@ import 'package:best_store/presentation/screens/store/widgets/overall_product_ra
 import 'package:best_store/utils/constants/app_colors.dart';
 import 'package:best_store/utils/constants/app_sizes.dart';
 import 'package:best_store/utils/constants/app_strings.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:readmore/readmore.dart';
@@ -179,7 +178,7 @@ class ProductDetailsScreen extends StatelessWidget {
                   const SizedBox(height: AppSizes.spaceBtwSections),
 
                   // Reviews
-                  ReviewContainer(),
+                  const ReviewContainer(),
                   const SizedBox(height: 120),
                 ],
               ),
@@ -187,7 +186,7 @@ class ProductDetailsScreen extends StatelessWidget {
           ),
 
           // Add to Cart button
-          Positioned(
+          const Positioned(
             bottom: 0,
             child: ProductDetailsBottomButton(),
           ),

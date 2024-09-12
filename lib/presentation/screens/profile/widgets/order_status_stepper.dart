@@ -25,7 +25,7 @@ class OrderStatusStepper extends StatelessWidget {
             Column(
               children: [
                 Container(
-                  margin: EdgeInsets.symmetric(vertical: 8.0),
+                  margin: const EdgeInsets.symmetric(vertical: 8.0),
                   child: Icon(
                     Icons.check_circle,
                     color: step.isCompleted ? AppColors.primaryColor : AppColors.primaryColor.withOpacity(0.2),
@@ -43,14 +43,14 @@ class OrderStatusStepper extends StatelessWidget {
                   ),
               ],
             ),
-            SizedBox(width: AppSizes.spaceBtwItems),
+            const SizedBox(width: AppSizes.spaceBtwItems),
             // Step details
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   step.title,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                     // color: step.isCompleted ? Colors.black : AppColors.neutralColor,
@@ -58,7 +58,7 @@ class OrderStatusStepper extends StatelessWidget {
                 ),
                 Text(
                   step.subtitle,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: AppColors.neutralColor,
                   ),
                 ),
