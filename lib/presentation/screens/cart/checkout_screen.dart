@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:best_store/presentation/common/popups/full_screen_message.dart';
 import 'package:best_store/presentation/screens/cart/widgets/total_price_group.dart';
 import 'package:best_store/presentation/screens/core/app_router.dart';
 import 'package:flutter/material.dart';
@@ -119,7 +120,7 @@ class CheckoutScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () => FullScreenMessage.showSuccessMessage(context, "Payment Successful"),
                   child: const Text("Continue to Payment"),
                 ),
               ),
