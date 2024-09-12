@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:best_store/presentation/screens/core/app_router.dart';
 import 'package:best_store/presentation/screens/store/widgets/overall_product_rating.dart';
 import 'package:best_store/utils/constants/app_colors.dart';
 import 'package:best_store/utils/constants/app_sizes.dart';
@@ -173,6 +174,7 @@ class ProductDetailsScreen extends StatelessWidget {
                       prefixIcon: Icon(FontAwesomeIcons.pen),
                       prefixIconColor: AppColors.neutralColor,
                     ),
+                    onTap: () => context.router.push(ReviewRoute(product: product)),
                   ),
                   const SizedBox(height: AppSizes.spaceBtwSections),
 

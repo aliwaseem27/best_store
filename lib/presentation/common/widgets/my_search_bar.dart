@@ -18,7 +18,7 @@ class MySearchBar extends StatelessWidget {
             decoration: const InputDecoration(
               filled: true,
               fillColor: AppColors.secondaryColor,
-              hintText: "Search for products",
+              hintText: "Search",
               hintStyle: TextStyle(color: AppColors.neutralColor),
               prefixIcon: Icon(FontAwesomeIcons.magnifyingGlass),
               prefixIconColor: AppColors.neutralColor,

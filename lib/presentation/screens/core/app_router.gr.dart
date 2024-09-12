@@ -145,6 +145,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ResetPasswordScreen(),
       );
     },
+    ReviewRoute.name: (routeData) {
+      final args = routeData.argsAs<ReviewRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ReviewScreen(
+          key: args.key,
+          product: args.product,
+        ),
+      );
+    },
     SearchRoute.name: (routeData) {
       final args = routeData.argsAs<SearchRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -535,6 +545,43 @@ class ResetPasswordRoute extends PageRouteInfo<void> {
   static const String name = 'ResetPasswordRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ReviewScreen]
+class ReviewRoute extends PageRouteInfo<ReviewRouteArgs> {
+  ReviewRoute({
+    Key? key,
+    required Product product,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ReviewRoute.name,
+          args: ReviewRouteArgs(
+            key: key,
+            product: product,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ReviewRoute';
+
+  static const PageInfo<ReviewRouteArgs> page = PageInfo<ReviewRouteArgs>(name);
+}
+
+class ReviewRouteArgs {
+  const ReviewRouteArgs({
+    this.key,
+    required this.product,
+  });
+
+  final Key? key;
+
+  final Product product;
+
+  @override
+  String toString() {
+    return 'ReviewRouteArgs{key: $key, product: $product}';
+  }
 }
 
 /// generated route for

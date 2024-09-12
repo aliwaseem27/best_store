@@ -52,4 +52,13 @@ class AppStrings {
   // E-Receipt Screen
   static const String eReceipt = "E-Receipt";
   static const String downloadEReceipt = "Download E-Receipt";
+
+  // Review Screen
+  static const String review = "Review";
+  static const String addPhotoOrVideo = "Add Photo or Video";
+  static const String whatDoYouThink = "What do you think?";
+  static const String submitReview = "Submit Review";
+  static const String clickHereToUpload = "Click Here To Upload";
+  static const String writeAReview = "Write A Review";
+
 }

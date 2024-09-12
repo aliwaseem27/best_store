@@ -28,6 +28,7 @@ import '../search/search_screen.dart';
 import '../store/home_screen.dart';
 import '../store/notification_screen.dart';
 import '../store/product_details_screen.dart';
+import '../store/review_screen.dart';
 import '../wishlist/wishlist_screen.dart';
 import 'navigation_screen.dart';
 
@@ -50,6 +51,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: SettingsRoute.page),
         AutoRoute(page: NotificationRoute.page),
         AutoRoute(page: ProductDetailsRoute.page),
+        AutoRoute(page: ReviewRoute.page),
         AutoRoute(page: SearchRoute.page),
         AutoRoute(page: EReceiptRoute.page),
         AutoRoute(
