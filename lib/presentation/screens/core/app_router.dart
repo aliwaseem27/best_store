@@ -47,7 +47,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: OTPRoute.page),
 
         // Cart
-        AutoRoute(page: CheckoutRoute.page, initial: true),
+        AutoRoute(page: CheckoutRoute.page),
         AutoRoute(page: ShippingAddressRoute.page),
         AutoRoute(page: PaymentOptionsRoute.page),
         AutoRoute(page: AddCardRoute.page),
@@ -81,7 +81,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: OnBoardingRoute.page),
         AutoRoute(
           page: NavigationRoute.page,
-          // initial: true,
+          initial: true,
           children: [
             AutoRoute(page: HomeRoute.page),
             AutoRoute(page: CartRoute.page),
