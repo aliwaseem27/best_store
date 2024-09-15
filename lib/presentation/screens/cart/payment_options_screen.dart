@@ -1,4 +1,5 @@
-import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:best_store/presentation/screens/core/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -87,7 +88,7 @@ class _PaymentOptionsScreenState extends State<PaymentOptionsScreen> {
                     const SizedBox(height: AppSizes.spaceBtwSections),
                     // Add New Address Button
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.router.push(const AddCardRoute()),
                       child: Container(
                         width: double.infinity,
                         height: 60,
@@ -112,7 +113,7 @@ class _PaymentOptionsScreenState extends State<PaymentOptionsScreen> {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => context.router.maybePop(),
                 child: const Text("Continue"),
               ),
             ),

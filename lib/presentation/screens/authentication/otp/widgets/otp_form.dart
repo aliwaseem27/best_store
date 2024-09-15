@@ -1,3 +1,5 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:best_store/presentation/screens/core/app_router.dart';
 import 'package:best_store/utils/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
@@ -39,7 +41,7 @@ class OTPForm extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () => context.router.push(const ResetPasswordRoute()),
               child: const Text(AppStrings.verify),
             ),
           ),

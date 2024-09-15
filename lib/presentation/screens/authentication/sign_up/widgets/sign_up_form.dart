@@ -1,9 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../utils/constants/app_sizes.dart';
 import '../../../../../utils/constants/app_strings.dart';
-
+import '../../../core/app_router.dart';
 
 class SignUpForm extends StatelessWidget {
   const SignUpForm({
@@ -47,7 +48,9 @@ class SignUpForm extends StatelessWidget {
           SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.router.navigate(const SignInRoute());
+                },
                 child: const Text(AppStrings.signUp),
               )),
         ],

@@ -1,5 +1,8 @@
 import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:best_store/presentation/common/widgets/horizontal_product_tile.dart';
+import 'package:best_store/presentation/screens/authentication/sign_in/widgets/dont_have_account.dart';
+import 'package:best_store/presentation/screens/core/app_router.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../utils/constants/app_sizes.dart';
@@ -47,7 +50,7 @@ class ActiveOrdersTab extends StatelessWidget {
                   productCategory: products[index]["category"]!,
                   actionWidget: ProductActionButton(
                     buttonText: "Track Order",
-                    onPressed: () {},
+                    onPressed: () => context.router.push(TrackOrderRoute()),
                   ),
                 );
               },
