@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:best_store/models/product_model.dart';
 import 'package:best_store/presentation/screens/core/app_router.dart';
 import 'package:best_store/providers/products_provider.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -37,7 +38,7 @@ class ProductVerticalCard extends StatelessWidget {
                   // width: 100,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: NetworkImage(product.images[0]),
+                      image: CachedNetworkImageProvider(product.images[0]),
                     ),
                   ),
                 ),

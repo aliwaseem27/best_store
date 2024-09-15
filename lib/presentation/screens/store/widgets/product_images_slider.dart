@@ -1,4 +1,5 @@
 import 'package:best_store/utils/constants/app_colors.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -31,8 +32,8 @@ class _ProductImagesSliderState extends State<ProductImagesSlider> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg),
               ),
-              child: Image.network(
-                widget.images[index],
+              child: CachedNetworkImage(
+                imageUrl:widget.images[index],
                 fit: BoxFit.cover,
               ),
             );
