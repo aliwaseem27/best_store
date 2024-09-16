@@ -25,11 +25,6 @@ class ProductsRepository {
 
     final res = await networkService.getRequest(url);
     final json = jsonDecode(res.body);
-    // final jsonProducts = json["products"];
-    // final products = <Product>[];
-    // jsonProducts.forEach((e) {
-    //   products.add(Product.fromJson(e));
-    // });
     final productListInfo = ProductListInfo.fromJson(json);
     return productListInfo;
   }

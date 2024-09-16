@@ -14,19 +14,100 @@ CartsRepository cartsRepository(CartsRepositoryRef ref) {
 }
 
 @riverpod
-Future<List<Cart>> allCarts(AllCartsRef ref, {int limit = 0, bool reverseSort = false}) {
-  final repository = ref.watch(cartsRepositoryProvider);
-  return repository.getAllCarts(limit: limit, reverseSort: reverseSort);
-}
+class Carts extends _$Carts {
+  @override
+  Cart build() {
+    return const Cart(
+      id: 1,
+      products: <CartProduct>[],
+      total: 0,
+      discountedTotal: 0,
+      userId: 1,
+      totalProducts: 0,
+      totalQuantity: 0,
+    );
+  }
 
-@riverpod
-Future<Cart> singleCart(SingleCartRef ref, int cartId) {
-  final repository = ref.watch(cartsRepositoryProvider);
-  return repository.getSingleCart(cartId);
-}
+  CartProduct? getProductById(int id) {
+    return state.products.firstWhere((p) => p.id == id);
+  }
 
-@riverpod
-Future<List<Cart>> cartsByUser(CartsByUserRef ref, int userId) {
-  final repository = ref.watch(cartsRepositoryProvider);
-  return repository.getCartsByUser(userId);
+  void addProduct(CartProduct product) {
+    final existingProduct = getProductById(product.id);
+
+    if (existingProduct != null) {
+      final updatedProducts = state.products.map((p) {
+        return p.id == product.id ? p.copyWith(quantity: p.quantity + product.quantity) : p;
+      }).toList();
+      state = state.copyWith(products: updatedProducts);
+    } else {
+      final updatedProducts = [...state.products, product];
+      state = state.copyWith(products: updatedProducts);
+    }
+
+    _recalculateCart();
+  }
+
+  void removeProduct(CartProduct product) {
+    final updatedProducts = state.products.where((p) => p.id != product.id).toList();
+    state = state.copyWith(products: updatedProducts);
+
+    _recalculateCart();
+  }
+
+  void increaseProductQuantity(CartProduct product) {
+    final updatedProducts = state.products.map((p) {
+      return p.id == product.id ? p.copyWith(quantity: p.quantity + 1) : p;
+    }).toList();
+
+    state = state.copyWith(products: updatedProducts);
+
+    _recalculateCart();
+  }
+
+  void decreaseProductQuantity(CartProduct product) {
+    final existingProduct = getProductById(product.id);
+    if (existingProduct!.quantity > 1) {
+      final updatedProducts = state.products.map((p) {
+        return p.id == product.id ? p.copyWith(quantity: p.quantity - 1) : p;
+      }).toList();
+
+      state = state.copyWith(products: updatedProducts);
+
+      _recalculateCart();
+    } else {
+      removeProduct(product);
+    }
+  }
+
+  void clearCart() {
+    state = state.copyWith(
+      products: <CartProduct>[],
+      total: 0,
+      discountedTotal: 0,
+      totalProducts: 0,
+      totalQuantity: 0,
+    );
+  }
+
+  void _recalculateCart() {
+    double totalPrice = 0;
+    double discountedTotal = 0;
+    int totalProducts = 0;
+    int totalQuantity = 0;
+
+    for (final product in state.products) {
+      totalPrice += product.price * product.quantity;
+      discountedTotal += product.discountedTotal * product.quantity;
+      totalProducts += 1;
+      totalQuantity += product.quantity;
+    }
+
+    state = state.copyWith(
+      total: totalPrice,
+      discountedTotal: discountedTotal,
+      totalProducts: totalProducts,
+      totalQuantity: totalQuantity,
+    );
+  }
 }

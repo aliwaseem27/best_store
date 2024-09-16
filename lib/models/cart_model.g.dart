@@ -8,29 +8,47 @@ part of 'cart_model.dart';
 
 _$CartImpl _$$CartImplFromJson(Map<String, dynamic> json) => _$CartImpl(
       id: (json['id'] as num).toInt(),
-      userId: (json['userId'] as num).toInt(),
-      date: DateTime.parse(json['date'] as String),
       products: (json['products'] as List<dynamic>)
           .map((e) => CartProduct.fromJson(e as Map<String, dynamic>))
           .toList(),
+      total: (json['total'] as num).toDouble(),
+      discountedTotal: (json['discountedTotal'] as num).toDouble(),
+      userId: (json['userId'] as num).toInt(),
+      totalProducts: (json['totalProducts'] as num).toInt(),
+      totalQuantity: (json['totalQuantity'] as num).toInt(),
     );
 
 Map<String, dynamic> _$$CartImplToJson(_$CartImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'userId': instance.userId,
-      'date': instance.date.toIso8601String(),
       'products': instance.products,
+      'total': instance.total,
+      'discountedTotal': instance.discountedTotal,
+      'userId': instance.userId,
+      'totalProducts': instance.totalProducts,
+      'totalQuantity': instance.totalQuantity,
     };
 
-_$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
-    _$ProductImpl(
-      productId: (json['productId'] as num).toInt(),
+_$CartProductImpl _$$CartProductImplFromJson(Map<String, dynamic> json) =>
+    _$CartProductImpl(
+      id: (json['id'] as num).toInt(),
+      title: json['title'] as String,
+      price: (json['price'] as num).toDouble(),
       quantity: (json['quantity'] as num).toInt(),
+      total: (json['total'] as num).toDouble(),
+      discountPercentage: (json['discountPercentage'] as num).toDouble(),
+      discountedTotal: (json['discountedTotal'] as num).toDouble(),
+      thumbnail: json['thumbnail'] as String,
     );
 
-Map<String, dynamic> _$$ProductImplToJson(_$ProductImpl instance) =>
+Map<String, dynamic> _$$CartProductImplToJson(_$CartProductImpl instance) =>
     <String, dynamic>{
-      'productId': instance.productId,
+      'id': instance.id,
+      'title': instance.title,
+      'price': instance.price,
       'quantity': instance.quantity,
+      'total': instance.total,
+      'discountPercentage': instance.discountPercentage,
+      'discountedTotal': instance.discountedTotal,
+      'thumbnail': instance.thumbnail,
     };

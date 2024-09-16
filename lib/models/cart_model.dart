@@ -8,20 +8,29 @@ part "cart_model.g.dart";
 class Cart with _$Cart {
   const factory Cart({
     required int id,
-    required int userId,
-    required DateTime date,
     required List<CartProduct> products,
+    required double total,
+    required double discountedTotal,
+    required int userId,
+    required int totalProducts,
+    required int totalQuantity,
   }) = _Cart;
 
-  factory Cart.fromJson(Map<String, Object?> json) => _$CartFromJson(json);
+  factory Cart.fromJson(Map<String, dynamic> json) => _$CartFromJson(json);
 }
 
 @freezed
 class CartProduct with _$CartProduct {
   const factory CartProduct({
-    required int productId,
+    required int id,
+    required String title,
+    required double price,
     required int quantity,
-  }) = _Product;
+    required double total,
+    required double discountPercentage,
+    required double discountedTotal,
+    required String thumbnail,
+  }) = _CartProduct;
 
-  factory CartProduct.fromJson(Map<String, Object?> json) => _$CartProductFromJson(json);
+  factory CartProduct.fromJson(Map<String, dynamic> json) => _$CartProductFromJson(json);
 }
