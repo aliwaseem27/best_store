@@ -2,9 +2,11 @@ import 'package:auto_route/annotations.dart';
 import 'package:best_store/providers/products_provider.dart';
 import 'package:best_store/utils/constants/app_configs.dart';
 import 'package:best_store/utils/constants/app_sizes.dart';
+import 'package:best_store/utils/constants/fake_product.dart';
 import 'package:best_store/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../models/product_model.dart';
 import '../../common/widgets/filters_list.dart';
@@ -22,7 +24,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final List<String> forYouTitles = ["All", "Popular", "Newest", "Most Sell", "Lowest Price", "Trending"];
 
     final List<String> banners = [
@@ -87,7 +88,14 @@ class HomeScreen extends StatelessWidget {
                       return Center(child: Text(e.toString()));
                     },
                     loading: () {
-                      return const Center(child: CircularProgressIndicator());
+                      return Skeletonizer(
+                        child: GridLayoutFourElements(
+                          products: List.generate(
+                            8,
+                            (index) => FakeData.getFakeProduct(),
+                          ),
+                        ),
+                      );
                     },
                   );
                 },

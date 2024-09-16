@@ -3,8 +3,10 @@ import 'package:best_store/models/enums.dart';
 import 'package:best_store/models/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../providers/products_provider.dart';
+import '../../../utils/constants/fake_product.dart';
 import '../../common/widgets/grid_layout_four_elements.dart';
 
 @RoutePage()
@@ -39,7 +41,14 @@ class SearchScreen extends StatelessWidget {
                   return Center(child: Text(e.toString()));
                 },
                 loading: () {
-                  return const Center(child: CircularProgressIndicator());
+                  return Skeletonizer(
+                    child: GridLayoutFourElements(
+                      products: List.generate(
+                        8,
+                        (index) => FakeData.getFakeProduct(),
+                      ),
+                    ),
+                  );
                 },
               );
             },

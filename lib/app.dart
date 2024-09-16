@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
-      title: 'Flutter Demo',
+      title: 'Best Store',
       theme: AppTheme.lightTheme,
       routerConfig: _appRouter.config(),
     );

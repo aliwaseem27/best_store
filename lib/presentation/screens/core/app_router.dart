@@ -78,10 +78,10 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: SearchRoute.page),
 
         // Core
-        AutoRoute(page: OnBoardingRoute.page, initial: true),
+        AutoRoute(page: OnBoardingRoute.page),
         AutoRoute(
           page: NavigationRoute.page,
-          // initial: true,
+          initial: true,
           children: [
             AutoRoute(page: HomeRoute.page),
             AutoRoute(page: CartRoute.page),
