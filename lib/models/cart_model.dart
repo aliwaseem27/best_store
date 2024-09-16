@@ -1,3 +1,4 @@
+import 'package:best_store/models/product_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part "cart_model.freezed.dart";
@@ -33,4 +34,17 @@ class CartProduct with _$CartProduct {
   }) = _CartProduct;
 
   factory CartProduct.fromJson(Map<String, dynamic> json) => _$CartProductFromJson(json);
+
+  factory CartProduct.fromProduct(Product product) {
+    return CartProduct(
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      quantity: 1,
+      total: product.price,
+      discountPercentage: product.discountPercentage,
+      discountedTotal: product.price * product.discountPercentage / 100,
+      thumbnail: product.images.first,
+    );
+  }
 }

@@ -33,7 +33,9 @@ class Carts extends _$Carts {
   }
 
   void addProduct(CartProduct product) {
-    final existingProduct = getProductById(product.id);
+    // final existingProduct = getProductById(product.id);
+    print("-------------------------------- passed ---------");
+    final existingProduct = null;
 
     if (existingProduct != null) {
       final updatedProducts = state.products.map((p) {
@@ -66,18 +68,17 @@ class Carts extends _$Carts {
   }
 
   void decreaseProductQuantity(CartProduct product) {
-    final existingProduct = getProductById(product.id);
-    if (existingProduct!.quantity > 1) {
-      final updatedProducts = state.products.map((p) {
-        return p.id == product.id ? p.copyWith(quantity: p.quantity - 1) : p;
-      }).toList();
+    final updatedProducts = state.products.map((p) {
+      if (p.id == product.id && p.quantity > 1) {
+        return p.copyWith(quantity: p.quantity - 1);
+      } else {
+        return p;
+      }
+    }).toList();
 
-      state = state.copyWith(products: updatedProducts);
+    state = state.copyWith(products: updatedProducts);
 
-      _recalculateCart();
-    } else {
-      removeProduct(product);
-    }
+    _recalculateCart();
   }
 
   void clearCart() {

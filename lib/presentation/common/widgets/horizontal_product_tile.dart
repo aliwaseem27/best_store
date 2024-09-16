@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../../utils/constants/app_colors.dart';
@@ -36,7 +37,7 @@ class HorizontalProductTile extends StatelessWidget {
                   aspectRatio: 1,
                   child: Container(
                     margin: const EdgeInsets.only(right: AppSizes.spaceBtwItems),
-                    child: Image.asset(productImage),
+                    child: CachedNetworkImage(imageUrl: productImage),
                   ),
                 ),
               ),

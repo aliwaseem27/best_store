@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../utils/constants/app_colors.dart';
@@ -32,7 +33,7 @@ class HorizontalProductCard extends StatelessWidget {
               aspectRatio: 1,
               child: Container(
                 margin: const EdgeInsets.only(right: AppSizes.spaceBtwItems),
-                child: Image.asset(productImage),
+                child: CachedNetworkImage(imageUrl: productImage),
               ),
             ),
           ),
@@ -63,7 +64,7 @@ class HorizontalProductCard extends StatelessWidget {
 
                 // Product Price
                 Text(
-                  "\$800",
+                  "\$800}",
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
                 ),
               ],

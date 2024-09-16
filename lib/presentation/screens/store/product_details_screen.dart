@@ -186,9 +186,11 @@ class ProductDetailsScreen extends StatelessWidget {
           ),
 
           // Add to Cart button
-          const Positioned(
+           Positioned(
             bottom: 0,
-            child: ProductDetailsBottomButton(),
+            child: ProductDetailsBottomButton(
+              product: product,
+            ),
           ),
         ],
       ),

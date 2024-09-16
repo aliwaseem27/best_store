@@ -1,8 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:best_store/presentation/common/widgets/horizontal_product_tile.dart';
 import 'package:best_store/presentation/screens/core/app_router.dart';
+import 'package:best_store/providers/carts_provider.dart';
 import 'package:best_store/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 import '../../../utils/constants/app_sizes.dart';
@@ -12,14 +14,14 @@ import 'widgets/quantity_controller_button.dart';
 import 'widgets/total_price_group.dart';
 
 @RoutePage()
-class CartScreen extends StatefulWidget {
+class CartScreen extends ConsumerStatefulWidget {
   const CartScreen({super.key});
 
   @override
-  State<CartScreen> createState() => _CartScreenState();
+  ConsumerState<CartScreen> createState() => _CartScreenState();
 }
 
-class _CartScreenState extends State<CartScreen> {
+class _CartScreenState extends ConsumerState<CartScreen> {
   final List<Map<String, String>> products = [
     {
       "name": "Sport Shoes Sport Shoes Sport ",
@@ -55,6 +57,8 @@ class _CartScreenState extends State<CartScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final cartProducts = ref.watch(cartsProvider);
+    print(cartProducts);
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -77,7 +81,7 @@ class _CartScreenState extends State<CartScreen> {
                     key: UniqueKey(),
                     physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
-                    itemCount: products.length,
+                    itemCount: cartProducts.totalProducts,
                     itemBuilder: (context, index) {
                       return Slidable(
                         key: UniqueKey(),
@@ -107,12 +111,14 @@ class _CartScreenState extends State<CartScreen> {
                           ],
                         ),
                         child: HorizontalProductTile(
-                          productName: products[index]["name"]!,
-                          productImage: products[index]["image"]!,
-                          productCategory: products[index]["category"]!,
-                          actionWidget: const SizedBox(
+                          productName: cartProducts.products[index].title,
+                          productImage: cartProducts.products[index].thumbnail,
+                          productCategory: "Clothing",
+                          actionWidget: SizedBox(
                             height: 32,
-                            child: QuantityControllerButton(),
+                            child: QuantityControllerButton(
+                              cartProduct: cartProducts.products[index],
+                            ),
                           ),
                         ),
                       );

@@ -21,7 +21,7 @@ final cartsRepositoryProvider = AutoDisposeProvider<CartsRepository>.internal(
 );
 
 typedef CartsRepositoryRef = AutoDisposeProviderRef<CartsRepository>;
-String _$cartsHash() => r'087814aad0e44da5b93bc790560d8deee13ebc56';
+String _$cartsHash() => r'bc6004dc8005a3a646445d1b817c834f2a38eb09';
 
 /// See also [Carts].
 @ProviderFor(Carts)
