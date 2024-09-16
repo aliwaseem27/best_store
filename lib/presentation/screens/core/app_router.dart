@@ -25,6 +25,7 @@ import '../profile/my_orders_tabs/completed_orders_tab.dart';
 import '../profile/profile_screen.dart';
 import '../profile/settings_screen.dart';
 import '../profile/track_order_screen.dart';
+import '../search/filters_screen.dart';
 import '../search/search_screen.dart';
 import '../store/home_screen.dart';
 import '../store/notification_screen.dart';
@@ -76,6 +77,7 @@ class AppRouter extends _$AppRouter {
 
         // Search
         AutoRoute(page: SearchRoute.page),
+        AutoRoute(page: FiltersRoute.page),
 
         // Core
         AutoRoute(page: OnBoardingRoute.page),

@@ -6,10 +6,10 @@ import 'filter_list_item.dart';
 class FiltersList extends StatelessWidget {
   const FiltersList({
     super.key,
-    required this.forYouTitles,
+    required this.options,
   });
 
-  final List<String> forYouTitles;
+  final List<String> options;
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +21,10 @@ class FiltersList extends StatelessWidget {
         },
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
-        itemCount: forYouTitles.length,
+        itemCount: options.length,
         itemBuilder: (context, index) {
           return FilterListItem(
-            title: forYouTitles[index],
+            title: options[index],
             selected: index == 0,
           );
         },

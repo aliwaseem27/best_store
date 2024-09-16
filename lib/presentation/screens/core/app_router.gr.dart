@@ -65,6 +65,14 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const EReceiptScreen(),
       );
     },
+    FiltersRoute.name: (routeData) {
+      final args = routeData.argsAs<FiltersRouteArgs>(
+          orElse: () => const FiltersRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: FiltersScreen(key: args.key),
+      );
+    },
     ForgetPasswordRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -337,6 +345,35 @@ class EReceiptRoute extends PageRouteInfo<void> {
   static const String name = 'EReceiptRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [FiltersScreen]
+class FiltersRoute extends PageRouteInfo<FiltersRouteArgs> {
+  FiltersRoute({
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          FiltersRoute.name,
+          args: FiltersRouteArgs(key: key),
+          initialChildren: children,
+        );
+
+  static const String name = 'FiltersRoute';
+
+  static const PageInfo<FiltersRouteArgs> page =
+      PageInfo<FiltersRouteArgs>(name);
+}
+
+class FiltersRouteArgs {
+  const FiltersRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'FiltersRouteArgs{key: $key}';
+  }
 }
 
 /// generated route for

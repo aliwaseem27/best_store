@@ -70,4 +70,15 @@ class AppStrings {
   static const String orderDelivered = "Delivered";
   static const String orderInProgress = "In Progress";
   static const String productList = "Product List";
+
+  // Filters Screen
+  static const String filters = "Filters";
+  static const String categoryFilters = "Category";
+  static const String gender = "Gender";
+  static const String sortBy = "Sort By";
+  static const String avialableBrand = "Avialable Brand";
+  static const String priceRange = "Price Range";
+  static const String reviewsFilters = "Review";
+  static const String resetFilters = "Reset";
+  static const String applyFilters = "Apply Filters";
 }

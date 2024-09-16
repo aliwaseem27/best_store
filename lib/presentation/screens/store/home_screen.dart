@@ -67,7 +67,7 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(height: AppSizes.spaceBtwItems),
 
               // Filters
-              FiltersList(forYouTitles: forYouTitles),
+              FiltersList(options: forYouTitles),
               const SizedBox(height: AppSizes.spaceBtwItems),
 
               // Products

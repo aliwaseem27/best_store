@@ -1,3 +1,6 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:best_store/presentation/screens/authentication/forget_password/widgets/forget_password_form.dart';
+import 'package:best_store/presentation/screens/core/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -34,7 +37,7 @@ class MySearchBar extends StatelessWidget {
           ),
           child: IconButton(
             color: Colors.white,
-            onPressed: () {},
+            onPressed: () => context.router.push(FiltersRoute()),
             icon: const Icon(FontAwesomeIcons.sliders),
           ),
         ),
