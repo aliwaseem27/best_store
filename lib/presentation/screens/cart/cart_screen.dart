@@ -22,38 +22,6 @@ class CartScreen extends ConsumerStatefulWidget {
 }
 
 class _CartScreenState extends ConsumerState<CartScreen> {
-  final List<Map<String, String>> products = [
-    {
-      "name": "Sport Shoes Sport Shoes Sport ",
-      "image": ImageStrings.productImage1,
-      "category": "Clothing",
-    },
-    {
-      "name": "Black Jacket",
-      "image": ImageStrings.productImage3,
-      "category": "Clothing",
-    },
-    {
-      "name": "Cricket Bat",
-      "image": ImageStrings.productImage30,
-      "category": "Sports",
-    },
-    {
-      "name": "Office Chair",
-      "image": ImageStrings.productImage40,
-      "category": "Furniture",
-    },
-    {
-      "name": "Bedroom Lamb",
-      "image": ImageStrings.productImage33,
-      "category": "Furniture",
-    },
-    {
-      "name": "Full Size Bed",
-      "image": ImageStrings.productImage32,
-      "category": "Furniture",
-    },
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +60,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                             closeOnCancel: true,
                             onDismissed: () {
                               setState(() {
-                                products.removeAt(index);
+                                // products.removeAt(index);
                               });
                             },
                           ),

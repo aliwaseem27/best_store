@@ -2,7 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:best_store/presentation/common/popups/full_screen_message.dart';
 import 'package:best_store/presentation/screens/cart/widgets/total_price_group.dart';
 import 'package:best_store/presentation/screens/core/app_router.dart';
+import 'package:best_store/providers/products_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../utils/constants/app_sizes.dart';
@@ -13,24 +15,6 @@ import 'widgets/horizontal_product_card.dart';
 @RoutePage()
 class CheckoutScreen extends StatelessWidget {
   CheckoutScreen({super.key});
-
-  final List<Map<String, String>> products = [
-    {
-      "name": "Sport Shoes",
-      "image": ImageStrings.productImage1,
-      "category": "Clothing",
-    },
-    {
-      "name": "Black Jacket",
-      "image": ImageStrings.productImage3,
-      "category": "Clothing",
-    },
-    {
-      "name": "Cricket Bat",
-      "image": ImageStrings.productImage30,
-      "category": "Sports",
-    },
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -52,20 +36,31 @@ class CheckoutScreen extends StatelessWidget {
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: AppSizes.spaceBtwItems),
-              ListView.separated(
-                key: UniqueKey(),
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: products.length,
-                itemBuilder: (context, index) {
-                  return HorizontalProductCard(
-                    productName: products[index]["name"]!,
-                    productImage: products[index]["image"]!,
-                    productCategory: products[index]["category"]!,
+              Consumer(
+                builder: (context, ref, child) {
+                  final products = ref.watch(allProductsProvider);
+                  return ListView.separated(
+                    key: UniqueKey(),
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: 3,
+                    itemBuilder: (context, index) {
+                      return products.when(data: (data) {
+                        return HorizontalProductCard(
+                          productName: data.products[index].title,
+                          productImage: data.products[index].images.first,
+                          productCategory: data.products[index].category.name,
+                        );
+                      }, error: (error, st) {
+                        return Text(error.toString());
+                      }, loading: () {
+                        return const Center(child: CircularProgressIndicator());
+                      });
+                    },
+                    separatorBuilder: (context, index) {
+                      return const SizedBox(height: AppSizes.sm);
+                    },
                   );
-                },
-                separatorBuilder: (context, index) {
-                  return const SizedBox(height: AppSizes.sm);
                 },
               ),
 
