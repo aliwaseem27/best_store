@@ -13,7 +13,7 @@ CartsRepository cartsRepository(CartsRepositoryRef ref) {
   return CartsRepository(networkService: networkService);
 }
 
-@riverpod
+@Riverpod(keepAlive: true)
 class Carts extends _$Carts {
   @override
   Cart build() {

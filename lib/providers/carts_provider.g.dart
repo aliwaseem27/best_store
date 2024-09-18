@@ -21,11 +21,11 @@ final cartsRepositoryProvider = AutoDisposeProvider<CartsRepository>.internal(
 );
 
 typedef CartsRepositoryRef = AutoDisposeProviderRef<CartsRepository>;
-String _$cartsHash() => r'bc6004dc8005a3a646445d1b817c834f2a38eb09';
+String _$cartsHash() => r'4d5716966c3418e9ae79ac8664533e6c7c2183b4';
 
 /// See also [Carts].
 @ProviderFor(Carts)
-final cartsProvider = AutoDisposeNotifierProvider<Carts, Cart>.internal(
+final cartsProvider = NotifierProvider<Carts, Cart>.internal(
   Carts.new,
   name: r'cartsProvider',
   debugGetCreateSourceHash:
@@ -34,6 +34,6 @@ final cartsProvider = AutoDisposeNotifierProvider<Carts, Cart>.internal(
   allTransitiveDependencies: null,
 );
 
-typedef _$Carts = AutoDisposeNotifier<Cart>;
+typedef _$Carts = Notifier<Cart>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
