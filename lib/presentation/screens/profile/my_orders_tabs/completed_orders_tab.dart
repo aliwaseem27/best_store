@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../providers/products_provider.dart';
 import '../../../../utils/constants/app_sizes.dart';
-import '../../../../utils/constants/image_strings.dart';
 import '../../../common/widgets/horizontal_product_tile.dart';
 import '../widgets/product_action_button.dart';
 

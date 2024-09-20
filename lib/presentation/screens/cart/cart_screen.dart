@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:best_store/presentation/common/widgets/horizontal_product_tile.dart';
 import 'package:best_store/presentation/screens/core/app_router.dart';
 import 'package:best_store/providers/carts_provider.dart';
-import 'package:best_store/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';

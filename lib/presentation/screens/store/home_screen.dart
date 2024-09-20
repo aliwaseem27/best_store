@@ -78,13 +78,11 @@ class HomeScreen extends StatelessWidget {
                     data: (data) {
                       return Column(
                         children: [
-                          Text("${data.total} items, ${data.skip} skipped, ${data.limit} limited"),
                           GridLayoutFourElements(products: data.products),
                         ],
                       );
                     },
                     error: (e, st) {
-                      print(e);
                       return Center(child: Text(e.toString()));
                     },
                     loading: () {

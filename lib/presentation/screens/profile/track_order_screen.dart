@@ -10,11 +10,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../providers/products_provider.dart';
 import '../../../utils/constants/image_strings.dart';
 import '../../common/widgets/horizontal_product_tile.dart';
-import '../cart/widgets/horizontal_product_card.dart';
 
 @RoutePage()
 class TrackOrderScreen extends StatelessWidget {
-  TrackOrderScreen({super.key});
+  const TrackOrderScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

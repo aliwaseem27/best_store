@@ -21,7 +21,7 @@ class TotalPriceGroup extends ConsumerWidget {
       ),
       child: Row(
         children: [
-          Expanded(
+          const Expanded(
             flex: 1,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,12 +40,12 @@ class TotalPriceGroup extends ConsumerWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Text("\$${cartInfo.totalQuantity}", style: TextStyle(fontWeight: FontWeight.bold)),
-                Text("\$${cartInfo.total}", style: TextStyle(fontWeight: FontWeight.bold)),
-                Text("\$10.00", style: TextStyle(fontWeight: FontWeight.bold)),
-                Text("-\$${cartInfo.total - cartInfo.discountedTotal}", style: TextStyle(fontWeight: FontWeight.bold)),
-                Divider(),
-                Text("\$${cartInfo.discountedTotal + 10}", style: TextStyle(fontWeight: FontWeight.bold)),
+                Text("\$${cartInfo.totalQuantity}", style: const TextStyle(fontWeight: FontWeight.bold)),
+                Text("\$${cartInfo.total}", style: const TextStyle(fontWeight: FontWeight.bold)),
+                const Text("\$10.00", style: TextStyle(fontWeight: FontWeight.bold)),
+                Text("-\$${cartInfo.total - cartInfo.discountedTotal}", style: const TextStyle(fontWeight: FontWeight.bold)),
+                const Divider(),
+                Text("\$${cartInfo.discountedTotal + 10}", style: const TextStyle(fontWeight: FontWeight.bold)),
               ],
             ),
           ),

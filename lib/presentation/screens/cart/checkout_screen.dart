@@ -8,13 +8,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../utils/constants/app_sizes.dart';
-import '../../../utils/constants/image_strings.dart';
 import 'widgets/checkout_info_tile.dart';
 import 'widgets/horizontal_product_card.dart';
 
 @RoutePage()
 class CheckoutScreen extends StatelessWidget {
-  CheckoutScreen({super.key});
+  const CheckoutScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

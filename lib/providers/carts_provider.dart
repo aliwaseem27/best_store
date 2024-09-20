@@ -35,7 +35,7 @@ class Carts extends _$Carts {
   void addProduct(CartProduct product) {
     // final existingProduct = getProductById(product.id);
     print("-------------------------------- passed ---------");
-    final existingProduct = null;
+    const existingProduct = null;
 
     if (existingProduct != null) {
       final updatedProducts = state.products.map((p) {

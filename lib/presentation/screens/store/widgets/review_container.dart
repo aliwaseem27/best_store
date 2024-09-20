@@ -51,7 +51,7 @@ class ReviewContainer extends StatelessWidget {
             trailing: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(Icons.star, color: Colors.amberAccent, size: 16),
+                const Icon(Icons.star, color: Colors.amberAccent, size: 16),
                 Text(review.rating.toString()),
               ],
             ),
@@ -59,7 +59,7 @@ class ReviewContainer extends StatelessWidget {
 
           // Review Text
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: AppSizes.md),
+            padding: const EdgeInsets.symmetric(horizontal: AppSizes.md),
             child: ReadMoreText(
               review.comment,
               trimLines: 3,

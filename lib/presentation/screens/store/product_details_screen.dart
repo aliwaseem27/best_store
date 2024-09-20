@@ -100,7 +100,7 @@ class ProductDetailsScreen extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          Icon(Icons.star, color: Colors.amberAccent, size: 16),
+                          const Icon(Icons.star, color: Colors.amberAccent, size: 16),
                           Text(product.rating.toString()),
                         ],
                       ),
