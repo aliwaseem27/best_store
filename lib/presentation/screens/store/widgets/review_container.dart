@@ -1,15 +1,18 @@
+import 'package:best_store/models/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
 
 import '../../../../utils/constants/app_colors.dart';
 import '../../../../utils/constants/app_sizes.dart';
-import '../../../../utils/constants/app_strings.dart';
 import '../../../../utils/constants/image_strings.dart';
 
 class ReviewContainer extends StatelessWidget {
   const ReviewContainer({
     super.key,
+    required this.review,
   });
+
+  final Review review;
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +24,7 @@ class ReviewContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg),
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Photo and Name
           ListTile(
@@ -30,34 +34,34 @@ class ReviewContainer extends StatelessWidget {
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 image: DecorationImage(
-                  image: AssetImage(ImageStrings.person2),
+                  image: AssetImage(ImageStrings.personImage),
                   fit: BoxFit.cover,
                 ),
               ),
             ),
             title: Text(
-              "Thomas Alva",
+              review.reviewerName,
               style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
             ),
             subtitle: Text(
-              "1 hour ago",
+              "${review.date.day}/${review.date.month}/${review.date.year}",
               overflow: TextOverflow.ellipsis,
               style: Theme.of(context).textTheme.bodyMedium?.apply(color: AppColors.neutralColor),
             ),
-            trailing: const Row(
+            trailing: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Icon(Icons.star, color: Colors.amberAccent, size: 16),
-                Text("4.7"),
+                Text(review.rating.toString()),
               ],
             ),
           ),
 
           // Review Text
-          const Padding(
+          Padding(
             padding: EdgeInsets.symmetric(horizontal: AppSizes.md),
             child: ReadMoreText(
-              AppStrings.placeholderLong,
+              review.comment,
               trimLines: 3,
               trimMode: TrimMode.Line,
               colorClickableText: AppColors.primaryColor,
@@ -66,6 +70,7 @@ class ReviewContainer extends StatelessWidget {
 
           // Thumbs up/down buttons
           Row(
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
               IconButton(
                   onPressed: () {},

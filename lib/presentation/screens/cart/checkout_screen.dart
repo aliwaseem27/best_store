@@ -47,9 +47,7 @@ class CheckoutScreen extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return products.when(data: (data) {
                         return HorizontalProductCard(
-                          productName: data.products[index].title,
-                          productImage: data.products[index].images.first,
-                          productCategory: data.products[index].category.name,
+                          product: products.value!.products[index],
                         );
                       }, error: (error, st) {
                         return Text(error.toString());

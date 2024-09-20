@@ -29,9 +29,7 @@ class ReviewScreen extends StatelessWidget {
             children: [
               // Product Info Tile
               HorizontalProductCard(
-                productName: product.title,
-                productImage: product.images.first,
-                productCategory: product.category.name,
+                product: product,
               ),
               const SizedBox(height: AppSizes.spaceBtwSections),
 

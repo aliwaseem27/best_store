@@ -5,9 +5,9 @@ import 'package:best_store/utils/constants/app_colors.dart';
 import 'package:best_store/utils/constants/app_sizes.dart';
 import 'package:best_store/utils/constants/app_strings.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:readmore/readmore.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../models/product_model.dart';
 import '../../../providers/products_provider.dart';
@@ -98,10 +98,10 @@ class ProductDetailsScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const Row(
+                      Row(
                         children: [
                           Icon(Icons.star, color: Colors.amberAccent, size: 16),
-                          Text("5.0"),
+                          Text(product.rating.toString()),
                         ],
                       ),
                     ],
@@ -160,7 +160,10 @@ class ProductDetailsScreen extends StatelessWidget {
                   const SizedBox(height: AppSizes.spaceBtwSections),
 
                   // Rating Score
-                  const TOverallProductRating(),
+                  OverallProductRating(
+                    rating: product.rating,
+                    reviews: product.reviews,
+                  ),
                   const SizedBox(height: AppSizes.spaceBtwSections),
 
                   // Write a Review
@@ -178,7 +181,17 @@ class ProductDetailsScreen extends StatelessWidget {
                   const SizedBox(height: AppSizes.spaceBtwSections),
 
                   // Reviews
-                  const ReviewContainer(),
+                  ListView.separated(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: product.reviews.length > 3 ? 3 : product.reviews.length,
+                    separatorBuilder: (context, index) {
+                      return const SizedBox(height: AppSizes.spaceBtwItems);
+                    },
+                    itemBuilder: (context, index) {
+                      return ReviewContainer(review: product.reviews[index]);
+                    },
+                  ),
                   const SizedBox(height: 120),
                 ],
               ),
@@ -186,7 +199,7 @@ class ProductDetailsScreen extends StatelessWidget {
           ),
 
           // Add to Cart button
-           Positioned(
+          Positioned(
             bottom: 0,
             child: ProductDetailsBottomButton(
               product: product,

@@ -1,3 +1,4 @@
+import 'package:best_store/models/product_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -7,14 +8,10 @@ import '../../../../utils/constants/app_sizes.dart';
 class HorizontalProductCard extends StatelessWidget {
   const HorizontalProductCard({
     super.key,
-    required this.productName,
-    required this.productImage,
-    required this.productCategory,
+    required this.product,
   });
 
-  final String productName;
-  final String productImage;
-  final String productCategory;
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +30,7 @@ class HorizontalProductCard extends StatelessWidget {
               aspectRatio: 1,
               child: Container(
                 margin: const EdgeInsets.only(right: AppSizes.spaceBtwItems),
-                child: CachedNetworkImage(imageUrl: productImage),
+                child: CachedNetworkImage(imageUrl: product.images.first),
               ),
             ),
           ),
@@ -46,7 +43,7 @@ class HorizontalProductCard extends StatelessWidget {
               children: [
                 // Product Name
                 Text(
-                  productName,
+                  product.title,
                   style: Theme.of(context).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold),
                 ),
 
@@ -58,13 +55,13 @@ class HorizontalProductCard extends StatelessWidget {
 
                 // Product Category
                 Text(
-                  productCategory,
+                  product.category.name,
                   style: Theme.of(context).textTheme.bodySmall?.apply(color: AppColors.neutralColor),
                 ),
 
                 // Product Price
                 Text(
-                  "\$800}",
+                  "\$${product.price}",
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
                 ),
               ],
